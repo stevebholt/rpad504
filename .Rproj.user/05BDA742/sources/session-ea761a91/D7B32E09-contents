@@ -24,11 +24,19 @@ By the end of this course, students should be able to 1) critically analyze admi
 
 ## Required Text
 
-*Recognizing Public Value* by Mark H. Moore
+There is no required text for the class.
 
 Additional readings will be made available on Zotero in the class library.
 
 ## Required Software
+
+Stata18/IC - The student version of Stata is sufficient for the course. The software costs $48 for a 6 month license (sufficient for this course) and purchase information can be found [here](https://www.stata.com/order/new/edu/profplus/student-pricing/). 
+
+::: callout-important
+When you order Stata, the company will send an email with a link to the download and a pdf with the license information you will need to enter after installing the software to activate it. Please do this before the second week of class. Typically, they provide this within a few hours of the order, but it's worth accounting for the possibility of delays.
+:::
+
+Stata is a statistical software that will provide an opportunity for you to learn the basic logic and intuition using code to conduct data analysis. The coding language for Stata is very simple, clear, and straight forward, so it serves as a good entry point to getting comfortable using programming languages for analyzing data and learning more about the world around us. Once you adjust to the basics of analysis with an easy and intuitive coding language like Stata, transitioning to other software languages (e.g., R, Python in industry; SAS, SQL in government) will be much less onerous.
 
 Zotero - Zotero is a free platform for organizing and sharing academic work and it is how readings will be distributed to the class. You can download the app [here](https://www.zotero.org/download/). I suggest also downloading the browser connector for whatever browser you use - it helps save a dramatic amount of time when conducting a literature review. During the first week of classes you will receive an invitation to join the class Zotero library. If you do not receive one, please email the professor. I provide an introduction to Zotero and the features most applicable to this class in the embedded video below.
 
@@ -43,27 +51,20 @@ There are a variety of citation organizer software options out there for researc
 ::: callout-tip
 ## Tip on Zotero
 
-When you receive an announcement that the group invitations for the class library have been sent, go to the Zotero.org website, login to your account, and click the groups tab. You should see RPAD 500 with a red button that says join. Click join. In the Zotero app, click the green refresh circle in the top right and the class library should appear.
+When you receive an announcement that the group invitations for the class library have been sent, go to the Zotero.org website, login to your account, and click the groups tab. You should see RPAD 504 with a red button that says join. Click join. In the Zotero app, click the green refresh circle in the top right and the class library should appear.
 :::
 
 ### Recommended Texts
 
-*Understanding American Politics and Government* by J.J. Coleman, K.M. Goldstein, and W.G. Howell is a good resource for getting a basic primer on American Government. There will be a very basic primer in the course, but some students may need a bit more and this book is a good place to start.
-
-*New York State Government* by R.B. Ward is an excellent (if a little dated) overview of New York State government.
 
 ## Structure of the Class
 
-Since the class is an asynchronous class and not inherently structured by class time, I find it helpful to describe a typical week a student can expect from the course. The course is structured so that students use Brightspace to 1) watch lectures, 2) receive and turn in assignments, 3) interact, and 4) ask general questions for me. A typical week will involve:
 
-1.  Mondays a new module will open and it will include i) an overview of the week's topics, ii) list of assigned reading, and iii) list of assignments.
-2.  Fridays the group assignment will be due for the week. I will then provide feedback on group assignments with a video in the following week's module.
-3.  Sundays the weekly readings quiz will be due on Brightspace.
 
 ::: callout-note
 ## A Note on Groups
 
-In this class you tackle broader research projects on teams. This is by design because most professional work is conducted on teams, most decisions in public work are made by consensus, and opportunities to learn to adjust to different working styles while managing projects helps develop important and transferable skills. I strongly encourage you to meet with your groups with an early video call and get to know each other, your schedules, and so on. Communication helps dramatically in successful groups. That said, some group dynamics can - in very rare circumstances - become bad for all involved. I provide two means for coping: first, students can use peer evaluations to ensure accountability in group work. And second, if that is insufficient, the group can vote to remove a member and inform me of the decision. No harm, no foul. This should be considered a measure of last resort and only pursued if a group member has made no contributions to the group.
+In this class you tackle one (1) broader research project on a team. This is by design because most professional work is conducted on teams, most decisions in public work are made by consensus, and opportunities to learn to adjust to different working styles while managing projects helps develop important and transferable skills. Once groups are assigned, I strongly encourage you to meet with your groups with an early video call and get to know each other, your schedules, and so on. Communication helps dramatically in successful groups. That said, some group dynamics can - in very rare circumstances - become bad for all involved. I provide two means for coping: first, students can use peer evaluations to ensure accountability in group work. And second, if that is insufficient, the group can vote to remove a member and inform me of the decision. No harm, no foul. This should be considered a measure of last resort and only pursued if a group member has made no contributions to the group.
 :::
 
 ## Assignments
@@ -72,9 +73,9 @@ In this class you tackle broader research projects on teams. This is by design b
 
 The following assignments will form the basis of your grade in this course:
 
-1.  Two essays (70% of final grade)
-2.  Weekly quizzes (15% of final grade)
-3.  Group assignments (10% of final grade)
+1.  Final Report (70% of final grade)
+2.  Weekly Problem Sets (15% of final grade)
+3.  Final Exam (10% of final grade)
 4.  Participation (5% of final grade)
 
 ::: callout-important
