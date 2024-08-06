@@ -3,7 +3,7 @@
     "path": "C:/Users/sbhst/OneDrive/sites/rpad504/syllabus504.qmd",
     "project_path": "syllabus504.qmd",
     "type": "quarto_markdown",
-    "hash": "2835940991",
+    "hash": "1911105113",
     "contents": "",
     "dirty": false,
     "created": 1722877248283.0,
@@ -16,15 +16,15 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "4,29",
-        "scrollLine": "0"
+        "cursorPosition": "18,58",
+        "scrollLine": "12"
     },
     "folds": "",
-    "lastKnownWriteTime": 1722878009,
+    "lastKnownWriteTime": 1722950264,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1722878009200,
+    "last_content_update": 1722950264266,
     "read_only": false,
     "read_only_alternatives": []
 }
