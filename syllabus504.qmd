@@ -59,6 +59,7 @@ When you receive an announcement that the group invitations for the class librar
 
 ## Structure of the Class
 
+Each week, our in-person meetings will involve a mix of lecture and application of class concepts in lab work. Often class time will be split between these two activities evenly, but some sessions will lean deeper into one or the other based on the material. As group work gears up, I will allocate some time in the back end of class time for working with groups on the final report assignment.At the end of class, attendance will be taken each week and that will factor directly into students' participation grade.
 
 
 ::: callout-note
@@ -73,16 +74,17 @@ In this class you tackle one (1) broader research project on a team. This is by 
 
 The following assignments will form the basis of your grade in this course:
 
-1.  Final Report (70% of final grade)
-2.  Weekly Problem Sets (15% of final grade)
-3.  Final Exam (10% of final grade)
+1.  Final Report (35% of final grade)
+2.  Weekly Problem Sets (30% of final grade)
+3.  Mid-term Exam (17% of final grade)
+3.  Final Exam (18% of final grade)
 4.  Participation (5% of final grade)
 
 ::: callout-important
 All assignments will be turned in via Brightspace.
 :::
 
-### Two Essays
+### Final Report
 
 To assess your understanding of the course material and your ability to apply concepts to real life cases of government action, students will write three essays during the semester. The essays will require students to conduct independent research and analysis. Additional details about the exact questions and formatting will be distributed separately. Together, the essays constitute 70% of the student's grade for the course. The essays will be graded using the rubric outlined in the Appendix. Each essay will be weighted equally, and the average grade across both essays will determine your grade for the essay portion of your final grade. For instance, if your average grade across both essays is an 89, you will receive an 89 for the essay portion of your final grade.
 
