@@ -146,19 +146,19 @@ Key:
 | 8/28  |               Intro to course               |             |          |
 | 9/4  |                Data Origins                 |       |          |
 |  9/11  |           Assessing Data Quality            |        |          |
-| 9/18  |             Summarizing Data I              |        |          |
-| 9/25  |          Summarizing Data II           |             |          |
-| 10/2  |              Data Management I              |             |          |
-| 10/9  |             Data Management II              |             |          |
-| 10/16 |                Midterm Exam                 |             |          |
-| 10/23 |   Geographic Information and Mapping Data   |             |          |
-| 10/30 |             Writing About Data              |             |          |
-| 10/30 |        Light Statistics Introduction        |             |          |
-| 11/6  |             Statistical Models  I            |             |          |
-| 11/13 |         Statistical Models II         |             |          |
-| 11/20 |             Presentations and Wrap              |             |          |
+| 9/18  |             Summarizing Data I              |  ✅   <br> 👥   |          |
+| 9/25  |          Summarizing Data II           | ✅   <br> 👥      |          |
+| 10/2  |              Data Management I              | ✅   <br> 👥            |          |
+| 10/9  |             Data Management II              | ✅   <br> 👥            |          |
+| 10/16 |                Midterm Exam                 |    📅         |          |
+| 10/23 |   Geographic Information and Mapping Data   |  ✅   <br> 👥  |          |
+| 10/30 |             Writing About Data              |  ✅   <br> 👥        |          |
+| 10/30 |        Light Statistics Introduction        | ✅   <br> 👥           |          |
+| 11/6  |             Statistical Models  I            | ✅   <br> 👥            |          |
+| 11/13 |         Statistical Models II         |   ✅   <br> 👥   |          |
+| 11/20 |             Presentations and Wrap              |   📅          |          |
 | 11/27 | Thanksgiving Break |             |          |
-| 12/4 |               Final Exam               |             |          |
+| 12/4 |               Final Exam               |    📅         |          |
 
 ## Class Policies
 
