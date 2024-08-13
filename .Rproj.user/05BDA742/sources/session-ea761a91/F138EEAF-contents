@@ -24,7 +24,7 @@ format:
   html:
     theme:
       light: pulse
-      dark: [pulse, theme-dark.scss]
+      dark: darkly
     css: styles.css
     toc: true
 
