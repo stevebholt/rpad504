@@ -135,19 +135,18 @@ Key:
 
 | Symbol | Meaning                                                            |
 |:------------------------:|:---------------------------------------------|
-|  👨‍🏫:   | Lecture                                                            |
-|  ✅:   | Quiz                                                               |
-|  👥:   | Group Assignment                                                   |
-|  📅:   | Essay due                                                          |
-|  📖:   | Reading is from required text                                      |
+|  👨‍🏫:   | Lecture   |
+|  ✅:   |  Problem Set  |
+|  👥:   | Lab  |
+|  📅:   | Exam or Final Report Due  |
 |  📄:   | Reading is from an article/chapter on Zotero (by author last name) |
 
 | Date  |                    Topic                    | Assignments | Readings |
 |:-----:|:-------------------------------------------:|:-----------:|:--------:|
 | 8/28  |               Intro to course               |             |          |
 | 9/4  |                Data Origins                 |       |          |
-|  9/11  |           Assessing Data Quality            |     ✅      |          |
-| 9/18  |             Summarizing Data I              |     ✅      |          |
+|  9/11  |           Assessing Data Quality            |        |          |
+| 9/18  |             Summarizing Data I              |        |          |
 | 9/25  |          Summarizing Data II           |             |          |
 | 10/2  |              Data Management I              |             |          |
 | 10/9  |             Data Management II              |             |          |
