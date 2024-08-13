@@ -30,7 +30,7 @@ Additional readings will be made available on Zotero in the class library.
 
 ## Required Software
 
-Stata18/IC - The student version of Stata is sufficient for the course. The software costs $48 for a 6 month license (sufficient for this course) and purchase information can be found [here](https://www.stata.com/order/new/edu/profplus/student-pricing/). 
+Stata18/IC - The student version of Stata is sufficient for the course. The software costs \$48 for a 6 month license (sufficient for this course) and purchase information can be found [here](https://www.stata.com/order/new/edu/profplus/student-pricing/).
 
 ::: callout-important
 When you order Stata, the company will send an email with a link to the download and a pdf with the license information you will need to enter after installing the software to activate it. Please do this before the second week of class. Typically, they provide this within a few hours of the order, but it's worth accounting for the possibility of delays.
@@ -56,11 +56,9 @@ When you receive an announcement that the group invitations for the class librar
 
 ### Recommended Texts
 
-
 ## Structure of the Class
 
 Each week, our in-person meetings will involve a mix of lecture and application of class concepts in lab work. Often class time will be split between these two activities evenly, but some sessions will lean deeper into one or the other based on the material. As group work gears up, I will allocate some time in the back end of class time for working with groups on the final report assignment.At the end of class, attendance will be taken each week and that will factor directly into students' participation grade.
-
 
 ::: callout-note
 ## A Note on Groups
@@ -77,8 +75,8 @@ The following assignments will form the basis of your grade in this course:
 1.  Final Report (35% of final grade)
 2.  Weekly Problem Sets (30% of final grade)
 3.  Mid-term Exam (17% of final grade)
-3.  Final Exam (18% of final grade)
-4.  Participation (5% of final grade)
+4.  Final Exam (18% of final grade)
+5.  Participation (5% of final grade)
 
 ::: callout-important
 All assignments will be turned in via Brightspace.
@@ -144,24 +142,24 @@ Key:
 |  📖:   | Reading is from required text                                      |
 |  📄:   | Reading is from an article/chapter on Zotero (by author last name) |
 
-| Date  |                                Topic                                | Assignments |                                        Readings                                        |
-|:----------------:|:----------------:|:----------------:|:----------------:|
-| 8/21  |                           Intro to course                           |             |                                                                                        |
-| 8/28  |                           Policy Process                            |             |                             📄 Forsythe & Boyd Memo 2 & 3                              |
-|  9/5  |                Foundations of Public Administration                 |     ✅      |                       📄 Wilson <br/> 📄 Weber <br/> 📄 Kaufman                        |
-| 9/11  |                           Accountability                            |     ✅      |                 📄 Friedrich <br/> 📄 Finer <br/> 📄 Romzek & Dubnick                  |
-| 9/18  |              Decision-Making and Public Participation               | ✅ <br/> 👥 | 📖 Chapter 5 <br/> 📄 Eden & Ackerman <br/> 📄 Fung <br/> 📄 Einstein, Palmer, & Glick |
-| 9/25  |             Decision-Making in a Political Environment              | ✅ <br/> 👥 |                           📖 Chapter 1 & 3 <br/> 📄 Collins                            |
-| 10/2  |                         Equity and Fairness                         | ✅ <br/> 👥 |              📄 Sandel <br/> 📄 Riccucci Chapter 2 & 3 <br/> 📄 Rothstein              |
-| 10/11 |                 Essay 1 Assignment and Preparation                  |             |                                                                                        |
-| 10/16 |             Direct Government: Street-level Bureaucrats             | ✅ <br/> 👥 |               📄 Lipsky <br/> 📄 Maynard-Moody & Musheno <br/> 📄 Pynes                |
-| 10/23 |                  Government by Proxy: Contracting                   |     ✅      |                          📄 Kelman <br/> 📄 Brown & Potowski                           |
-| 10/30 | Government by Proxy: Networks, Non-profits, and Delivering Services |     ✅      |                  📄 Milward & Provan <br/> 📄 Winston <br/> 📄 Young                   |
-| 11/6  |         Essay 1 Turn In; Essay 2 Assignment and Preparation         | 👥 <br/> 📅 |                                                                                        |
-| 11/13 |                     Working Across Governments                      | ✅ <br/> 👥 |      📄 Krane, Ebdon & Bartle <br/> 📄 Wise <br/> 📄 Weissert, Pollack, & Nathan       |
-| 11/20 |                         Thanksgiving Break                          |             |                                                                                        |
-| 11/27 |             Final Review & Essay 2 Meetings with Groups             |             |                                                                                        |
-| 12/11 |                           Essay 2 Turn In                           |     📅      |                                                                                        |
+| Date  |                    Topic                    | Assignments | Readings |
+|:-----:|:-------------------------------------------:|:-----------:|:--------:|
+| 8/28  |               Intro to course               |             |          |
+| 9/4  |                Data Origins                 |       |          |
+|  9/11  |           Assessing Data Quality            |     ✅      |          |
+| 9/18  |             Summarizing Data I              |     ✅      |          |
+| 9/25  |          Summarizing Data II           |             |          |
+| 10/2  |              Data Management I              |             |          |
+| 10/9  |             Data Management II              |             |          |
+| 10/16 |                Midterm Exam                 |             |          |
+| 10/23 |   Geographic Information and Mapping Data   |             |          |
+| 10/30 |             Writing About Data              |             |          |
+| 10/30 |        Light Statistics Introduction        |             |          |
+| 11/6  |             Statistical Models  I            |             |          |
+| 11/13 |         Statistical Models II         |             |          |
+| 11/20 |             Presentations and Wrap              |             |          |
+| 11/27 | Thanksgiving Break |             |          |
+| 12/4 |               Final Exam               |             |          |
 
 ## Class Policies
 
