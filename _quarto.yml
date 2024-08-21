@@ -19,6 +19,12 @@ website:
       search: true
       contents: 
         - syllabus504.qmd
+    
+    - title: "Assignments"
+      style: docked
+      search: true
+      contents:
+        - assignments.qmd
 
 format:
   html:

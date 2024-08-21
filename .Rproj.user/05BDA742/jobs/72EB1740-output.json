@@ -4,3 +4,5 @@
 [1,"Preparing to preview\n"]
 [1,"\nWatching files for changes\nBrowse at http://localhost:7190/assignments.html\n"]
 [1,"GET: /assignments.html\n"]
+[1,"pandoc \n  to: html\n  output-file: assignments.html\n  standalone: true\n  title-prefix: 'RPAD 504 - Data, Models, and Decisions'\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  css:\n    - styles.css\n  toc: true\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  editor: visual\n  theme:\n    light: pulse\n    dark: darkly\n  title: Assignments\n  \n"]
+[1,"Output created: docs\\assignments.html\n\nWatching files for changes\n"]
