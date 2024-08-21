@@ -82,7 +82,7 @@ The following assignments will form the basis of your grade in this course:
 All assignments will be turned in via Brightspace.
 :::
 
-### Final Report
+### Final Report {#sec-finalreport}
 
 To assess your understanding of the course material and your ability to apply concepts to real policy issues, you will be working in groups to prepare a 20 page report that i) describes a social problem with policy implications or an emerging policy issue, ii) uses data to describe the problem statistically, and iii) makes an informed recommendation on a policy change to improve the conditions that define the problem. The primary datasets used in the examples and problem sets throughout the course will be the datasets you will draw upon to construct your report. We will go over an example the second week of class to introduce you to the mix of art and science that goes into crafting good policy reports using data. You will also prepare a presentation for these results to deliver at the end of the semester (see @sec-overview.weeks).
 
@@ -99,7 +99,7 @@ Submission of papers. The final report will be due by midnight on the designated
 
 Late assignments. An assignment is considered late if the paper copy is not submitted at the beginning of class, if the electronic file is not submitted before class, and/or if the electronic file is not readable. Assignments (electronic or hard copy) submitted 10 minutes after the beginning of class or the launch of the following module will be considered late and will be automatically reduced by 10%. Papers submitted one day after the due date will be automatically reduced by 20%; essays submitted two days after the assigned date will be reduced by 30%, etc. Exceptions will be made for documented extreme health and family emergencies.
 
-### Weekly Problem Sets
+### Weekly Problem Sets {#sec-problemsets}
 
 For 10 weeks throughout the semester (see @sec-overview.weeks for the specific weeks), problem sets will be posted to Brightspace and the course site by the end of the day Thursday. They will be due before the start of class the following week, leaving both weekend and weekday stretches available for you to complete the problem sets. Problem sets will involve applying concepts and activities we complete in class together to new but similar datasets and problems on your own. You will be expected to turn in 1) a clean answer sheet that provides the final solution to any problem; and 2) a .log file that shows the code used to derive the solutions to the problems.
 
@@ -108,6 +108,10 @@ The problem set will be cumulative in the sense that each week will add new conc
 :::
 
 Each problem set is worth 3 points.
+
+### Mid-term and Final Exams {#sec.exams}
+
+There will be two in-class exams over the course of the semester. The week before the exam, study aids will be distributed and the exams will be taken in-class. Details about the exams will be provided ahead of the scheduled exams.
 
 ### Participation
 
