@@ -3,7 +3,7 @@
     "path": "C:/Users/sbhst/OneDrive/sites/rpad504/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "1865201216",
+    "hash": "1895241344",
     "contents": "",
     "dirty": false,
     "created": 1721850533160.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "26,25",
-        "scrollLine": "8"
+        "cursorPosition": "34,18",
+        "scrollLine": "13"
     },
     "folds": "",
-    "lastKnownWriteTime": 1724268354,
+    "lastKnownWriteTime": 1724855786,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1724268354578,
+    "last_content_update": 1724855786939,
     "read_only": false,
     "read_only_alternatives": []
 }

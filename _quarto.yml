@@ -12,6 +12,8 @@ website:
         file: syllabus504.qmd
       - text: "Assignments"
         file: assignments.qmd
+      - text: "Labs"
+        file: labs.qmd
         
   sidebar: 
     - title: "Syllabus"
@@ -25,6 +27,12 @@ website:
       search: true
       contents:
         - assignments.qmd
+    
+    - title: "Labs"
+      style: docked
+      search: true
+      contents: 
+        - labs.qmd
 
 format:
   html:
