@@ -33,6 +33,7 @@ website:
       search: true
       contents: 
         - labs.qmd
+        - lab1.qmd
 
 format:
   html:

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Stephen B. Holt">
 
-<title>Labs – RPAD 504 - Data, Models, and Decisions</title>
+<title>Lab 1 - Working With Stata – RPAD 504 - Data, Models, and Decisions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./labs.html">Labs</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab1.html">Lab 1 - Working With Stata</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -141,13 +141,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./labs.html" class="sidebar-item-text sidebar-link active">
+  <a href="./labs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Labs</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab1.html" class="sidebar-item-text sidebar-link">
+  <a href="./lab1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 1 - Working With Stata</span></a>
   </div>
 </li>
@@ -156,15 +156,27 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-using-stata" id="toc-introduction-to-using-stata" class="nav-link active" data-scroll-target="#introduction-to-using-stata">Introduction to Using Stata</a></li>
+  <li><a href="#workflow-in-stata" id="toc-workflow-in-stata" class="nav-link" data-scroll-target="#workflow-in-stata">Workflow in Stata</a>
+  <ul class="collapse">
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
+  <li><a href="#macintosh" id="toc-macintosh" class="nav-link" data-scroll-target="#macintosh">Macintosh</a></li>
+  <li><a href="#a-look-around-stata" id="toc-a-look-around-stata" class="nav-link" data-scroll-target="#a-look-around-stata">A Look Around Stata</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Labs</h1>
+<h1 class="title">Lab 1 - Working With Stata</h1>
 </div>
 
 
@@ -187,11 +199,94 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Labs can be found here as they are posted. We will go over them together in-class, but they will remain here as a reference and for review for problem sets and exams.</p>
+<section id="introduction-to-using-stata" class="level1">
+<h1>Introduction to Using Stata</h1>
+<p>Let’s start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. The <a href="https://www.dropbox.com/scl/fo/hgj6f2ax02rjvf8nocm5d/ABeqOiLKz1uXS5RdKVINNfk?rlkey=fj9kach5x0hkah6y2hdoe698p&amp;dl=0">data</a> used in this class exercise comes from the American Time Use Survey<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, which I have used in my own research (you can read it <a href="https://stevebholt.github.io/rpad316/assets/documents/GershensonHoltER.pdf">here</a>). But before we begin, let’s get a brief tour of Stata and set up our workspace for a productive flow of our work.</p>
+</section>
+<section id="workflow-in-stata" class="level1">
+<h1>Workflow in Stata</h1>
+<p>Our workflow in Stata begins with good file structures and keeping our files organized. Approaches to this vary and if you continue to work in research or analysis, you will find approaches that work best for you. We will set up a simple file system that will help us stay organized for the purposes of this class.</p>
+<section id="windows" class="level2">
+<h2 class="anchored" data-anchor-id="windows">Windows</h2>
+<p>If you are working with a Windows computer, you will start by clicking on the File Explorer (<img src="fileexplorer.PNG" class="img-fluid" alt="file explorer">) icon in the bottom of your screen and in the USB drive or primary drive you will be using, create a folder for the class and subfolders for data, do files, logs, and output.</p>
+<ol type="1">
+<li><p>Select the Drive for your class folder. <img src="step1.PNG" class="img-fluid" alt="Select Drive"></p></li>
+<li><p>Set up a class folder in the drive you chose. Name it rpad504. <img src="step2.PNG" class="img-fluid" alt="Set Up Folder"></p></li>
+<li><p>In your class folder, set up a folder structure with these subfolders. Use the same names. <img src="folder_structure.PNG" class="img-fluid" alt="Set Up Subfolders"></p></li>
+</ol>
+<p>Now, we are going to put the data for the class lab into our new data subfolder.</p>
+<ol type="1">
+<li>Open the data subfolder you just created and leave your file explorer open.</li>
+<li>In your web browser, where you are reading this, right-click on the “Labs” tab at the top of the page and select “Open in New Tab.”</li>
+<li>Click “Data for Lab 1.”</li>
+<li>Click the Download (<img src="download.PNG" class="img-fluid" alt="download">) button, select <a href="downloadbox.PNG">“Save File”</a>, and then click OK.</li>
+<li>In Firefox, click the <a href="bluearrow.PNG">Blue Arrow</a> in the top right and then click on the folder icon next to “week1.zip.” This will open your “Downloads” folder, which is the default place where Windows downloads files to your computer. Open “week1” and drag <a href="class1dta.PNG">class1.dta</a> to your still open data subfolder.</li>
+</ol>
+<p>Now we are all set! Leave your class folder open in the file explorer for now because we will need it in a moment. Each week, when you are doing assignments or labs, download the data using the same process and move it to your data folder. We will use paths to this folder in our .do files so that we can save our output and document what we’ve done.</p>
+</section>
+<section id="macintosh" class="level2">
+<h2 class="anchored" data-anchor-id="macintosh">Macintosh</h2>
+<p>For Mac users, I am in the process of hunting down a Mac to create the step-by-step screenshots to walk you through this process. However, the process is generally the same: create a class folder (rpad316) and the same four subfolders (do, data, output, and logs). Store data in the data folder after downloading it from the course site. The primary difference is finding paths for using in your .do files (see below). I found this <a href="https://www.howtogeek.com/721126/3-ways-to-see-the-current-folder-path-on-mac/">guide</a> helpful for finding paths on Macs; once you have it, you can copy and paste it into your first .do file, as outlined below, and then copy from there in future .do files.</p>
+</section>
+<section id="a-look-around-stata" class="level2">
+<h2 class="anchored" data-anchor-id="a-look-around-stata">A Look Around Stata</h2>
+<p>Now let’s look around Stata for a moment and get a sense of the tool. To do this, open the data for Class Lab 1 that we just moved into our data folder. You should see a screen like <a href="statascreen.PNG">this</a>. You’ll notice a few things. First, in the center of the screen is the output window of Stata</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="output_win.PNG" class="img-fluid figure-img"></p>
+<figcaption>Output Window</figcaption>
+</figure>
+</div>
+<p>and this is where we will see the results of any and all analysis we do. It’s a lovely view and you will come to love it as much as I do! Untold truths will be found in this screen and, if you continue down this road, you might be the first to see a brand new, scientific result in this very view! Notice out in the center, there is already a <code>use "E:\rpad316\data\class1.dta"</code> command that has been run. <code>use</code> tells Stata to open a data set and the path (in my case <code>E:\rpad316\data\</code>) tells Stata where the data is stored and which data set (<code>class1.dta</code>) to open. Datasets in Stata are always <code>.dta</code> file types. Think of this as the same as <code>.doc</code> for word.</p>
+<p>Okay, off to the right, you can see the list of variables in this dataset.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="variables.PNG" class="img-fluid figure-img"></p>
+<figcaption>Variables</figcaption>
+</figure>
+</div>
+<p>Here, there are two columns. One lists the variable name of each variable in the dataset. This is the equivalent of a column header in a spreadsheet and is what we use to tell Stata to do things with that particular variable. The second is the Label of each variable. Labels are more detailed, plain language descriptions of the variable, often to remind us what the variable is and how it is measured. You can also see in the bottom right corner a description of the data. Note that the description tells us that there are 7,388 observations in this dataset.</p>
+<p>To the left, you can see a running record of the commands that we run.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="history.PNG" class="img-fluid figure-img"></p>
+<figcaption>History</figcaption>
+</figure>
+</div>
+<p>Successful commands will appear in black (or in my case white) text while unsuccessful commands will appear in red. “Unsuccessful commands” simply means Stata hit an error because of an error in your code.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some notes on Stata code. First, Stata is a literalist - it will only do what you tell it to and will only do <strong>exactly</strong> what you tell Stata to do. If you enter the wrong code or spell something wrong, Stata will just stop and do nothing else because it’s confused and has a sensitive soul. Second, Stata is case sensitive. When naming variables, use all lower case because in general, all commands and code in Stata will also be all lower case. You want to make your coding life as easy as possible and one way to avoid frustration is to name variables in a way that minimizes errors.</p>
+</div>
+</div>
+<p>Finally, we have the command window at the bottom.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="command.PNG" class="img-fluid figure-img"></p>
+<figcaption>Command</figcaption>
+</figure>
+</div>
+<p>The command window is one of the ways you can tell Stata to do various things. The other way is through .do files, which we will get to in just a moment. Anything you enter into the command window will generate some sort of output in the output window and be recorded in the history window. If you make a mistake and get an error, you can click on the errant command in the history window and it will automatically be filled into the command window for you and then you can correct the error.</p>
 
 
+</section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The American Time Use Survey (ATUS) is a nationally representative sample of Americans aged 15 and up. It is collected cross-sectionally (that is, with new respondents) every year. The ATUS collected time diary data from a person from each household that captures how respondents spent their time over the previous 24-hrs. It is tied to a subsample of the Current Population Survey (CPS), which allows researchers to examine a rich set of individual and household characteristics.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
