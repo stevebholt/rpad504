@@ -167,6 +167,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows">Windows</a></li>
   <li><a href="#macintosh" id="toc-macintosh" class="nav-link" data-scroll-target="#macintosh">Macintosh</a></li>
   <li><a href="#a-look-around-stata" id="toc-a-look-around-stata" class="nav-link" data-scroll-target="#a-look-around-stata">A Look Around Stata</a></li>
+  <li><a href="#working-in-stata" id="toc-working-in-stata" class="nav-link" data-scroll-target="#working-in-stata">Working in Stata</a></li>
+  </ul></li>
+  <li><a href="#commands-in-stata" id="toc-commands-in-stata" class="nav-link" data-scroll-target="#commands-in-stata">Commands in Stata</a>
+  <ul class="collapse">
+  <li><a href="#working-with-variables" id="toc-working-with-variables" class="nav-link" data-scroll-target="#working-with-variables">Working with Variables</a></li>
+  <li><a href="#summarizing-data" id="toc-summarizing-data" class="nav-link" data-scroll-target="#summarizing-data">Summarizing Data</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -201,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction-to-using-stata" class="level1">
 <h1>Introduction to Using Stata</h1>
-<p>Let’s start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. The <a href="https://www.dropbox.com/scl/fo/hgj6f2ax02rjvf8nocm5d/ABeqOiLKz1uXS5RdKVINNfk?rlkey=fj9kach5x0hkah6y2hdoe698p&amp;dl=0">data</a> used in this class exercise comes from the American Time Use Survey<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, which I have used in my own research (you can read it <a href="https://stevebholt.github.io/rpad316/assets/documents/GershensonHoltER.pdf">here</a>). But before we begin, let’s get a brief tour of Stata and set up our workspace for a productive flow of our work.</p>
+<p>Let’s start with some simple graphs in Stata. We will begin by looking at the distribution of time spent on homework across the country. The <a href="https://www.dropbox.com/scl/fo/hgj6f2ax02rjvf8nocm5d/ABeqOiLKz1uXS5RdKVINNfk?rlkey=fj9kach5x0hkah6y2hdoe698p&amp;dl=0">data</a> used in this class exercise comes from the American Time Use Survey<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, which I have used in my own research (you can read it <a href="https://stevebholt.github.io/GershensonHoltER.pdf">here</a>). But before we begin, let’s get a brief tour of Stata and set up our workspace for a productive flow of our work.</p>
 </section>
 <section id="workflow-in-stata" class="level1">
 <h1>Workflow in Stata</h1>
@@ -220,13 +226,13 @@ ul.task-list li input[type="checkbox"] {
 <li>In your web browser, where you are reading this, right-click on the “Labs” tab at the top of the page and select “Open in New Tab.”</li>
 <li>Click “Data for Lab 1.”</li>
 <li>Click the Download (<img src="download.PNG" class="img-fluid" alt="download">) button, select <a href="downloadbox.PNG">“Save File”</a>, and then click OK.</li>
-<li>In Firefox, click the <a href="bluearrow.PNG">Blue Arrow</a> in the top right and then click on the folder icon next to “week1.zip.” This will open your “Downloads” folder, which is the default place where Windows downloads files to your computer. Open “week1” and drag <a href="class1dta.PNG">class1.dta</a> to your still open data subfolder.</li>
+<li>In Firefox, click the <a href="bluearrow.PNG">Blue Arrow</a> in the top right and then click on the folder icon next to “lab1.zip.” This will open your “Downloads” folder, which is the default place where Windows downloads files to your computer. Open “lab1” and drag <a href="class1dta.PNG">class1.dta</a> to your still open data subfolder.</li>
 </ol>
 <p>Now we are all set! Leave your class folder open in the file explorer for now because we will need it in a moment. Each week, when you are doing assignments or labs, download the data using the same process and move it to your data folder. We will use paths to this folder in our .do files so that we can save our output and document what we’ve done.</p>
 </section>
 <section id="macintosh" class="level2">
 <h2 class="anchored" data-anchor-id="macintosh">Macintosh</h2>
-<p>For Mac users, I am in the process of hunting down a Mac to create the step-by-step screenshots to walk you through this process. However, the process is generally the same: create a class folder (rpad316) and the same four subfolders (do, data, output, and logs). Store data in the data folder after downloading it from the course site. The primary difference is finding paths for using in your .do files (see below). I found this <a href="https://www.howtogeek.com/721126/3-ways-to-see-the-current-folder-path-on-mac/">guide</a> helpful for finding paths on Macs; once you have it, you can copy and paste it into your first .do file, as outlined below, and then copy from there in future .do files.</p>
+<p>For Mac users, I am in the process of hunting down a Mac to create the step-by-step screenshots to walk you through this process. However, the process is generally the same: create a class folder (rpad504) and the same four subfolders (do, data, output, and logs). Store data in the data folder after downloading it from the course site. The primary difference is finding paths for using in your .do files (see below). I found this <a href="https://www.howtogeek.com/721126/3-ways-to-see-the-current-folder-path-on-mac/">guide</a> helpful for finding paths on Macs; once you have it, you can copy and paste it into your first .do file, as outlined below, and then copy from there in future .do files.</p>
 </section>
 <section id="a-look-around-stata" class="level2">
 <h2 class="anchored" data-anchor-id="a-look-around-stata">A Look Around Stata</h2>
@@ -275,6 +281,211 @@ Tip
 </figure>
 </div>
 <p>The command window is one of the ways you can tell Stata to do various things. The other way is through .do files, which we will get to in just a moment. Anything you enter into the command window will generate some sort of output in the output window and be recorded in the history window. If you make a mistake and get an error, you can click on the errant command in the history window and it will automatically be filled into the command window for you and then you can correct the error.</p>
+</section>
+<section id="working-in-stata" class="level2">
+<h2 class="anchored" data-anchor-id="working-in-stata">Working in Stata</h2>
+<p>In this class, and in general, it will be good for you to get used to working with <code>.do</code> files. In Stata, <code>.do</code> files are text files that include all of the code you are using in your project. A <code>.do</code> file can tell Stata what to do from start to finish and Stata will run every line of code in a <code>.do</code> file in order.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> To start a <code>.do</code> file, go to the top and click the “New Do-File Editor” button (<img src="dofileeditor.PNG" class="img-fluid" alt="dofile editor">) and a <a href="newdo.PNG">new .do file</a> will open. First, let’s save this by going to “File” -&gt; “Save As…” and save it in your class folder in the “do” subfolder. Name it “classlab1” so that you know what the do file does.</p>
+<p>Next, we are going to use the path to our file to set our command directory in Stata. For Windows users, getting the path is simple: go to the file explorer window where your class folder is open, click on the top bar in a space where there is no text, and you will see that the path is selected for you:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="folder_structure.PNG" class="img-fluid figure-img"></p>
+<figcaption>Path Example</figcaption>
+</figure>
+</div>
+<p>From there, you can use <code>CTRL + C</code> to copy the file path.</p>
+<p>Now, return to your do file. In the first line of your do file, enter the code <code>cd</code> and then paste the path to your class folder (<code>CTRL + V</code>). The full line should read:</p>
+<pre><code>cd "C:\rpad504\"</code></pre>
+<p>Your path may be different, but the last part should be <code>rpad504\</code>. The <code>cd</code> command tells Stata, “Okay, I am going to be working with files in this folder, so anytime I tell you to save or output something, use this as the initial path.” This will make our lives easier going foward and as long as you have a good file structure (the one I walked through here), you can simply put this line of code at the beginning of every do file and be good to go. Finally, before we begin, we will also set up a .log file. A log file tracks every command we enter and all of the output those commands produce. They are very handy tools that can keep track of what you’ve done and how you did it. Researchers generally use .logs for record keeping purposes so that they can be transparent about their analysis later on down the road. Setting up a log file is easy. You simply tell Stata to start a .log and tell Stata where you would like that log to be stored.</p>
+<pre><code>local today : di %tdCY.N.D date("$S_DATE","DMY")
+log using "logs/lab1_`today'.log", replace</code></pre>
+<p>First, the <code>log</code> command opens the log and the <code>using</code> command tells Stata where to create a log file to use as a log for what you’re about to do. In the quotations, the “logs" segment tells Stata to use the subfolder you set up in the class folder called”logs” (since we set up the command drive in the previous step, we only need to use the folder name!) and then the “lab1.log” tells Stata to create a file in that folder named “lab1” and to use it to log everything we do in our session. The <code>, replace</code> at the end of the command is important. It means anytime you run this .do file, it will update and overwrite the previous log file. This is a handy way to keep from having too many logs and losing track of them.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When you are starting a new assignment or new lab, set up a new do file, save it in the .do folder, and copy and paste the <code>cd</code> code and the log code from your last do file. Then you just need to rename the log file in the code and you are ready to rumble.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="commands-in-stata" class="level1">
+<h1>Commands in Stata</h1>
+<p>In Stata, the basic structure of a command is: <code>command variable [conditions], options</code>. The <code>command</code> is generally telling Stata what you would like Stata to do, such as create a new variable or make a graph. The second part, <code>variable</code>, is telling Stata the information to which you want to apply the command, such as calculating some statistics regarding a specific variable or graphing a variable in a particular way. The third part, <code>[conditions]</code>, refers to potential instructions for Stata to only include observations that meet a specific condition in the statistic calculation or graph. This is in square brackets to indicate that it will not always be used, but when it is, it will typically be the third part of the command. Finally, the fourth part is everything after the comma. In Stata, a comma tells Stata that the command portion of the code is done, and everything after the comma is going to provide (optional) instructions for how you would like the command run. For example, it could be requesting additional statistics to be calculated or specifying how a graph should look. The comma tells Stata “I am done listing variables and conditions for this command and will now give you some detailed instructions.”</p>
+<section id="working-with-variables" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-variables">Working with Variables</h2>
+<p>Let’s get to work on some examples. Let’s drop the existing <code>hhincome</code> variable and recreate it from scratch. First, we can scroll down to the bottom of the variables list in the top right corner of our Stata window:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="varbefore.PNG" class="img-fluid figure-img"></p>
+<figcaption>Variable List Before Drop</figcaption>
+</figure>
+</div>
+<p>and see that <code>hhincome</code> is the last variable in the dataset. Let’s delete it using the <code>drop</code> command.</p>
+<pre><code>drop hhincome</code></pre>
+<p>Now we can see that it is gone from our variables list: <img src="varafter.PNG" class="img-fluid" alt="Variable List After Drop"></p>
+<p>Now, to demonstrate how creating and coding variables works, we are going to create a categorical variable that groups all the different household income brackets we currently have as indicator variables. First, we will create a new variable and we will set it’s value as “missing.” In Stata, missing is signified using the <code>.</code> symbol.</p>
+<pre><code>gen hhincome = .</code></pre>
+<p>We should see a message that 7388 missing values have been generated, and <code>hhincome</code> should reappear at the bottom of our variables list:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="varbefore.PNG" class="img-fluid figure-img"></p>
+<figcaption>Variable List After Generating A New Variable</figcaption>
+</figure>
+</div>
+<p>Clicking on the browse icon (<img src="browse.PNG" class="img-fluid" alt="Browse Icon">) will pull up a spreadsheet-like display of our data. Scrolling all the way to the right of the spreadsheet should reveal our new variable column, full of empty space:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data.PNG" class="img-fluid figure-img"></p>
+<figcaption>Backend View of Dataset In Stata</figcaption>
+</figure>
+</div>
+<p>Then we are going to tell Stata to change the value of that variable to a different number for each category of household income. Note that the second part of the command has a double equal sign.</p>
+<pre><code>replace hhincome = 1 if loinc == 1
+replace hhincome = 2 if inc2040 == 1
+replace hhincome = 3 if inc4060 == 1
+replace hhincome = 4 if inc6075 == 1
+replace hhincome = 5 if inc75100 == 1
+replace hhincome = 6 if inc100150 == 1
+replace hhincome = 7 if inc150p == 1</code></pre>
+<p>Now we have all of our categories coded into the same variable. When we return to browsing the data and scroll to the <code>hhincome</code> column, we should see:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data_step2.PNG" class="img-fluid figure-img"></p>
+<figcaption>Backend View of Dataset In Stata</figcaption>
+</figure>
+</div>
+<p>To keep ourselves sane, let’s go ahead and label the new variable and label the categories so we know what they mean later.</p>
+<pre><code>label var hhincome "Household income"
+label define inccats 1 "&lt;=20K" 2 "20-40K" 3 "40-60K" 4 "60-75K" 5 "75-100K" 6 "100-150K" 7 "&gt;=150K"
+label val hhincome inccats</code></pre>
+<p>First, after running the first line of code above, <code>label var</code>, the variable list should be showing <code>hhincome</code> now looks something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="varlabel.PNG" class="img-fluid figure-img"></p>
+<figcaption>New Variable Look</figcaption>
+</figure>
+</div>
+<p>See how much clearer that label is for us? The label will also become the default in some tables and graphs, so it will ease the burden on us over time having our variables properly labeled.</p>
+<p>The second two lines of code tell Stata to create a value label scheme that defines each category with a more informative label. In our case, this is telling Stata that category 1 includes people in households earning $20,000 or less and so on. The final line of code, <code>label val</code>, tells Stata to apply that value label scheme to our newly created variable, <code>hhincome</code>. The final results should look something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="data_step3.PNG" class="img-fluid figure-img"></p>
+<figcaption>New Variable Look in the Backend</figcaption>
+</figure>
+</div>
+</section>
+<section id="summarizing-data" class="level2">
+<h2 class="anchored" data-anchor-id="summarizing-data">Summarizing Data</h2>
+<p>Finally, we are going to look at the summary statistics, which includes the mean and the standard deviation, of homework time in minutes per day and hours per week for the full sample, for boys, and for girls.</p>
+<p>The full sample:</p>
+<pre><code>sum hw_tot weekly_hw</code></pre>
+<p>With an output that looks like this:</p>
+<pre><code>. sum hw_tot weekly_hw
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+      hw_tot |      7,388    46.95168    87.05461          0        875
+   weekly_hw |      2,842     14.2397    11.97486   .1166667   102.0833
+</code></pre>
+<p>On average, a high school student will spend 47 minutes on homework in a day, and, for those that do some homework, will spend about 14 hours per week on homework or studying. Let’s see how boys and girls compare in their homework time.</p>
+<p>Here’s only boys:</p>
+<pre><code>sum hw_tot weekly_hw if male == 1
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+      hw_tot |      3,828    39.00888    78.71242          0        690
+   weekly_hw |      1,310    13.29875    11.40719        .35       80.5
+</code></pre>
+<p>And only girls:</p>
+<pre><code>sum hw_tot weekly_hw if male == 0
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+      hw_tot |      3,560    55.49242    94.48178          0        875
+   weekly_hw |      1,532    15.04429    12.38686   .1166667   102.0833
+</code></pre>
+<p>We can see that by telling Stata to only calculate the summary statistics for males, <code>if male == 1</code>, and for females, <code>if male == 0</code>, we can compare the average time spent on homework across student gender. Our sample shows that while boys spend about 39 minutes studying on an average day, girls spend 55 minutes studying on the average day. That’s quite a gap in study time!</p>
+<p>As we have seen so far, Stata commands usually have options that can provide additional information or customization. We can use the detail option with the sum command to get the full set of statistics, including different percentiles and variance and measures of skew. The measure of skew tells us both the size of the disagreement between the mean and the median and the direction (a negative skew indicates the mean is lower than the median, while a positive skew indicates the mean is higher than the median).</p>
+<pre><code>sum hw_tot weekly_hw, detail
+
+
+                           Daily T
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%            0              0
+ 5%            0              0
+10%            0              0       Obs               7,388
+25%            0              0       Sum of wgt.       7,388
+
+50%            0                      Mean           46.95168
+                        Largest       Std. dev.      87.05461
+75%           60            690
+90%          150            760       Variance       7578.505
+95%          238            790       Skewness       2.775769
+99%          390            875       Kurtosis       13.31339
+
+               Weekly homework time (in hours)
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%     1.166667       .1166667
+ 5%     2.333333            .35
+10%          3.5            .35       Obs               2,842
+25%            7            .35       Sum of wgt.       2,842
+
+50%         10.5                      Mean            14.2397
+                        Largest       Std. dev.      11.97486
+75%     18.08333           80.5
+90%     30.33333       88.66666       Variance       143.3973
+95%     38.26667       92.16666       Skewness       1.969594
+99%     58.91667       102.0833       Kurtosis       8.580481</code></pre>
+<p>You can also get a more targeted set of statistics using <code>tabstat</code>, which allows you to specify which statistics you want and which you do not. This will come in handy later when we start using Stata to create tables for us. Remember, the analyst’s goal is to find ways to focus on the analysis and not the producing of the analysis. When you find ways to automate making tables (and I will show you some over the semester), use them!</p>
+<pre><code>tabstat hw_tot weekly_hw, statistics(mean sd)
+
+
+   Stats |    hw_tot  weekly~w
+---------+--------------------
+    Mean |  46.95168   14.2397
+      SD |  87.05461  11.97486
+------------------------------</code></pre>
+<p>And always remember to include a line in your code that closes your log file.</p>
+<pre><code>log close</code></pre>
+<p>Your first .do file should look like this:</p>
+<pre><code>cd "E:\rpad316\"
+use "data\class1.dta"
+local today : di %tdCY.N.D date("$S_DATE","DMY")
+log using "logs/lab1_`today'.log", replace
+drop hhincome
+gen hhincome = .
+replace hhincome = 1 if loinc == 1
+replace hhincome = 2 if inc2040 == 1
+replace hhincome = 3 if inc4060 == 1
+replace hhincome = 4 if inc6075 == 1
+replace hhincome = 5 if inc75100 == 1
+replace hhincome = 6 if inc100150 == 1
+replace hhincome = 7 if inc150p == 1
+
+label var hhincome "Household income"
+label define inccats 1 "&lt;=20K" 2 "20-40K" 3 "40-60K" 4 "60-75K" 5 "75-100K" 6 "100-150K" 7 "&gt;=150K"
+label val hhincome inccats
+
+sum hw_tot weekly_hw
+
+sum hw_tot weekly_hw if male == 1
+sum hw_tot weekly_hw if male == 0
+
+sum hw_tot weekly_hw, detail
+
+tabstat hw_tot weekly_hw, statistics(mean sd)
+
+save "data\class1.dta", replace
+
+log close</code></pre>
 
 
 </section>
@@ -285,6 +496,7 @@ Tip
 
 <ol>
 <li id="fn1"><p>The American Time Use Survey (ATUS) is a nationally representative sample of Americans aged 15 and up. It is collected cross-sectionally (that is, with new respondents) every year. The ATUS collected time diary data from a person from each household that captures how respondents spent their time over the previous 24-hrs. It is tied to a subsample of the Current Population Survey (CPS), which allows researchers to examine a rich set of individual and household characteristics.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>We will cover commenting in do files in a future class. Comments do not get run as commands in do files and are helpful for keeping yourself organized, remembering the purpose of different parts of your code, and helping collaborators understand what you were doing.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
