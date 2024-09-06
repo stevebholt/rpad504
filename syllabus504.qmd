@@ -133,11 +133,11 @@ Key:
 |:-----:|:-------------------------------------------:|:-----------:|:--------:|
 | 8/28  |               Intro to course               |             |          |
 | 9/4  |                Data Origins                 |   👨‍🏫    |    📄 Knox et al. <br> 📄 Llolbrera & Hall <br> 📄 Holt & Vinopal      |
-|  9/11  |           Assessing Data Quality            |    👨‍🏫    |          |
-| 9/18  |             Summarizing Data I              |  👨‍🏫 <br> ✅   <br> 👥   |          |
+|  9/11  |           Assessing Data Quality            |    👨‍🏫    |  📄 National Academies of SEM: <br> Appendices A and C        |
+| 9/18  |             Summarizing Data I              |  👨‍🏫 <br> ✅   <br> 👥   |     📄  Huntington-Klein   |
 | 9/25  |          Summarizing Data II           | 👨‍🏫 <br> ✅   <br> 👥      |          |
-| 10/2  |              Data Management I              | 👨‍🏫 <br> ✅   <br> 👥            |          |
-| 10/9  |             Data Management II              | 👨‍🏫 <br> ✅   <br> 👥            |          |
+| 10/2  |              Data Management I              | 👨‍🏫 <br> ✅   <br> 👥            |  📄 Kroenke & Auer  (Ch. 1 & 2)    |
+| 10/9  |             Data Management II              | 👨‍🏫 <br> ✅   <br> 👥            |   📄 Kohler  & Kreuter      |
 | 10/16 |                Midterm Exam                 |    📅         |          |
 | 10/23 |   Geographic Information and Mapping Data   |  👨‍🏫 <br> ✅   <br> 👥  |          |
 | 10/30 |             Writing About Data              |  👨‍🏫 <br> ✅   <br> 👥        |          |
