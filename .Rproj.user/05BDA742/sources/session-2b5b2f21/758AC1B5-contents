@@ -263,7 +263,7 @@ log close
 Your first .do file should look like this:
 
 ```
-cd "E:\rpad316\"
+cd "E:\rpad504\"
 use "data\class1.dta"
 local today : di %tdCY.N.D date("$S_DATE","DMY")
 log using "logs/lab1_`today'.log", replace
