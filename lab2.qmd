@@ -208,11 +208,15 @@ Notice how many categories there are? That's probably going to be overwhelming t
 We'll start with `educ` since it's the most straightforward. Here, we might really only be concerned with a breakdown of people with no college, some college, and a Bachelor's degree or more. Maybe we go an extra mile and include a separate breakout for graduate degrees. Here, we'll use `recode` to define a smaller set of categories that include multiple categories from the original variable.
 
 ```{.stata}
-recode educ (0/5 = 1 "Less than HS") (6 = 2 "HS") (7/8 = 3 "Some college") (10 = 4 "College degree") (11 = 5 "More than Bachelor's"), gen(educ5)
+recode educ (0/5 = 1 "Less than HS") (6 = 2 "HS") (7/8 = 3 "Some college") (10 = 4 "College degree") (11 = 5 "More than Bachelor's"), gen(seduc)
 ```
 
 
+Now let's do the same with mode of transportation taken to work. We can set up a simple set of categories for walking, biking, taking a car, and taking mass transit (broadly defined). Then we will create a separate category for worked at home and other.
 
+```{.stata}
+recode tranwork (10/20 38 = 1 "Motor vehicle") (31/37 39 = 2 "Mass transit") (50 = 3 "Bicycle") (60 = 4 "Walked") (70 = 5 "Other") (80 = 6 "WFH"), gen(stransit)
+```
 
 
 
