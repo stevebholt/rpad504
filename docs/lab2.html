@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -138,7 +138,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./labs.html"> 
+    <a class="nav-link active" href="./labs.html" aria-current="page"> 
 <span class="menu-text">Labs</span></a>
   </li>  
 </ul>
@@ -148,10 +148,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab2.html">Lab 2 - Getting and Summarizing Data</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Labs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 - Working With Stata</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 2 - Getting and Summarizing Data</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -167,6 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#user-written-packages" id="toc-user-written-packages" class="nav-link" data-scroll-target="#user-written-packages">User-Written Packages</a></li>
   <li><a href="#creating-new-variables" id="toc-creating-new-variables" class="nav-link" data-scroll-target="#creating-new-variables">Creating New Variables</a></li>
   </ul></li>
+  <li><a href="#making-tables" id="toc-making-tables" class="nav-link" data-scroll-target="#making-tables">Making Tables</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -281,6 +325,7 @@ Note
 </div>
 </div>
 <p>You will notice that you will be at an extraction screen after submitting the request. The time it takes to process a request depends on how many variables and how many years you select, among other things. The more complicated the request, the longer the extraction processing time. IPUMS sends an email when your request is ready and you will have a link to download the data in this screen when it’s ready.</p>
+<p>Note that this will result in a very, very large dataset. For the purposes of this activity in class, I have created a random sample from the above data request of 200,000 observations that we can use for the exercise. It can be downloaded <a href="https://www.dropbox.com/scl/fo/nkf4zoop1wffpbmvlg75m/AMj-sPdXIYZXrXzDyUqG_lU?rlkey=q8qf2oy11fam6x4ubs8m6r2kh&amp;st=5af19u1s&amp;dl=0">here</a>.</p>
 </section>
 <section id="using-the-data" class="level1">
 <h1>Using the Data</h1>
@@ -378,9 +423,55 @@ Valid   0  n/a                                         |    7103702      54.31  
 <div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> educ (0/5 = 1 <span class="st">"Less than HS"</span>) (6 = 2 <span class="st">"HS"</span>) (7/8 = 3 <span class="st">"Some college"</span>) (10 = 4 <span class="st">"College degree"</span>) (11 = 5 <span class="st">"More than Bachelor's"</span>), <span class="kw">gen</span>(seduc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now let’s do the same with mode of transportation taken to work. We can set up a simple set of categories for walking, biking, taking a car, and taking mass transit (broadly defined). Then we will create a separate category for worked at home and other.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> tranwork (10/20 38 = 1 <span class="st">"Motor vehicle"</span>) (31/37 39 = 2 <span class="st">"Mass transit"</span>) (50 = 3 <span class="st">"Bicycle"</span>) (60 = 4 <span class="st">"Walked"</span>) (70 = 5 <span class="st">"Other"</span>) (80 = 6 <span class="st">"WFH"</span>), <span class="kw">gen</span>(stransit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-
+<p>Now let’s go ahead and use our <code>tab</code> command to create indicators from our now shortened categorical variables.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> seduc, <span class="kw">gen</span>(seduc)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> stransit, <span class="kw">gen</span>(transit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, we are going to work with continuous variables to create some variables that are a function of other variables. In particular, we want to see a little bit about how people with different incomes vary in the source of their income (e.g., wages, cash transfer programs, public benefits, etc.). To do that, we are going to take advantage of the rich set of income variables provided by the ACS. Let’s start by dealing with some quirks of the income data. The total personal income variable can be negative and includes a code of 9999998 for missing values and 9999999 for cases where income is not applicable for collection. Let’s go ahead and change those to missing.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> inctot = .a <span class="kw">if</span> inctot &gt;= 9999998</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Codebook
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Always check the codebook tabs for variables you will be using! I did the grunt work for the lab here and recorded the appropriate missing codes, but these kinds of subtle interpretations of variables can really bias your answers if you don’t check the codebook ahead of time and understand how varaibles are coded in your data.</p>
+</div>
+</div>
+<p>Now, we’re going to have to do that for all the income source variables too.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Given that there’s several of them, this could be tedious to code. But this makes for a good opportunity to learn a little trick: a <code>foreach</code> loop. See, this loop will let you apply the same process to many variables at once, perfect for situations where the same data change needs to be applies to many variables. To do it, we will put all of the variables in a <code>foreach</code> command and label them something simple, like “X”, and then use that stand-in in our code. It will look like this:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> x <span class="kw">of</span> <span class="kw">varlist</span> ncwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span> <span class="ot">`x'</span> = 0 <span class="kw">if</span> <span class="ot">`x'</span> &gt;= 999998</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we have our cleaned variables and we can calculate the percent of total income that comes from the different sources captured by the ACS. Here again, we are applying the same formula over and over, so we can use a <code>foreach</code> loop here too.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>oreach x <span class="kw">of</span> <span class="kw">varlist</span> incwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">gen</span> <span class="ot">`x'</span>_prc = ((<span class="ot">`x'</span> / inctot)*100)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, we are interested in looking at how these variables look at different points of the income distribution, so we should have some categorical variables that capture different points in the income distribution! Here, we are going to look at different points in the distribution of family income and Stata makes this really easy for us. We are going to use the <code>xtile</code> command which tells State to rank all observations on a given variable, identify the number of quantiles you need, and create a new categorical variable that identifies which quantile each observation is in. We’re going to look at the 90th and 10th percentile, so we will want to specify 10 quantiles. We will also look at White and Non-White splits, so we can code our Non-White indicator here too.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> ftotinc = .a <span class="kw">if</span> ftotinc &gt;= 9999998</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">xtile</span> finc_q = ftotinc, nq(10)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> nonwhite = 0</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> nonwhite = 1 <span class="kw">if</span> rachsing &gt; 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
+</section>
+<section id="making-tables" class="level2">
+<h2 class="anchored" data-anchor-id="making-tables">Making Tables</h2>
+<p>We are now ready to make our first table! To do so, we are going to draw on some things we’ve already learned. First, we are going to use the <code>sum</code> command. Second, we are going to use three commands from the <code>estout</code> package we installed earlier: <code>estpost</code> to tell Stata to post the estimates from the next command into its temporary memory, <code>est sto</code> to tell Stata to label those stored estimates with a name we give it, and <code>esttab</code> to tell Stata to put some of those estimates into a nice table for us. When we do this, we will run the sum command for the full sample and then for the subsamples we want. It will look something like this:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 1</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto low</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 9</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto high</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> racecat1 == 1</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="bn">white</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> nonwhite == 1</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto nonwhite</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="bn">white</span> nonwhite <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">label</span> unstack <span class="kw">compress</span> <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
 </section>
 </section>
 
@@ -389,6 +480,7 @@ Valid   0  n/a                                         |    7103702      54.31  
 
 <ol>
 <li id="fn1"><p>“Mutually exclusive” means that each observation can only be in one category. Ideally, the sum of the categories adds up to 100 percent.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The income source variables have a slightly different coding schema - 6 digits instead of 7 - but the same general formula.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

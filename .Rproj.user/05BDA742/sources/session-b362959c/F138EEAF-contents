@@ -34,6 +34,7 @@ website:
       contents: 
         - labs.qmd
         - lab1.qmd
+        - lab2.qmd
 
 format:
   html:

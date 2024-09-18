@@ -1,5 +1,5 @@
 ---
-title: "Lab 2"
+title: "Lab 2 - Getting and Summarizing Data"
 author: "Stephen B. Holt"
 format:
   html:
@@ -81,6 +81,8 @@ Take note that when the .dat flat file is selected, IPUMS provides a zip folder 
 :::
 
 You will notice that you will be at an extraction screen after submitting the request. The time it takes to process a request depends on how many variables and how many years you select, among other things. The more complicated the request, the longer the extraction processing time. IPUMS sends an email when your request is ready and you will have a link to download the data in this screen when it's ready.
+
+Note that this will result in a very, very large dataset. For the purposes of this activity in class, I have created a random sample from the above data request of 200,000 observations that we can use for the exercise. It can be downloaded [here](https://www.dropbox.com/scl/fo/nkf4zoop1wffpbmvlg75m/AMj-sPdXIYZXrXzDyUqG_lU?rlkey=q8qf2oy11fam6x4ubs8m6r2kh&st=5af19u1s&dl=0).
 
 # Using the Data
 ## Cleaning the Data
@@ -218,6 +220,69 @@ Now let's do the same with mode of transportation taken to work. We can set up a
 recode tranwork (10/20 38 = 1 "Motor vehicle") (31/37 39 = 2 "Mass transit") (50 = 3 "Bicycle") (60 = 4 "Walked") (70 = 5 "Other") (80 = 6 "WFH"), gen(stransit)
 ```
 
+Now let's go ahead and use our `tab` command to create indicators from our now shortened categorical variables.
+
+```{.stata}
+tab seduc, gen(seduc)
+tab stransit, gen(transit)
+```
 
 
+Finally, we are going to work with continuous variables to create some variables that are a function of other variables. In particular, we want to see a little bit about how people with different incomes vary in the source of their income (e.g., wages, cash transfer programs, public benefits, etc.). To do that, we are going to take advantage of the rich set of income variables provided by the ACS. Let's start by dealing with some quirks of the income data. The total personal income variable can be negative and includes a code of 9999998 for missing values and 9999999 for cases where income is not applicable for collection. Let's go ahead and change those to missing.
+
+```{.stata}
+replace inctot = .a if inctot >= 9999998
+
+```
+
+::: callout-tip
+#### Codebook
+Always check the codebook tabs for variables you will be using! I did the grunt work for the lab here and recorded the appropriate missing codes, but these kinds of subtle interpretations of variables can really bias your answers if you don't check the codebook ahead of time and understand how varaibles are coded in your data.
+:::
+
+Now, we're going to have to do that for all the income source variables too.[^2] Given that there's several of them, this could be tedious to code. But this makes for a good opportunity to learn a little trick: a `foreach` loop. See, this loop will let you apply the same process to many variables at once, perfect for situations where the same data change needs to be applies to many variables. To do it, we will put all of the variables in a `foreach` command and label them something simple, like "X", and then use that stand-in in our code. It will look like this:
+
+```{.stata}
+foreach x of varlist ncwage incbus00 incss incwelfr incinvst incretir incsupp incother{
+	replace `x' = 0 if `x' >= 999998
+}
+
+```
+
+[^2]: The income source variables have a slightly different coding schema - 6 digits instead of 7 - but the same general formula.
+
+Now we have our cleaned variables and we can calculate the percent of total income that comes from the different sources captured by the ACS. Here again, we are applying the same formula over and over, so we can use a `foreach` loop here too.
+
+```{.stata}
+oreach x of varlist incwage incbus00 incss incwelfr incinvst incretir incsupp incother{
+	gen `x'_prc = ((`x' / inctot)*100)
+}
+
+```
+
+Finally, we are interested in looking at how these variables look at different points of the income distribution, so we should have some categorical variables that capture different points in the income distribution! Here, we are going to look at different points in the distribution of family income and Stata makes this really easy for us. We are going to use the `xtile` command which tells State to rank all observations on a given variable, identify the number of quantiles you need, and create a new categorical variable that identifies which quantile each observation is in. We're going to look at the 90th and 10th percentile, so we will want to specify 10 quantiles. We will also look at White and Non-White splits, so we can code our Non-White indicator here too.
+
+```{.stata}
+replace ftotinc = .a if ftotinc >= 9999998
+xtile finc_q = ftotinc, nq(10)
+gen nonwhite = 0
+replace nonwhite = 1 if rachsing > 1
+```
+
+## Making Tables
+We are now ready to make our first table! To do so, we are going to draw on some things we've already learned. First, we are going to use the `sum` command. Second, we are going to use three commands from the `estout` package we installed earlier: `estpost` to tell Stata to post the estimates from the next command into its temporary memory, `est sto` to tell Stata to label those stored estimates with a name we give it, and `esttab` to tell Stata to put some of those estimates into a nice table for us. When we do this, we will run the sum command for the full sample and then for the subsamples we want. It will look something like this:
+
+```{.stata}
+estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2
+est sto all
+estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 if finc_q == 1
+est sto low
+estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 if finc_q == 9
+est sto high
+estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 if racecat1 == 1
+est sto white
+estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 if nonwhite == 1
+est sto nonwhite
+esttab all low high white nonwhite using "output\table1.csv", cell(mean) label unstack compress replace
+```
 
