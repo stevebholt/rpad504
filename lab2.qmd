@@ -137,14 +137,79 @@ and we should have a new series of indicators in our variable list:
 ![Bottom of Variables List Panel](tab1race.png)
 
 
-We will go ahead and do the same thing for marital status (`marst`). 
+We will go ahead and do the same thing for marital status (`marst`) and biological sex (`sex`). 
 
 ```{.stata}
+
 tab marst, gen(marital)
+tab sex, gen(bsex)
 
 ```
 
-We
+Now let's move on to sex, educational attainment, and transit mode taken to work. Let's use `fre` to take a look at these categorical variables.
+
+```{.stata}
+
+fre sex educ tranwork
+
+```
+
+Here, we get a series of tables that look like:
+
+```
+. fre educ tranwork
+
+educ -- educational attainment [general version]
+----------------------------------------------------------------------------------
+                                     |      Freq.    Percent      Valid       Cum.
+-------------------------------------+--------------------------------------------
+Valid   0  n/a or no schooling       |     778620       5.95       5.95       5.95
+        1  nursery school to grade 4 |     934263       7.14       7.14      13.10
+        2  grade 5, 6, 7, or 8       |     828813       6.34       6.34      19.43
+        3  grade 9                   |     266110       2.03       2.03      21.47
+        4  grade 10                  |     292384       2.24       2.24      23.70
+        5  grade 11                  |     328913       2.51       2.51      26.22
+        6  grade 12                  |    3873003      29.61      29.61      55.83
+        7  1 year of college         |    1488821      11.38      11.38      67.21
+        8  2 years of college        |     882180       6.74       6.74      73.95
+        10 4 years of college        |    2075039      15.86      15.86      89.82
+        11 5+ years of college       |    1331923      10.18      10.18     100.00
+        Total                        |   1.31e+07     100.00     100.00           
+----------------------------------------------------------------------------------
+
+tranwork -- means of transportation to work
+----------------------------------------------------------------------------------------------------
+                                                       |      Freq.    Percent      Valid       Cum.
+-------------------------------------------------------+--------------------------------------------
+Valid   0  n/a                                         |    7103702      54.31      54.31      54.31
+        10 auto, truck, or van                         |    4813653      36.80      36.80      91.11
+        20 motorcycle                                  |       8748       0.07       0.07      91.18
+        31 bus                                         |      64683       0.49       0.49      91.67
+        32 bus or trolley bus                          |      28865       0.22       0.22      91.89
+        34 light rail, streetcar, or trolley (carro    |       4002       0.03       0.03      91.92
+           pÃºblico in pr)                             |                                            
+        35 streetcar or trolley car (publico in puerto |        816       0.01       0.01      91.93
+           rico, 2000)                                 |                                            
+        36 subway or elevated                          |      79579       0.61       0.61      92.54
+        37 long-distance train or commuter train       |      26096       0.20       0.20      92.74
+        38 taxicab                                     |      10578       0.08       0.08      92.82
+        39 ferryboat                                   |       2567       0.02       0.02      92.84
+        50 bicycle                                     |      28359       0.22       0.22      93.05
+        60 walked only                                 |     162531       1.24       1.24      94.30
+        70 other                                       |      59606       0.46       0.46      94.75
+        80 worked at home                              |     686284       5.25       5.25     100.00
+        Total                                          |   1.31e+07     100.00     100.00           
+----------------------------------------------------------------------------------------------------
+
+```
+
+Notice how many categories there are? That's probably going to be overwhelming to look at in a table all together. We might want to collapse these categories into higher level categories. To do this, we'll use a new command: `recode`. This will be much simpler than our previous route of creating a new variable and then replacing it with a new value for each category. How tedious!
+
+We'll start with `educ` since it's the most straightforward. Here, we might really only be concerned with a breakdown of people with no college, some college, and a Bachelor's degree or more. Maybe we go an extra mile and include a separate breakout for graduate degrees. Here, we'll use `recode` to define a smaller set of categories that include multiple categories from the original variable.
+
+```{.stata}
+recode educ (0/5 = 1 "Less than HS") (6 = 2 "HS") (7/8 = 3 "Some college") (10 = 4 "College degree") (11 = 5 "More than Bachelor's"), gen(educ5)
+```
 
 
 
