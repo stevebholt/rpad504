@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -126,6 +160,14 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#overview-of-lab-2" id="toc-overview-of-lab-2" class="nav-link active" data-scroll-target="#overview-of-lab-2">Overview of Lab 2</a></li>
   <li><a href="#downloading-data" id="toc-downloading-data" class="nav-link" data-scroll-target="#downloading-data">Downloading Data</a></li>
+  <li><a href="#using-the-data" id="toc-using-the-data" class="nav-link" data-scroll-target="#using-the-data">Using the Data</a>
+  <ul class="collapse">
+  <li><a href="#cleaning-the-data" id="toc-cleaning-the-data" class="nav-link" data-scroll-target="#cleaning-the-data">Cleaning the Data</a>
+  <ul class="collapse">
+  <li><a href="#user-written-packages" id="toc-user-written-packages" class="nav-link" data-scroll-target="#user-written-packages">User-Written Packages</a></li>
+  <li><a href="#creating-new-variables" id="toc-creating-new-variables" class="nav-link" data-scroll-target="#creating-new-variables">Creating New Variables</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -183,12 +225,92 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="samplesmenu.png" class="img-fluid"></p>
 <p>The ACS is collected annually and sampled households are not eligible for resample for 5 years. There are a variety of caveats, subsamples, and other considerations that warrant reading some of the codebooks when doing something more sophisticated than a class exercise, but for our purposes, we will be using fairly common variables collected in most years in a pretty standard format. The sample years selected will determine the set of variables that are available in all years and the samples to be included in our final dataset. For the purposes of this exercise, let’s just select 2018, 2019, 2021, and 2022 and deselect everything else in this window. We will then hit “Submit Sample Selections” at the top of the screen.</p>
 <p>Notice that the data cart at the top now has “4 samples” in it: <img src="datacart1.png" class="img-fluid"></p>
-<p>This means that as we look at variables, we’ll have indicators for the variable availability in those four samples (i.e., the four years of the ACS we chose) and we</p>
+<p>This means that as we look at variables, we’ll have indicators for the variable availability in those four samples (i.e., the four years of the ACS we chose) and we can assemble a dataset with consistent variables measured in all the years we’ve chosen. We’ll select variables using the “Household” dropdown and the “Person” dropdown. Let’s start with “Household.” Hovering your mouse over the dropdown should pull up a submenu with several options. For now, we’ll select “Geographic,” which will bring us here:</p>
+<p><img src="geographic.png" class="img-fluid"></p>
+<p>On the right, you will see columns underneath the years of ACS data we have selected. An “X” in those columns indicates that a given variable (the rows) is available in that year of data. In general, it’s a good idea to only include variables available in all years you are working with, at least as you’re learning and getting familiar with data analysis.</p>
+<p>On the left, you’ll see little blue circles with plus signs <img src="blueplus.png" class="img-fluid"> next to different variable names. Clicking those will add the variable to our dataset request and convert it to a box with a checkmark <img src="box.png" class="img-fluid">. For now, we will just add “REGION,” “STATEFIP,” and “COUNTYFIP” to our data by clicking the circled plus marks.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice that IPUMS shows us a variable name and a slightly more detailed variable label. You can also click on the variable name and see a detailed description of the variable from its codebook entry and documentation. IPUMS divides this cleanly so you can see the codes, any technical notes about the construction of the variable, and even the specific text of the question from the survey. This is the Gold Standard of data documentation to which all public data warehouses should aspire. It also captures a nested version of good data documentation practices: a variable name that is intuitive for technical users and consistent across years, a label that is a short description in plain language, and detailed documentation about how the variable is collected and what it measures.</p>
+</div>
+</div>
+<p>Now, we will collect some demographic, education, and income variables.</p>
+<ol type="1">
+<li>Under the “Person” menus, go to the “Demographic” submenu and select “SEX,” “AGE,” and “MARST.”</li>
+<li>Go to the “Race, Ethnicity, and Nativity” submenu of the “Person” menu and select “RACHSING,” “RACE,” “HISPAN,” and “CITIZEN.”</li>
+<li>Under the “Education” submenu, select “SCHOOL,” “EDUC,” and “DEGFIELD.”</li>
+<li>Under the “Income” submenu, select the following:</li>
+</ol>
+<p><img src="incomevars.png" class="img-fluid"> 5. Under the “Work” submenu, select “EMPSTAT” and “LABFORCE.” 6. Finally, under the “Place of Work and Travel Time,” select “TRANWORK,” “CARPOOL,” “RIDERS,” and “TRANTIME.”</p>
+<p>The data cart at the top right should now show 37 variables across 4 samples selected: <img src="datacart2.png" class="img-fluid"></p>
+<p>Now, in the data cart, we are going to click on “View Cart.” This will bring us to our data extraction tool.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="datacart3.png" class="img-fluid figure-img"></p>
+<figcaption>The data cart preview</figcaption>
+</figure>
+</div>
+<p>Here, you’ll see a list of your variables and their availability across your selected samples (in this case, years of ACS data). We will then click the “Create Data Extract” button at the top. This will take us to a preview of our extract:</p>
+<p><img src="dataextract1.png" class="img-fluid" alt="Data Extract Summary"> Notice that the format for the data is a <code>.dat</code> file type. This is a flat file. Technically Stata has the tools to import data from any file type, which we will get into later in the semester, but IPUMS has the decency to provide us options for what format we want our data in. We will click the change link in the format row and arrive here:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="dataextract2.png" class="img-fluid figure-img"></p>
+<figcaption>Data Extract Format Selection Window</figcaption>
+</figure>
+</div>
+<p>We will go ahead and select “Stata” and “Apply Selections.” We won’t select any of the other options and will simply click “Submit Extract” at the bottom.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take note that when the .dat flat file is selected, IPUMS provides a zip folder with code to import the data into a variety of statistical software. The code for Stata will be a .do file and you would simply edit the code to point to where the .dat file is saved on your computer and you can run the do file in Stata and import the code that way. This is a useful means by which many government agencies share public data in a way that is flexible for all users. Another Gold Standard practice for data sharing.</p>
+</div>
+</div>
+<p>You will notice that you will be at an extraction screen after submitting the request. The time it takes to process a request depends on how many variables and how many years you select, among other things. The more complicated the request, the longer the extraction processing time. IPUMS sends an email when your request is ready and you will have a link to download the data in this screen when it’s ready.</p>
+</section>
+<section id="using-the-data" class="level1">
+<h1>Using the Data</h1>
+<section id="cleaning-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-the-data">Cleaning the Data</h2>
+<p>In lab 1, we learned the basics of working with Stata and some rudimentary tools for data cleaning: creating a new categorical variable using a set of indicator variables. Here, we are going to learn some shortcuts to re-coding variables and creating sets of mutually exclusive indicators<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> from a categorical variable. We are also going to create variables that are functions of other variables. Once we have the elements we need for a table, we are going to create a table that presents a variety of variables for the full sample, by the 90/10 income split, and by White and Non-White.</p>
+<section id="user-written-packages" class="level3">
+<h3 class="anchored" data-anchor-id="user-written-packages">User-Written Packages</h3>
+<p>First, we are going to install two packages that are not part of the standard Stata package set. Stata packages all get housed in an internet archive that can be accessed directly in Stata using the <code>ssc install</code> command. We will install <code>fre</code>, which is a user-written package that implements the <code>tabulate</code> command that we have already used in Stata but includes both variables codes and labels in the output. As you will come to see, this is very useful for getting a sense of how data is coded when we are at the cleaning stage of the data.</p>
+<p>We are also going to install <code>estout</code>, which is actually a library of commands that all provide a very flexible way to make exportable tables from estimates stored in Stata’s temporary memory.</p>
+<p>To do this, run:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install fre, <span class="kw">replace</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install estout, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="creating-new-variables" class="level3">
+<h3 class="anchored" data-anchor-id="creating-new-variables">Creating New Variables</h3>
+<p>For this exercise, we are going to look at the characteristics we have overall and separately by income and some rough binaries of race and ethnicity. To do that, we will want to recode some variables using a combination of the <code>recode</code> command and attaching an option to the <code>tab</code> command. Let’s start with the latter because it’s quite straightforward.</p>
 
 
 </section>
+</section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>“Mutually exclusive” means that each observation can only be in one category. Ideally, the sum of the categories adds up to 100 percent.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
