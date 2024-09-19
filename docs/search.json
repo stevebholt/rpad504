@@ -275,5 +275,38 @@
       "Labs",
       "Lab 2 - Getting and Summarizing Data"
     ]
+  },
+  {
+    "objectID": "probset1.html",
+    "href": "probset1.html",
+    "title": "Problem Set 1",
+    "section": "",
+    "text": "This problem set will require 3 file submissions: 1) a clean .do file with the commands used to answer the questions, 2) a .log file with the all the output from the commands used to answer the questions, and 3) a clean word document with the answers to the questions. You will submit all three files via Brightspace.\nFor this problem set, you will need to use the Current Population Survey data from IPUMS. Use the “Get Data” feature and in the ASEC tab select only the 2023 sample.\n\n\n\n\n\n\nImportant\n\n\n\nNote that you will need to also open the “Basic Monthly” tab and deselect all of those samples as well.\n\n\nFor this assignment, you will be using four variables to describe health, employment, income, health expenditures. In parentheses below are the menus paths to find the listed variables. Complete your dataset by adding:\n\nHEALTH (Person -&gt; Annual Social and Economic Supplement -&gt; Disability)\nFTOTVAL (Person -&gt; Annual Social and Economic Supplement -&gt; Income)\nEMPSTAT (Person -&gt; Core -&gt; Work)\nMOOP (Person -&gt; Annual Social and Economic Supplement -&gt; Health Insurance)\n\nThis should leave you with 4 variables in 1 sample. Use the data to answer the following questions.",
+    "crumbs": [
+      "Assignments",
+      "Problem Set 1"
+    ]
+  },
+  {
+    "objectID": "probset1.html#instructions",
+    "href": "probset1.html#instructions",
+    "title": "Problem Set 1",
+    "section": "",
+    "text": "This problem set will require 3 file submissions: 1) a clean .do file with the commands used to answer the questions, 2) a .log file with the all the output from the commands used to answer the questions, and 3) a clean word document with the answers to the questions. You will submit all three files via Brightspace.\nFor this problem set, you will need to use the Current Population Survey data from IPUMS. Use the “Get Data” feature and in the ASEC tab select only the 2023 sample.\n\n\n\n\n\n\nImportant\n\n\n\nNote that you will need to also open the “Basic Monthly” tab and deselect all of those samples as well.\n\n\nFor this assignment, you will be using four variables to describe health, employment, income, health expenditures. In parentheses below are the menus paths to find the listed variables. Complete your dataset by adding:\n\nHEALTH (Person -&gt; Annual Social and Economic Supplement -&gt; Disability)\nFTOTVAL (Person -&gt; Annual Social and Economic Supplement -&gt; Income)\nEMPSTAT (Person -&gt; Core -&gt; Work)\nMOOP (Person -&gt; Annual Social and Economic Supplement -&gt; Health Insurance)\n\nThis should leave you with 4 variables in 1 sample. Use the data to answer the following questions.",
+    "crumbs": [
+      "Assignments",
+      "Problem Set 1"
+    ]
+  },
+  {
+    "objectID": "probset1.html#questions",
+    "href": "probset1.html#questions",
+    "title": "Problem Set 1",
+    "section": "Questions",
+    "text": "Questions\n\nWhat is the average and median family income in the sample?\n\n\n\n\n\n\n\nTip\n\n\n\nBe sure you account for the code used for missing values in any variables you are using to answer these questions when relevant.\n\n\n\nWhat is the average family income among families in the bottom and top quartiles?\nWhat is the distribution of self-reported health status overall, in the bottom quartile of family income, and in the top quartile of family income? How would you describe the difference between people from low and high income families in self-reported health status?\nWhat is the difference in average out of pocket spending on health costs between people with excellent health and people with poor health?\nWhat is the difference in average out of pocket spending on health costs between people in the top decile of family income and people in the bottom decile of family income?\nCreate a table that shows the distribution of health status, average out of pocket spending on health, and average family income in the sample overall and separately by the top and bottom quartiles of family income. Paste the table from the csv output into word.\n\n\n\n\n\n\n\nTip\n\n\n\nYour table should have 7 variable rows and 3 columns of statistics.\n\n\n\nExtra Credit (worth 1 point)\n\nCreate a new table starting from the table you made for question 6, but add the percent of family income spent on out of pocket costs on health care as a new variable in the table.",
+    "crumbs": [
+      "Assignments",
+      "Problem Set 1"
+    ]
   }
 ]

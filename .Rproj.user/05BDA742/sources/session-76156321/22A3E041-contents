@@ -24,3 +24,29 @@ This should leave you with 4 variables in 1 sample. Use the data to answer the f
 
 ## Questions
 
+1. What is the average and median family income in the sample?
+
+::: callout-tip
+Be sure you account for the code used for missing values in any variables you are using to answer these questions when relevant.
+:::
+
+2. What is the average family income among families in the bottom and top quartiles?
+
+
+3. What is the distribution of self-reported health status overall, in the bottom quartile of family income, and in the top quartile of family income? How would you describe the difference between people from low and high income families in self-reported health status?
+
+
+4. What is the difference in average out of pocket spending on health costs between people with excellent health and people with poor health?
+
+
+5. What is the difference in average out of pocket spending on health costs between people in the top decile of family income and people in the bottom decile of family income? 
+
+
+6. Create a table that shows the distribution of health status, average out of pocket spending on health, and average family income in the sample overall and separately by the top and bottom quartiles of family income. Paste the table from the csv output into word.
+
+::: callout-tip
+Your table should have 7 variable rows and 3 columns of statistics.
+:::
+
+### Extra Credit (worth 1 point)
+7. Create a new table starting from the table you made for question 6, but add the percent of family income spent on out of pocket costs on health care as a new variable in the table.

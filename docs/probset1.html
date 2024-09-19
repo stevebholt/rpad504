@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stephen B. Holt">
 
-<title>Assignments – RPAD 504 - Data, Models, and Decisions</title>
+<title>Problem Set 1 – RPAD 504 - Data, Models, and Decisions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./assignments.html">Assignments</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./probset1.html">Problem Set 1</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -140,13 +141,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignments.html" class="sidebar-item-text sidebar-link active">
+  <a href="./assignments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignments</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./probset1.html" class="sidebar-item-text sidebar-link">
+  <a href="./probset1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Problem Set 1</span></a>
   </div>
 </li>
@@ -155,21 +156,37 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a>
+  <ul class="collapse">
+  <li><a href="#extra-credit-worth-1-point" id="toc-extra-credit-worth-1-point" class="nav-link" data-scroll-target="#extra-credit-worth-1-point">Extra Credit (worth 1 point)</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignments</h1>
+<h1 class="title">Problem Set 1</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stephen B. Holt </p>
+          </div>
+  </div>
     
   
     
@@ -180,9 +197,79 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Assignments for RPAD 504 will be posted here as they are assigned.</p>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<p>This problem set will require 3 file submissions: 1) a clean .do file with the commands used to answer the questions, 2) a .log file with the all the output from the commands used to answer the questions, and 3) a clean word document with the answers to the questions. You will submit all three files via Brightspace.</p>
+<p>For this problem set, you will need to use the <a href="https://cps.ipums.org/cps/">Current Population Survey data from IPUMS</a>. Use the “Get Data” feature and in the ASEC tab select only the 2023 sample.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that you will need to also open the “Basic Monthly” tab and deselect all of those samples as well.</p>
+</div>
+</div>
+<p>For this assignment, you will be using four variables to describe health, employment, income, health expenditures. In parentheses below are the menus paths to find the listed variables. Complete your dataset by adding:</p>
+<ol type="1">
+<li>HEALTH (Person -&gt; Annual Social and Economic Supplement -&gt; Disability)</li>
+<li>FTOTVAL (Person -&gt; Annual Social and Economic Supplement -&gt; Income)</li>
+<li>EMPSTAT (Person -&gt; Core -&gt; Work)</li>
+<li>MOOP (Person -&gt; Annual Social and Economic Supplement -&gt; Health Insurance)</li>
+</ol>
+<p>This should leave you with 4 variables in 1 sample. Use the data to answer the following questions.</p>
+</section>
+<section id="questions" class="level2">
+<h2 class="anchored" data-anchor-id="questions">Questions</h2>
+<ol type="1">
+<li>What is the average and median family income in the sample?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Be sure you account for the code used for missing values in any variables you are using to answer these questions when relevant.</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>What is the average family income among families in the bottom and top quartiles?</p></li>
+<li><p>What is the distribution of self-reported health status overall, in the bottom quartile of family income, and in the top quartile of family income? How would you describe the difference between people from low and high income families in self-reported health status?</p></li>
+<li><p>What is the difference in average out of pocket spending on health costs between people with excellent health and people with poor health?</p></li>
+<li><p>What is the difference in average out of pocket spending on health costs between people in the top decile of family income and people in the bottom decile of family income?</p></li>
+<li><p>Create a table that shows the distribution of health status, average out of pocket spending on health, and average family income in the sample overall and separately by the top and bottom quartiles of family income. Paste the table from the csv output into word.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your table should have 7 variable rows and 3 columns of statistics.</p>
+</div>
+</div>
+<section id="extra-credit-worth-1-point" class="level3">
+<h3 class="anchored" data-anchor-id="extra-credit-worth-1-point">Extra Credit (worth 1 point)</h3>
+<ol start="7" type="1">
+<li>Create a new table starting from the table you made for question 6, but add the percent of family income spent on out of pocket costs on health care as a new variable in the table.</li>
+</ol>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
