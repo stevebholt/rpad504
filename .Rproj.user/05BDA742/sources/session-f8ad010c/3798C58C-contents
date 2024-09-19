@@ -243,7 +243,7 @@ Always check the codebook tabs for variables you will be using! I did the grunt 
 Now, we're going to have to do that for all the income source variables too.[^2] Given that there's several of them, this could be tedious to code. But this makes for a good opportunity to learn a little trick: a `foreach` loop. See, this loop will let you apply the same process to many variables at once, perfect for situations where the same data change needs to be applies to many variables. To do it, we will put all of the variables in a `foreach` command and label them something simple, like "X", and then use that stand-in in our code. It will look like this:
 
 ```{.stata}
-foreach x of varlist ncwage incbus00 incss incwelfr incinvst incretir incsupp incother{
+foreach x of varlist incwage incbus00 incss incwelfr incinvst incretir incsupp incother{
 	replace `x' = 0 if `x' >= 999998
 }
 
@@ -254,7 +254,7 @@ foreach x of varlist ncwage incbus00 incss incwelfr incinvst incretir incsupp in
 Now we have our cleaned variables and we can calculate the percent of total income that comes from the different sources captured by the ACS. Here again, we are applying the same formula over and over, so we can use a `foreach` loop here too.
 
 ```{.stata}
-oreach x of varlist incwage incbus00 incss incwelfr incinvst incretir incsupp incother{
+foreach x of varlist incwage incbus00 incss incwelfr incinvst incretir incsupp incother{
 	gen `x'_prc = ((`x' / inctot)*100)
 }
 

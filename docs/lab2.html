@@ -8,7 +8,7 @@
 
 <meta name="author" content="Stephen B. Holt">
 
-<title>Lab 2 – RPAD 504 - Data, Models, and Decisions</title>
+<title>Lab 2 - Getting and Summarizing Data – RPAD 504 - Data, Models, and Decisions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -220,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lab 2</h1>
+<h1 class="title">Lab 2 - Getting and Summarizing Data</h1>
 </div>
 
 
@@ -442,11 +442,11 @@ Codebook
 </div>
 </div>
 <p>Now, we’re going to have to do that for all the income source variables too.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Given that there’s several of them, this could be tedious to code. But this makes for a good opportunity to learn a little trick: a <code>foreach</code> loop. See, this loop will let you apply the same process to many variables at once, perfect for situations where the same data change needs to be applies to many variables. To do it, we will put all of the variables in a <code>foreach</code> command and label them something simple, like “X”, and then use that stand-in in our code. It will look like this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> x <span class="kw">of</span> <span class="kw">varlist</span> ncwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
+<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> x <span class="kw">of</span> <span class="kw">varlist</span> incwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span> <span class="ot">`x'</span> = 0 <span class="kw">if</span> <span class="ot">`x'</span> &gt;= 999998</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now we have our cleaned variables and we can calculate the percent of total income that comes from the different sources captured by the ACS. Here again, we are applying the same formula over and over, so we can use a <code>foreach</code> loop here too.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>oreach x <span class="kw">of</span> <span class="kw">varlist</span> incwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> x <span class="kw">of</span> <span class="kw">varlist</span> incwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">gen</span> <span class="ot">`x'</span>_prc = ((<span class="ot">`x'</span> / inctot)*100)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Finally, we are interested in looking at how these variables look at different points of the income distribution, so we should have some categorical variables that capture different points in the income distribution! Here, we are going to look at different points in the distribution of family income and Stata makes this really easy for us. We are going to use the <code>xtile</code> command which tells State to rank all observations on a given variable, identify the number of quantiles you need, and create a new categorical variable that identifies which quantile each observation is in. We’re going to look at the 90th and 10th percentile, so we will want to specify 10 quantiles. We will also look at White and Non-White splits, so we can code our Non-White indicator here too.</p>
