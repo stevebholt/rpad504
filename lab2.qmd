@@ -142,7 +142,6 @@ and we should have a new series of indicators in our variable list:
 We will go ahead and do the same thing for marital status (`marst`) and biological sex (`sex`). 
 
 ```{.stata}
-
 tab marst, gen(marital)
 tab sex, gen(bsex)
 
@@ -151,7 +150,6 @@ tab sex, gen(bsex)
 Now let's move on to sex, educational attainment, and transit mode taken to work. Let's use `fre` to take a look at these categorical variables.
 
 ```{.stata}
-
 fre sex educ tranwork
 
 ```
