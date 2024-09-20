@@ -203,7 +203,7 @@ Valid   0  n/a                                         |    7103702      54.31  
 
 ```
 
-Notice how many categories there are? That's probably going to be overwhelming to look at in a table all together. We might want to collapse these categories into higher level categories. To do this, we'll use a new command: `recode`. This will be much simpler than our previous route of creating a new variable and then replacing it with a new value for each category. How tedious!
+Notice how many categories there are? That's probably going to be overwhelming to look at in a table all together. We might want to collapse these categories into higher level categories. To do this, we'll use a new command: `recode`. This will be much simpler than our previous route of creating a new variable and then replacing each value of the variable with a new value for each category. How tedious!
 
 We'll start with `educ` since it's the most straightforward. Here, we might really only be concerned with a breakdown of people with no college, some college, and a Bachelor's degree or more. Maybe we go an extra mile and include a separate breakout for graduate degrees. Here, we'll use `recode` to define a smaller set of categories that include multiple categories from the original variable.
 
@@ -244,7 +244,6 @@ Now, we're going to have to do that for all the income source variables too.[^2]
 foreach x of varlist incwage incbus00 incss incwelfr incinvst incretir incsupp incother{
 	replace `x' = 0 if `x' >= 999998
 }
-
 ```
 
 [^2]: The income source variables have a slightly different coding schema - 6 digits instead of 7 - but the same general formula.
@@ -255,8 +254,22 @@ Now we have our cleaned variables and we can calculate the percent of total inco
 foreach x of varlist incwage incbus00 incss incwelfr incinvst incretir incsupp incother{
 	gen `x'_prc = ((`x' / inctot)*100)
 }
-
 ```
+
+An alternative way to code the above would be to simply generate each variable on it's own line with a `gen` command. That would look like this:
+
+```{.stata}
+gen incwage_prc = ((incwage/inctot)*100)
+gen incbus00_prc = ((incbus00/inctot)*100)
+gen incss_prc = ((incss/inctot)*100)
+gen incwelfr_prc = ((incwelfr/inctot)*100)
+gen incinvst_prc = ((incinvst/inctot)*100)
+gen incretir_prc = ((incretir/inctot)*100)
+gen incsupp_prc = ((incsupp/inctot)*100)
+gen incother_prc = ((incother/inctot)*100)
+```
+
+Both routes will get you the same set of variables describing the proportion of personal inctome from various sources among Americans. 
 
 Finally, we are interested in looking at how these variables look at different points of the income distribution, so we should have some categorical variables that capture different points in the income distribution! Here, we are going to look at different points in the distribution of family income and Stata makes this really easy for us. We are going to use the `xtile` command which tells State to rank all observations on a given variable, identify the number of quantiles you need, and create a new categorical variable that identifies which quantile each observation is in. We're going to look at the 90th and 10th percentile, so we will want to specify 10 quantiles. We will also look at White and Non-White splits, so we can code our Non-White indicator here too.
 
