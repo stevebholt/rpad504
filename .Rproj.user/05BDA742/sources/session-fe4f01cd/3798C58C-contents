@@ -110,7 +110,6 @@ When we are making tables with categorical variables in them, it's quite useful 
 
 ```{.stata}
 tab rachsing, gen(racecat)
-
 ```
 
 Note that the `racecat` part in the `gen` option is telling Stata to name the indicator variables for each category `racecat#` where # is the number of the category.
@@ -144,14 +143,12 @@ We will go ahead and do the same thing for marital status (`marst`) and biologic
 ```{.stata}
 tab marst, gen(marital)
 tab sex, gen(bsex)
-
 ```
 
 Now let's move on to sex, educational attainment, and transit mode taken to work. Let's use `fre` to take a look at these categorical variables.
 
 ```{.stata}
-fre sex educ tranwork
-
+fre educ tranwork
 ```
 
 Here, we get a series of tables that look like:
@@ -230,7 +227,6 @@ Finally, we are going to work with continuous variables to create some variables
 
 ```{.stata}
 replace inctot = .a if inctot >= 9999998
-
 ```
 
 ::: callout-tip
@@ -281,19 +277,130 @@ replace nonwhite = 1 if rachsing > 1
 ```
 
 ## Making Tables
-We are now ready to make our first table! To do so, we are going to draw on some things we've already learned. First, we are going to use the `sum` command. Second, we are going to use three commands from the `estout` package we installed earlier: `estpost` to tell Stata to post the estimates from the next command into its temporary memory, `est sto` to tell Stata to label those stored estimates with a name we give it, and `esttab` to tell Stata to put some of those estimates into a nice table for us. When we do this, we will run the sum command for the full sample and then for the subsamples we want. It will look something like this:
+We are now ready to make our first table! To do so, we are going to draw on some things we've already learned. First, we are going to use the `sum` command. Second, we are going to use three commands from the `estout` package we installed earlier: `estpost` to tell Stata to post the estimates from the next command into its temporary memory, `est sto` to tell Stata to label those stored estimates with a name we give it, and `esttab` to tell Stata to put some of those estimates into a nice table for us. When we do this, we will run the sum command for the full sample and then for the sub-samples we want.
+
+First, let's return to what we are trying to do here. Our goal from the beginning was to look at how people in the top and bottom of the income distribution differ in terms of education, family characteristics, sources of income, and - just out of curiosity - mode of transportation used for commuting to work (among those employed). Here, we are functionally just trying to describe differences between people in the top decile of income and those in the bottom decile of income. We refer to this as *descriptive analysis* and we often describe the world with *summary statistics*. 
+
+Let's start with a simple table of just average income and the percent of income from wages (`incwage_prc`, which we created with our second loop in the previous section). To do this we will start with estimating summary statistics of those two variables using `sum`, but we will add our new command `estpost` so that Stata stores these estimates in its memory.
+
+::: callout-note
+The `sum` command in Stata estimates a whole set of statistics for all of the variables in the variable list you enter with the command. These statistics are all different ways of summarizing the central tendency and spread of the variable in your sample. These include the five-number summary of the distribution (the minimum value, 25th percentile, median, 75th percentile, and maximum value), the mean, the standard deviation, and the variance of the variable (and several others - see the output from adding `, detail` like we did in lab 1). All of these statistics can be stored in Stata's memory to be recalled later for things like making tables or making figures of data.
+:::
+
+```{.stata}
+estpost sum inctot incwage_prc
+```
+
+We will get output from something that looks like this:
+
+```
+. estpost sum inctot incwage_prc
+
+             |  e(count)   e(sum_w)    e(mean)     e(Var)      e(sd)     e(min)     e(max)     e(sum) 
+-------------+----------------------------------------------------------------------------------------
+      inctot |    168171     168171   46004.99   4.81e+09   69371.54      -8500    1309000   7.74e+09 
+ incwage_prc |    147621     147621   63.64085   503210.3   709.3732      -1000     200000    9394726 
+
+```
+
+Our sample average income is about $46,005 per year and about 63% of that income comes from wages and salary for the average person in the sample. Let's go ahead and store this under a label so we can put it in a table.
+
+```{.stata}
+est sto all
+```
+
+In the code about, `est sto` is my command and it's short for "estimates store." The `all` part of the command is a label for the estimates for future reference. You can use any label you like (no spaces), but I typicall keep them short and snappy so that referencing them later is easy. In this call, we are estimating summary statistics of income and percent of income from wages using the full sample - or all observations - so I use the label all for clarity.
+
+Now, let's make our first table with just these two variables and just their averages.
+
+```{.stata}
+esttab all using "output\table1a.csv", cell(mean) replace
+```
+
+Here, `esttab` is the command for creating an "estimates table" containing the estimates stored under the label `all`. The `using` part of the code tells Stata to create a `.csv` file named `table1a` in the output subfolder of our command drive (in this case, the rpad504 class folder). CSV files can be opened and edited in Excel and copied and pasted into a word doc. The options I have after the comma tell Stata to enter the `means` of the variables stored under `all` inthe cells of the table I am creating and to replace any file in `output` named `table1a.csv` with the new table I am making with this line of code.[^3] Remember that `all` is the label I have for all of the summary statistics of two variables for all observations in the sample. We will expand our variables list and samples in a table shortly.
+
+[^3]: This avoids hitting errors when you already created a table of the same name, but be careful! If you are creating multiple tables in a single .do file, this can overwrite all previous tables with just that last one you created. Just be sure your outputs have unique names in your code.
+
+::: callout-note
+I am keeping things simple by using a format that works cleanly in Excel. You can also used the ".rtf" extension for a "rich text file" that can be opened directly in Word and also copied and pasted into a report or document you are using. There are more advanced file formats too that can really expand how much you can directly output your table into a document and print it into a formal report that is already properly formatted, but that is a little more advanced. I am just flagging this here because you would still use this base code for creating these tables in Stata.
+:::
+
+But first, our simple table should look like this: ![Table 1a](table1a.png)
+
+Notice a few things. First, this is very basic. Second, the variables are just listed with their variable names - not very attractive or intuitive. We can have Stata use variable labels to clean that up a bit for us for variables we have labled. Finally, this doesn't let us compare high and low income households. So in the next version of the table, we are going to add the rest of the income variables, add the label option, and add columns for high- and low-income sub-samples.
+
+```{.stata}
+estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc
+est sto all
+estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc if finc_q == 1
+est sto low
+estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc if finc_q == 10
+est sto high
+esttab all low high using "output\table1b.csv", cell(mean) label replace
+```
+
+Notice a few things in the code. First, I estimate the same summary statistics on the same set of variables overall **and** for my two subsamples. Two get summary statistics for my subsamples I simply add `if` conditions. This will give me "conditional means" or the mean of income and percent of income from various sources *conditional* on being from a household in the bottom (or top) decile of family income. Second, notice that while I add lines of code to estimate statistics for each subsample, I still only have one line for creating the table. Now, I am simply updating the line to add the labels for including `low` and `high` - my labels for the summary statistics for low-income households and high-income households, respectively. Finally, I added the `label` option to tell Stata to use variable labels in the table rather than the less intuitive and details variable names. My table now looks like this:
+
+![Table 1b](table1b.png)
+Now we have 3 columns, helpfully labeled by Stata, showing the means of all of our variables overall and separately by decile. And we can see that the `label` option used the label for `inctot` instead of the variable name. Unfortunately, we never assigned variable labels for the labels we created! I present this so you can see the downstream usefulness of always adding labels to variables when you create them. I'd also point out that the label for `inctot` is sort of weak - it does not describe units and is all lower case. We'd typically like to see something more polished in a real table. Let's re-label our variables now in Stata.
+
+```{.stata}
+label var inctot "Total personal income ($)"
+label var incwage_prc "% of income from wages/salary"
+label var incbus00_prc "% of income from business or farm revenue"
+label var incss_prc "% of income from Social Security benefits"
+label var incwelfr_prc "% of income from cash welfare benefits"
+label var incinvst_prc "% of income from investment returns"
+label var incretir_prc "% of income from retirement income"
+label var incsupp_prc "% of income from supplemental security income"
+label var incother_prc "% of income from other sources"
+```
+
+Now, after running the code to label our variables more clearly, let's re-run the same table command.
+
+```{.stata}
+esttab all low high using "output\table1b.csv", cell(mean) label replace
+```
+
+Our table looks much better!
+
+![Table 1b V2](table1b2.png)
+
+One final set of edits and I think we'll have a nice table. For readers, it's not at all obvious how and why columns 1, 2 and 3 are different from one another. We know, but they likely don't. And we also might want to know a little something about the spread of our variables. And we definitely don't need so many decimals after the decimal place in our table presentation of estiamtes. In the final stage of our table making, we are going to add some options to label our columns, add standard deviations to our cells, and format the stats in our cells. Once again, we are just going to edit our last line of code, because everything else has already been done.
+
+```{.stata}
+esttab all low high using "output\table1c.csv", cell(mean(fmt(2)) sd(fmt(2) par)) unstack compress mtitles("All" "Bottom 10%" "Top 10%") label replace 
+```
+
+In the code above, we use `sd` to add standard deviations to our table. If we were just including a new statistic in the cells of our table, we could just add it in the parentheses to read `cell(mean sd)`. But we wanted to also modify the formats here, so next to each statistic, we add parentheses for options applied to that statistic (e.g., `mean()` and `sd()`). In those parentheses, we add `fmt(2)` to say "Stata, I want this statistics to have a format that rounds to the second decimal point. Since we have two statistics now, we want to differentiate them, so we follow convention and put our measure of spread - the standard deviation - in parentheses as well by also including the `par` piece of our code. Our final piece of estimate presentation formatting, we add options `unstack` and `compress` to tell Stata that the table can stack the standard deviations underneath the means for each variable and make sure there are no blank spaces between variables. This keeps our table compact and clean. After dealing with our presentation of our estimates, we include the `mtitles` (short for model titles) command to add labels to each column in our table. Since we have a column for each sample - the full sample, the low-income sample, and the high-income sample - we can make our labels "All," "Bottom 10%," and "Top 10%." 
+
+::: callout-tip
+In practice, most tables follow very similar formats and you are often only changing a few pieces of this base code for a table at a time. Obviously the variables in the table will change across contexts, but things like formatting and what statistics to include in the cells will often be pretty constant across contexts.
+:::
+
+![Table 1c](table1c.png)
+
+Look at that! A nice, formatted table worthy of sharing with minimal edits needed to format it. Our rows provide clear, easily interpretable descriptions of the variables, our columns have numeric headers for reference and labels to provide readers a quick understanding of what sample is included in each column, and we present both means and standard deviations for our variables.
+
+::: callout-tip
+When writing, it's useful to have your columns numbered in your tables so that you can discuss results and draw reader attention to a column with the results you'd like to discuss. For instance, if this was table 1 in a report, I might write, "As a comparison of columns 2 and 3 in Table 1 shows, people in the bottom decile of household income have a much higher share of their earnings from cash transfer programs, such as Social Security and welfare benefits, relative to people in the top decile."
+:::
+
+Our full list of variables can also be added to the code and we can add two more columns to our table - White and Non-White - for some additional descriptive analysis of sub-samples of policy interest.
+
+It will look something like this:
 
 ```{.stata}
 estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2
 est sto all
 estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 if finc_q == 1
 est sto low
-estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 if finc_q == 9
+estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 if finc_q == 10
 est sto high
 estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 if racecat1 == 1
 est sto white
 estpost sum inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 if nonwhite == 1
 est sto nonwhite
-esttab all low high white nonwhite using "output\table1.csv", cell(mean) label unstack compress replace
+esttab all low high white nonwhite using "output\table2.csv", cell(mean(fmt(2)) sd(fmt(2) par)) unstack compress mtitles("All" "Bottom 10%" "Top 10%" "White" "Non-White") label replace 
 ```
 

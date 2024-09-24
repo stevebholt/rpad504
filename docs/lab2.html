@@ -370,7 +370,7 @@ Note
 <div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> marst, <span class="kw">gen</span>(marital)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> sex, <span class="kw">gen</span>(bsex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now let’s move on to sex, educational attainment, and transit mode taken to work. Let’s use <code>fre</code> to take a look at these categorical variables.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fre sex educ tranwork</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fre educ tranwork</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here, we get a series of tables that look like:</p>
 <pre><code>. fre educ tranwork
 
@@ -466,18 +466,147 @@ Codebook
 </section>
 <section id="making-tables" class="level2">
 <h2 class="anchored" data-anchor-id="making-tables">Making Tables</h2>
-<p>We are now ready to make our first table! To do so, we are going to draw on some things we’ve already learned. First, we are going to use the <code>sum</code> command. Second, we are going to use three commands from the <code>estout</code> package we installed earlier: <code>estpost</code> to tell Stata to post the estimates from the next command into its temporary memory, <code>est sto</code> to tell Stata to label those stored estimates with a name we give it, and <code>esttab</code> to tell Stata to put some of those estimates into a nice table for us. When we do this, we will run the sum command for the full sample and then for the subsamples we want. It will look something like this:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 1</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto low</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 9</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto high</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> racecat1 == 1</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="bn">white</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> nonwhite == 1</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto nonwhite</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="bn">white</span> nonwhite <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">label</span> unstack <span class="kw">compress</span> <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We are now ready to make our first table! To do so, we are going to draw on some things we’ve already learned. First, we are going to use the <code>sum</code> command. Second, we are going to use three commands from the <code>estout</code> package we installed earlier: <code>estpost</code> to tell Stata to post the estimates from the next command into its temporary memory, <code>est sto</code> to tell Stata to label those stored estimates with a name we give it, and <code>esttab</code> to tell Stata to put some of those estimates into a nice table for us. When we do this, we will run the sum command for the full sample and then for the sub-samples we want.</p>
+<p>First, let’s return to what we are trying to do here. Our goal from the beginning was to look at how people in the top and bottom of the income distribution differ in terms of education, family characteristics, sources of income, and - just out of curiosity - mode of transportation used for commuting to work (among those employed). Here, we are functionally just trying to describe differences between people in the top decile of income and those in the bottom decile of income. We refer to this as <em>descriptive analysis</em> and we often describe the world with <em>summary statistics</em>.</p>
+<p>Let’s start with a simple table of just average income and the percent of income from wages (<code>incwage_prc</code>, which we created with our second loop in the previous section). To do this we will start with estimating summary statistics of those two variables using <code>sum</code>, but we will add our new command <code>estpost</code> so that Stata stores these estimates in its memory.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>sum</code> command in Stata estimates a whole set of statistics for all of the variables in the variable list you enter with the command. These statistics are all different ways of summarizing the central tendency and spread of the variable in your sample. These include the five-number summary of the distribution (the minimum value, 25th percentile, median, 75th percentile, and maximum value), the mean, the standard deviation, and the variance of the variable (and several others - see the output from adding <code>, detail</code> like we did in lab 1). All of these statistics can be stored in Stata’s memory to be recalled later for things like making tables or making figures of data.</p>
+</div>
+</div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We will get output from something that looks like this:</p>
+<pre><code>. estpost sum inctot incwage_prc
+
+             |  e(count)   e(sum_w)    e(mean)     e(Var)      e(sd)     e(min)     e(max)     e(sum) 
+-------------+----------------------------------------------------------------------------------------
+      inctot |    168171     168171   46004.99   4.81e+09   69371.54      -8500    1309000   7.74e+09 
+ incwage_prc |    147621     147621   63.64085   503210.3   709.3732      -1000     200000    9394726 
+</code></pre>
+<p>Our sample average income is about $46,005 per year and about 63% of that income comes from wages and salary for the average person in the sample. Let’s go ahead and store this under a label so we can put it in a table.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the code about, <code>est sto</code> is my command and it’s short for “estimates store.” The <code>all</code> part of the command is a label for the estimates for future reference. You can use any label you like (no spaces), but I typicall keep them short and snappy so that referencing them later is easy. In this call, we are estimating summary statistics of income and percent of income from wages using the full sample - or all observations - so I use the label all for clarity.</p>
+<p>Now, let’s make our first table with just these two variables and just their averages.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1a.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Here, <code>esttab</code> is the command for creating an “estimates table” containing the estimates stored under the label <code>all</code>. The <code>using</code> part of the code tells Stata to create a <code>.csv</code> file named <code>table1a</code> in the output subfolder of our command drive (in this case, the rpad504 class folder). CSV files can be opened and edited in Excel and copied and pasted into a word doc. The options I have after the comma tell Stata to enter the <code>means</code> of the variables stored under <code>all</code> inthe cells of the table I am creating and to replace any file in <code>output</code> named <code>table1a.csv</code> with the new table I am making with this line of code.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Remember that <code>all</code> is the label I have for all of the summary statistics of two variables for all observations in the sample. We will expand our variables list and samples in a table shortly.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I am keeping things simple by using a format that works cleanly in Excel. You can also used the “.rtf” extension for a “rich text file” that can be opened directly in Word and also copied and pasted into a report or document you are using. There are more advanced file formats too that can really expand how much you can directly output your table into a document and print it into a formal report that is already properly formatted, but that is a little more advanced. I am just flagging this here because you would still use this base code for creating these tables in Stata.</p>
+</div>
+</div>
+<p>But first, our simple table should look like this: <img src="table1a.png" class="img-fluid" alt="Table 1a"></p>
+<p>Notice a few things. First, this is very basic. Second, the variables are just listed with their variable names - not very attractive or intuitive. We can have Stata use variable labels to clean that up a bit for us for variables we have labled. Finally, this doesn’t let us compare high and low income households. So in the next version of the table, we are going to add the rest of the income variables, add the label option, and add columns for high- and low-income sub-samples.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc <span class="kw">if</span> finc_q == 1</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto low</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc <span class="kw">if</span> finc_q == 10</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto high</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1b.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">label</span> <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Notice a few things in the code. First, I estimate the same summary statistics on the same set of variables overall <strong>and</strong> for my two subsamples. Two get summary statistics for my subsamples I simply add <code>if</code> conditions. This will give me “conditional means” or the mean of income and percent of income from various sources <em>conditional</em> on being from a household in the bottom (or top) decile of family income. Second, notice that while I add lines of code to estimate statistics for each subsample, I still only have one line for creating the table. Now, I am simply updating the line to add the labels for including <code>low</code> and <code>high</code> - my labels for the summary statistics for low-income households and high-income households, respectively. Finally, I added the <code>label</code> option to tell Stata to use variable labels in the table rather than the less intuitive and details variable names. My table now looks like this:</p>
+<p><img src="table1b.png" class="img-fluid" alt="Table 1b"> Now we have 3 columns, helpfully labeled by Stata, showing the means of all of our variables overall and separately by decile. And we can see that the <code>label</code> option used the label for <code>inctot</code> instead of the variable name. Unfortunately, we never assigned variable labels for the labels we created! I present this so you can see the downstream usefulness of always adding labels to variables when you create them. I’d also point out that the label for <code>inctot</code> is sort of weak - it does not describe units and is all lower case. We’d typically like to see something more polished in a real table. Let’s re-label our variables now in Stata.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> inctot <span class="st">"Total personal income ($)"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incwage_prc <span class="st">"% of income from wages/salary"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incbus00_prc <span class="st">"% of income from business or farm revenue"</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incss_prc <span class="st">"% of income from Social Security benefits"</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incwelfr_prc <span class="st">"% of income from cash welfare benefits"</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incinvst_prc <span class="st">"% of income from investment returns"</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incretir_prc <span class="st">"% of income from retirement income"</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incsupp_prc <span class="st">"% of income from supplemental security income"</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incother_prc <span class="st">"% of income from other sources"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, after running the code to label our variables more clearly, let’s re-run the same table command.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1b.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">label</span> <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Our table looks much better!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="table1b2.png" class="img-fluid figure-img"></p>
+<figcaption>Table 1b V2</figcaption>
+</figure>
+</div>
+<p>One final set of edits and I think we’ll have a nice table. For readers, it’s not at all obvious how and why columns 1, 2 and 3 are different from one another. We know, but they likely don’t. And we also might want to know a little something about the spread of our variables. And we definitely don’t need so many decimals after the decimal place in our table presentation of estiamtes. In the final stage of our table making, we are going to add some options to label our columns, add standard deviations to our cells, and format the stats in our cells. Once again, we are just going to edit our last line of code, because everything else has already been done.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1c.csv"</span>, cell(<span class="kw">mean</span>(fmt(2)) <span class="fu">sd</span>(fmt(2) par)) unstack <span class="kw">compress</span> mtitles(<span class="st">"All"</span> <span class="st">"Bottom 10%"</span> <span class="st">"Top 10%"</span>) <span class="kw">label</span> <span class="kw">replace</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the code above, we use <code>sd</code> to add standard deviations to our table. If we were just including a new statistic in the cells of our table, we could just add it in the parentheses to read <code>cell(mean sd)</code>. But we wanted to also modify the formats here, so next to each statistic, we add parentheses for options applied to that statistic (e.g., <code>mean()</code> and <code>sd()</code>). In those parentheses, we add <code>fmt(2)</code> to say “Stata, I want this statistics to have a format that rounds to the second decimal point. Since we have two statistics now, we want to differentiate them, so we follow convention and put our measure of spread - the standard deviation - in parentheses as well by also including the <code>par</code> piece of our code. Our final piece of estimate presentation formatting, we add options <code>unstack</code> and <code>compress</code> to tell Stata that the table can stack the standard deviations underneath the means for each variable and make sure there are no blank spaces between variables. This keeps our table compact and clean. After dealing with our presentation of our estimates, we include the <code>mtitles</code> (short for model titles) command to add labels to each column in our table. Since we have a column for each sample - the full sample, the low-income sample, and the high-income sample - we can make our labels”All,” “Bottom 10%,” and “Top 10%.”</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In practice, most tables follow very similar formats and you are often only changing a few pieces of this base code for a table at a time. Obviously the variables in the table will change across contexts, but things like formatting and what statistics to include in the cells will often be pretty constant across contexts.</p>
+</div>
+</div>
+<p>Now we have <strong>?@tbl-final</strong> ready to go.</p>
+<div class="line-block">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (1) | (2) | (3) |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| All | Bottom 10% | Top 10% |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| mean/sd | mean/sd | mean/sd |<br>
+—————- | :——-: | :——-: | :——-: |<br>
+Total personal income ($) | 46004.99 | 7516.15 | 151768.61 |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (69371.54) | (6292.05) | (166790.08) |<br>
+% of income from wages/salary | 63.64 | 35.96 | 72.30 |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (709.37) | (356.54) | (41.63) |<br>
+% of income from business or farm revenue | 2.52 | 1.05 | 5.85 |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (480.43) | (354.29) | (21.91) |<br>
+% of income from Social Security benefits | 17.95 | 38.00 | 5.22 |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (33.72) | (45.67) | (18.34) |<br>
+% of income from cash welfare benefits | 0.55 | 2.10 | 0.13 |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (6.47) | (13.04) | (2.95) |<br>
+% of income from investment returns | 1.99 | 2.91 | 8.89 |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (520.85) | (22.13) | (24.34) |<br>
+% of income from retirement income | 8.26 | 7.24 | 5.55 |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (21.83) | (22.34) | (18.32) |<br>
+% of income from supplemental security income | 2.40 | 8.87 | 0.67 |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (14.45) | (28.29) | (7.53) |<br>
+% of income from other sources | 2.70 | 3.86 | 1.39 |<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| (13.77) | (17.42) | (9.86) |<br>
+Observations | 168171 | 16270 | 15331 |</div>
+<p>: Table 1c {#tbl-final}</p>
+<p>Look at that! A nice, formatted table worthy of sharing with minimal edits needed to format it. Our rows provide clear, easily interpretable descriptions of the variables, our columns have numeric headers for reference and labels to provide readers a quick understanding of what sample is included in each column, and we present both means and standard deviations for our variables.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When writing, it’s useful to have your columns numbered in your tables so that you can discuss results and draw reader attention to a column with the results you’d like to discuss. For instance, if this was table 1 in a report, I might write, “As a comparison of columns 2 and 3 in Table 1 shows, people in the bottom decile of household income have a much higher share of their earnings from cash transfer programs, such as Social Security and welfare benefits, relative to people in the top decile.”</p>
+</div>
+</div>
+<p>Our full list of variables can also be added to the code and we can add two more columns to our table - White and Non-White - for some additional descriptive analysis of sub-samples of policy interest.</p>
+<p>It will look something like this:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 1</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto low</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 10</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto high</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> racecat1 == 1</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="bn">white</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> nonwhite == 1</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto nonwhite</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="bn">white</span> nonwhite <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able2.csv"</span>, cell(<span class="kw">mean</span>(fmt(2)) <span class="fu">sd</span>(fmt(2) par)) unstack <span class="kw">compress</span> mtitles(<span class="st">"All"</span> <span class="st">"Bottom 10%"</span> <span class="st">"Top 10%"</span> <span class="st">"White"</span> <span class="st">"Non-White"</span>) <span class="kw">label</span> <span class="kw">replace</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -489,6 +618,7 @@ Codebook
 <ol>
 <li id="fn1"><p>“Mutually exclusive” means that each observation can only be in one category. Ideally, the sum of the categories adds up to 100 percent.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>The income source variables have a slightly different coding schema - 6 digits instead of 7 - but the same general formula.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This avoids hitting errors when you already created a table of the same name, but be careful! If you are creating multiple tables in a single .do file, this can overwrite all previous tables with just that last one you created. Just be sure your outputs have unique names in your code.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
