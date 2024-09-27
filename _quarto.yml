@@ -28,6 +28,7 @@ website:
       contents:
         - assignments.qmd
         - probset1.qmd
+        - probset2.qmd
     
     - title: "Labs"
       style: docked
