@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -477,7 +477,13 @@ Valid   0 niu             |      39145      21.01      21.01      21.01
 <p>And now the code is the same as before.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> connected fluvax_mn <span class="fu">year</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output</span><span class="ch">\f</span><span class="st">luvax_line1.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><img src="fluvax_line1.png" class="img-fluid" alt="Percent of Americans receiving the Flu vaccine over time"> And that’s all for this lab!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fluvax_line1.png" class="img-fluid figure-img"></p>
+<figcaption>Percent of Americans receiving the Flu vaccine over time</figcaption>
+</figure>
+</div>
+<p>And that’s all for this lab! Let’s close our .do file with our usual <code>log close</code> and exit Stata.</p>
 
 
 </section>
