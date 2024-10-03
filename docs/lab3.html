@@ -209,7 +209,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
   <ul class="collapse">
-  <li><a href="#proportions" id="toc-proportions" class="nav-link" data-scroll-target="#proportions">Proportions</a></li>
+  <li><a href="#proportions" id="toc-proportions" class="nav-link" data-scroll-target="#proportions">Proportions</a>
+  <ul class="collapse">
+  <li><a href="#cleaning-the-data" id="toc-cleaning-the-data" class="nav-link" data-scroll-target="#cleaning-the-data">Cleaning the data</a></li>
+  <li><a href="#pie-charts" id="toc-pie-charts" class="nav-link" data-scroll-target="#pie-charts">Pie charts</a></li>
+  <li><a href="#bar-graphs" id="toc-bar-graphs" class="nav-link" data-scroll-target="#bar-graphs">Bar graphs</a></li>
+  <li><a href="#horizontal-bar-graphs" id="toc-horizontal-bar-graphs" class="nav-link" data-scroll-target="#horizontal-bar-graphs">Horizontal bar graphs</a></li>
+  </ul></li>
   <li><a href="#pre-post-comparisons" id="toc-pre-post-comparisons" class="nav-link" data-scroll-target="#pre-post-comparisons">Pre-Post Comparisons</a></li>
   <li><a href="#proportions-over-time" id="toc-proportions-over-time" class="nav-link" data-scroll-target="#proportions-over-time">Proportions over time</a></li>
   </ul></li>
@@ -261,6 +267,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Make sure the path in the first line points to your class folder, highlight all four lines, and hit execute. Now we’re ready to go!</p>
 <section id="proportions" class="level2">
 <h2 class="anchored" data-anchor-id="proportions">Proportions</h2>
+<section id="cleaning-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-the-data">Cleaning the data</h3>
 <p>We will start with a few different ways to look at the distribution of sexual orientation. Why? Well, recall that this is survey data that is self-reported. Shares of the population that are willing to self-report their sexual orientation may change over time alongside broader social norms around tolerance and acceptance of different orientations. We will look at the data to see if that pattern seems to show up even in this small window of data (a five year period between 2018 and 2023). But we are also looking at this first because it provides a simple example of describing a categorical variable. Recall that in making tables, we are generally not interested in describing the mean of a categorical variable because it’s not particularly meaningful. Instead, we want to see how observations are <em>distributed</em> across categories of the variable (or, put more directly, the distribution of the variable). The same is true for visualizing data.</p>
 <p>Before we begin analyzing the data, we want to make sure we understand what the variable looks like and whether it needs to be cleaned at all. Let’s start by running our trusty <code>fre</code> command and look at the categories of the variable.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fre sexorien</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -282,7 +290,11 @@ Valid   0 niu                                   |      71763      38.51      38.
 <p>Note that there’s some values that we don’t really want to include in our analysis. Categories like “Unknown” and “NIU” are generally going to be treated as “missing” in our analysis because either the respondents weren’t asked that question (niu, or “not in universe”) or refused to respond for whatever reason (both “unknown” categories). For our purposes, we really don’t know their orientation and so will simply exclude them from our description for now by treating them as missing. Let’s use our <code>recode</code> command to create a new variable that sets those categories to missing and relables the existing categories more cleanly.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> sexorien (0 7/8 = .a) (1 = 1 <span class="st">"Lesbian or gay"</span>) (2 = 2 <span class="st">"Straight"</span>) (3 = 3 <span class="st">"Bisexual"</span>) (4 = 4 <span class="st">"Something else"</span>) (5 = 5 <span class="st">"I don't know"</span>), <span class="kw">gen</span>(orientation)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> orientation <span class="st">"Sexual orientation"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Notice that I also went ahead and relabeled the new variable so that I have a nice, clean label for future figures and tables. We’ll start with my least favorite way of displaying data and perhaps the way you encounter data quite often in reports: the pie graph. The pie graph provides a circle that represents all observations in a sample and divides the circle into slices that reflect the proportion of observations in different categories of a categorical variable. Let’s look at sexual orientation.</p>
+<p>Notice that I also went ahead and relabeled the new variable so that I have a nice, clean label for future figures and tables.</p>
+</section>
+<section id="pie-charts" class="level3">
+<h3 class="anchored" data-anchor-id="pie-charts">Pie charts</h3>
+<p>We’ll start with my least favorite way of displaying data and perhaps the way you encounter data quite often in reports: the pie graph. The pie graph provides a circle that represents all observations in a sample and divides the circle into slices that reflect the proportion of observations in different categories of a categorical variable. Let’s look at sexual orientation.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> pie, <span class="bn">over</span>(orientation)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\orientation_pie.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
@@ -300,6 +312,9 @@ Valid   0 niu                                   |      71763      38.51      38.
 <figcaption>Pie chart of sexual orientation in the US, NOW WITH TITLE!</figcaption>
 </figure>
 </div>
+</section>
+<section id="bar-graphs" class="level3">
+<h3 class="anchored" data-anchor-id="bar-graphs">Bar graphs</h3>
 <p>Alright, as I said, I don’t really like pie charts. There are very few instances where I find a pie chart more clear to read than a bar chart. Worse, pie charts are less flexible for comparisons over time or across two different variables. So, let’s start with a simple bar chart of the same variable.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(orientation) <span class="bn">title</span>(<span class="st">"Sexual orientation in USA, 2018-2019 and 2022-2023"</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\orientation_bar.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -323,11 +338,38 @@ Valid   0 niu                                   |      71763      38.51      38.
 </div>
 <p>If we squint, we can sort of see an uptick the non-straight categories, suggesting at least some marginal additional willingness to self-report sexual orientation.</p>
 </section>
+<section id="horizontal-bar-graphs" class="level3">
+<h3 class="anchored" data-anchor-id="horizontal-bar-graphs">Horizontal bar graphs</h3>
+<p>Conventional bar graphs, like the ones we just made, often have the bars running vertically. There are a few drawbacks to this orientation, however. First, pages are often longer than they are wide - both in their digital presentation online and in their printed form on paper. Practically, this means we have more space constraints in how much information we can present at once in the bar graph. Second, and related, the labels on the x-axis begin to face severe trade-offs between clarity in the label and the space available for a legible label. Longer, more precise labels of variables in our graph will begin to overlap with other variable labels, leaving our graph an illegible mess. We can do things like shortening our labels or angling our labels to a 45 degree angle, but the former has limits and the latter distorts our graphs space and makes reading the labels less natural.</p>
+<p>A quick example:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(orientation, <span class="kw">label</span>(angle(45))) <span class="bn">title</span>(<span class="st">"Sexual orientation in USA, 2018-2019 and 2022-2023"</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\orientation_bar3.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Notice, in the code, I added an option to the presentation of <code>orientation</code> in the graph line of the code (<code>, label(angle(45)))</code>). This tells Stata to tilt the labels of the variable 45 degrees. It can be a quick fix to long labels, but…</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="orientation_bar3.png" class="img-fluid figure-img"></p>
+<figcaption>Bar graph of sexual orientation with angled label</figcaption>
+</figure>
+</div>
+<p>notice that the graph area shrank a bit. You can imagine that even longer labels will distort the graph further. And, again, it’s not really natural to read at a 45 degree angle and our purpose in data visualization is to make things easier on readers, not more challenging.</p>
+<p>Fortunately, there’s a pretty easy alternative: horizontal bar graphs. Horizontal bar graphs allow our graph to expand down the length of the page rather than rellying on the width, giving us more real estate to work with. They also re-orient our graph to the y-axis, allowing us to use slightly more specific labels if we wanted while still keeping them in a natural reading orientation. In Stata, the starting point for a horizontal bar graph is as simple as adding an <code>h</code> to our code:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">hbar</span>, <span class="bn">over</span>(orientation) <span class="bn">title</span>(<span class="st">"Sexual orientation in USA, 2018-2019 and 2022-2023"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\orientation_bar4.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Notice that in the code above, I simply replaced <code>bar</code> with <code>hbar</code> (and I also dropped the now unnecessary angle option). This gives us a graph that looks like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="orientation_bar4.png" class="img-fluid figure-img"></p>
+<figcaption>Horizontal bar graph of sexual orientation</figcaption>
+</figure>
+</div>
+<p>In many cases, the horizontal bar graph is the better option, but that is partly subject to context and partly subject to taste, so it’s good to know how to work with both presentations of data.</p>
+</section>
+</section>
 <section id="pre-post-comparisons" class="level2">
 <h2 class="anchored" data-anchor-id="pre-post-comparisons">Pre-Post Comparisons</h2>
 <p>Now we can move on to question 2, which deals with indicators of physical and mental health before and after the pandemic. For this, we are going to use days of work lost to health issues, self-reported health status, and the frequency of feeling depressed. Let’s start by looking at the categorical variables of health status and frequency of feeling depressed.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fre health</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fre depfreq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fre health</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>fre depfreq</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Which will look something like this:</p>
 <pre><code>health -- health status
 --------------------------------------------------------------------------
@@ -373,21 +415,21 @@ Valid   0 niu                     |      53813      28.88      28.88      28.88
         Total                     |     186350     100.00     100.00           
 -------------------------------------------------------------------------------</code></pre>
 <p>Again we can see that both variables need some cleaning to collapse categories into things that are missing and not missing. Let’s go ahead and do that now.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> health (7/9 = .a) (1 = 1 <span class="st">"Excellent"</span>) (2 = 2 <span class="st">"Very good"</span>) (3 = 3 <span class="st">"Good"</span>) (4 = 4 <span class="st">"Fair"</span>) (5 = 5 <span class="st">"Poor"</span>), <span class="kw">gen</span>(health_nm)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> depfreq (0 7/9 = .a) (1 = 1 <span class="st">"Daily"</span>) (2 = 2 <span class="st">"Weekly"</span>) (3 = 3 <span class="st">"Monthly"</span>) (4 = 4 <span class="st">"A few times/yr"</span>) (5 = 5 <span class="st">"Never"</span>), <span class="kw">gen</span>(depfreq_nm)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> empstat (0 220 997/999 = .a) (100/120 = 1 <span class="st">"Employed"</span>) (200 = 0 <span class="st">"Unemployed"</span>), <span class="kw">gen</span>(employed)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> wldayr (996/999 = .a), <span class="kw">gen</span>(wlday_nm)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> workingage = 0</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> workingage = 1 <span class="kw">if</span> age &lt;= 55 &amp; age &gt;= 25</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> wlday_nm <span class="st">"Work loss days past year"</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> employed <span class="st">"Employed"</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> health_nm <span class="st">"Health status"</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> depfreq_nm <span class="st">"Frequency feeling depressed"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> health (7/9 = .a) (1 = 1 <span class="st">"Excellent"</span>) (2 = 2 <span class="st">"Very good"</span>) (3 = 3 <span class="st">"Good"</span>) (4 = 4 <span class="st">"Fair"</span>) (5 = 5 <span class="st">"Poor"</span>), <span class="kw">gen</span>(health_nm)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> depfreq (0 7/9 = .a) (1 = 1 <span class="st">"Daily"</span>) (2 = 2 <span class="st">"Weekly"</span>) (3 = 3 <span class="st">"Monthly"</span>) (4 = 4 <span class="st">"A few times/yr"</span>) (5 = 5 <span class="st">"Never"</span>), <span class="kw">gen</span>(depfreq_nm)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> empstat (0 220 997/999 = .a) (100/120 = 1 <span class="st">"Employed"</span>) (200 = 0 <span class="st">"Unemployed"</span>), <span class="kw">gen</span>(employed)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> wldayr (996/999 = .a), <span class="kw">gen</span>(wlday_nm)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> workingage = 0</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> workingage = 1 <span class="kw">if</span> age &lt;= 55 &amp; age &gt;= 25</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> wlday_nm <span class="st">"Work loss days past year"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> employed <span class="st">"Employed"</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> health_nm <span class="st">"Health status"</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> depfreq_nm <span class="st">"Frequency feeling depressed"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>I also included the relevant recode of the continuous variable of work days lost to health issues in the last 12 months and a recode of employment status so we can focus in on prime age workers. Let’s start with the same ideas we’ve already worked with - the distribution of categorical variables in a bar graph. We can start with both health overall and frequency of feeling depressed overall.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(health_nm)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\health_bar1.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(depfreq_nm)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\depression_bar1.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(health_nm)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\health_bar1.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(depfreq_nm)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\depression_bar1.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>And those graphs should look a little something like this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -403,15 +445,15 @@ Valid   0 niu                     |      53813      28.88      28.88      28.88
 </figure>
 </div>
 <p>Now, let’s look at them before and after COVID. First, we need to create a variable that identifies the pre-COVID and post-COVID periods in our data.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> post_covid = 0</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> post_covid = 1 <span class="kw">if</span> <span class="fu">year</span> &gt;= 2020</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">define</span> covid 0 <span class="st">"Pre-COVID"</span> 1 <span class="st">"Post-COVID"</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> val post_covid covid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> post_covid = 0</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> post_covid = 1 <span class="kw">if</span> <span class="fu">year</span> &gt;= 2020</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">define</span> covid 0 <span class="st">"Pre-COVID"</span> 1 <span class="st">"Post-COVID"</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> val post_covid covid</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then we can use the same structure we used in our <code>by</code> year approach for sexual orientation.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(health_nm) <span class="kw">by</span>(post_covid)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\health_bar2.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(depfreq_nm) <span class="kw">by</span>(post_covid)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\depression_bar2.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(health_nm) <span class="kw">by</span>(post_covid)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\health_bar2.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span>, <span class="bn">over</span>(depfreq_nm) <span class="kw">by</span>(post_covid)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\depression_bar2.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="health_bar2.png" class="img-fluid figure-img"></p>
@@ -428,8 +470,8 @@ Valid   0 niu                     |      53813      28.88      28.88      28.88
 <p>And same with depression. In general, the post bars shift leftward toward a higher proportion of Americans feeling depressed more often in the post-COVID period than the pre-period.</p>
 <p>But what about a more concrete and continuous measure like days of work missed for health reasons? This is a count variable, which means we can look at changes in averages over time. This means, we could do two things. First, we could look at the average days of work missed by health status in the pre- and post-COVID periods. Then, we could also look at the year-to-year average number of days of work missed in our sample.</p>
 <p>First, we’ll start with the bar graph because it’s sort of the simplest.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> (<span class="kw">mean</span>) wlday_nm, <span class="bn">over</span>(health_nm) <span class="kw">by</span>(post_covid) asyvars</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\health_bar3.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> (<span class="kw">mean</span>) wlday_nm, <span class="bn">over</span>(health_nm) <span class="kw">by</span>(post_covid) asyvars</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\health_bar3.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Notice that we added a variable before the options and specified that we wanted the mean of that variable. This tells Stata to give use the <em>conditional mean</em> of the variable (<code>wlday_nm</code>) for each category in the health status variable (<code>health_nm</code>), separately by COVID period.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -438,11 +480,11 @@ Valid   0 niu                     |      53813      28.88      28.88      28.88
 </figure>
 </div>
 <p>Now, let’s take advantage of the working age and employment variables we got to create a nice line graph of the aver days of work missed each year in our data. To do this, we will need to create a new variable that is equal to the sample mean for each year. But we’ll also restrict this to only include workers in the prime age working years and who report being employed. While this sounds complicated, this is quite simple in Stata and takes advantage of the <code>egen</code> command - a command that allows you to generate variables that are functions of other variables (in this case, a mean).</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> dayslost_mn = <span class="kw">mean</span>(wlday_nm) <span class="kw">if</span> workingage == 1 &amp; employed == 1, <span class="kw">by</span>(<span class="fu">year</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> dayslost_mn <span class="st">"Avg. Days of Work Lost"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> dayslost_mn = <span class="kw">mean</span>(wlday_nm) <span class="kw">if</span> workingage == 1 &amp; employed == 1, <span class="kw">by</span>(<span class="fu">year</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> dayslost_mn <span class="st">"Avg. Days of Work Lost"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In this code, I tell Stata to create a new variabel, <code>dayslost_mn</code> that is the mean of <code>wlday_nm</code> for each year in the data (the <code>by(year)</code> part of the code). Now we can simply plot our averages for each year in our data with a straightforward command:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> connected dayslost_mn <span class="fu">year</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\dayslost_line1.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> connected dayslost_mn <span class="fu">year</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output\dayslost_line1.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="dayslost_line1.png" class="img-fluid figure-img"></p>
@@ -455,7 +497,7 @@ Valid   0 niu                     |      53813      28.88      28.88      28.88
 <h2 class="anchored" data-anchor-id="proportions-over-time">Proportions over time</h2>
 <p>Finally, we are going to look at whether a related behavioral change - taking the flu vaccine - was altered by the COVID pandemic. Perhaps more people take flu precautions from the heightened awareness brought on by exposure to a novel widespread respiratory illness.</p>
 <p>To do this, let’s look at the flu vaccine variable to see how it’s coded.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fre vacflu12m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fre vacflu12m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>vacflu12m -- had any flu vaccine, past 12 months
 -----------------------------------------------------------------------
                           |      Freq.    Percent      Valid       Cum.
@@ -469,14 +511,14 @@ Valid   0 niu             |      39145      21.01      21.01      21.01
         Total             |     186350     100.00     100.00           
 -----------------------------------------------------------------------</code></pre>
 <p>Notice that, again, we are going to need to recode. Let’s go ahead and recode it into a binary and then recode the other categories into missings.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> vacflu12m (0 7/9 = .a) (1 = 0 <span class="st">"No"</span>) (2 = 1 <span class="st">"Yes"</span>), <span class="kw">gen</span>(fluvax)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> fluvax <span class="st">"Got flu vaccine in past year"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> vacflu12m (0 7/9 = .a) (1 = 0 <span class="st">"No"</span>) (2 = 1 <span class="st">"Yes"</span>), <span class="kw">gen</span>(fluvax)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> fluvax <span class="st">"Got flu vaccine in past year"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, just like with days of work lost per week, we want averages of our binary variable by year, which will give us the annual proportion of the population that took the flu vaccine at some point during the year.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> fluvax_mn = <span class="kw">mean</span>(fluvax), <span class="kw">by</span>(<span class="fu">year</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> fluvax_mn <span class="st">"Prc. Received Flu Vax."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> fluvax_mn = <span class="kw">mean</span>(fluvax), <span class="kw">by</span>(<span class="fu">year</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> fluvax_mn <span class="st">"Prc. Received Flu Vax."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>And now the code is the same as before.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> connected fluvax_mn <span class="fu">year</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output</span><span class="ch">\f</span><span class="st">luvax_line1.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> connected fluvax_mn <span class="fu">year</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output</span><span class="ch">\f</span><span class="st">luvax_line1.png"</span>, <span class="kw">as</span>(png) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="fluvax_line1.png" class="img-fluid figure-img"></p>
