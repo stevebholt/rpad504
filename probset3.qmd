@@ -48,3 +48,5 @@ This will require you to create a new categorical variable that draws on all the
 2. What is the difference in the percent of people below the poverty line with subsidized rent between 2000 and 2022?
 
 3. What is the difference in the percent of people below the poverty line without health insurance coverage between 1990 and 2015?
+
+4. Learn about SQL searches and then solve the murder mystery [here](https://mystery.knightlab.com/). Who was the murderer? (Worth 2 points). 
