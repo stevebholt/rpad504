@@ -1,0 +1,57 @@
+---
+title: "Problem Set 3"
+author: "Stephen B. Holt"
+format:
+  html:
+   code-overflow: wrap
+   code-block-bg: true
+   code-copy: hover
+---
+
+# Instructions
+
+In this week's problem set, we are going to look at some health and demographic trends over the last several decades. We will be using [this data](https://www.dropbox.com/scl/fo/0ieek8z5htgf0j9lt8sug/AGfghi4Q97EzlGK0GUAtf34?rlkey=57eewvxe99rtpilbv6duftfik&st=lriczoh7&dl=0) - which I assembled for you already - from the National Health Interview Survey (NHIS) that includes samples from 1975 - 2022 in 5 year intervals (substituting the most recent post-COVID year for 2020). Some variables run the full year range, some do not. In the following questions, you will be asked to create some tables and graphs. This time, however, you are expected to use clean labels in both tables and graphs.
+
+As always, you will be expected to report your answers in a word document and will submit the word document along with a .do file and .log file on Brightspace. The problem set is due before class next week.
+
+# Questions
+
+1.  How has the demographic make-up of the population and the workforce changed over time? Make a table that shows the distribution of race, average age, gender, high school diploma status, and 4-year college degree status for 1975, 1995, and 2015 using the full sample and then restricted to just employed people.
+
+::: callout-tip
+#### Hint
+
+This table should have 6 columns. The first three should only be restricted by relevant years, the second three restricted by years and employed status.
+:::
+
+2.  How has primary cause of death changed over time? Create a line graph that plots primary cause of death for all years with available mortality data.
+
+::: callout-tip
+#### Hint 2
+
+This should have 10 lines plotted.
+:::
+
+3.  How have smoking and drinking habits changed over time by poverty status? Create a line graph that plots the percent of people who report smoking 100 or more cigarettes in their lifetime and those who report drinking 12 or more alcoholic beverages per year by poverty status. Note, this means four lines.
+
+4.  Let's take a look at marital trends. Create a line graph showing the percent of people in each category of marital status over the time frame with marital status. Combine all married statuses into one married category for this purpose. Write one sentence describing a trend that jumps out to you.
+
+5.  We might be interested in whether there are differences in physical activity by poverty status and whether that has changed over time. Create a bar graph that presents the average number of times per week respondents engage in moderate physical activity for 10 or more minutes and vigorous physical activity for 10 or more minutes; do this over poverty status and by 2000 and 2015. What do you notice?
+
+6.  Create a horizontal bar graph that presents average moderate and vigorous activity per week across insurance status.
+
+::: callout-tip
+#### Hint 3
+
+This will require you to create a new categorical variable that draws on all the existing information about insurance coverage that includes categories for no coverage and separate categories for each type of insurance we have data on. Consult the `hhincome` example from [lab 1](https://stevebholt.github.io/rpad504/lab1.html#commands-in-stata).
+:::
+
+# Extra Credit
+
+1.  Create a line graph of the percent of people who report not having insurance coverage over the full time period for which we have coverage data.
+
+2.  What is the difference in the percent of people below the poverty line with subsidized rent between 2000 and 2022?
+
+3.  What is the difference in the percent of people below the poverty line without health insurance coverage between 1990 and 2015?
+
+4.  Learn about SQL searches and then solve the murder mystery [here](https://mystery.knightlab.com/). Who was the murderer? (Worth 2 points).
