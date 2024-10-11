@@ -1,5 +1,0 @@
-[1,"==> quarto preview lab2.qmd --to html --no-watch-inputs --no-browse\n\n"]
-[1,"pandoc \n  to: html\n  output-file: lab2.html\n  standalone: true\n  title-prefix: 'RPAD 504 - Data, Models, and Decisions'\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  css:\n    - styles.css\n  toc: true\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  editor: visual\n  theme:\n    light: pulse\n    dark: darkly\n  title: Lab 2 - Getting and Summarizing Data\n  author: Stephen B. Holt\n  code-block-bg: true\n  code-copy: hover\n  \n"]
-[1,"Output created: docs\\lab2.html\n\nPreparing to preview\n"]
-[1,"\nWatching files for changes\nBrowse at http://localhost:7888/lab2.html\n"]
-[1,"GET: /lab2.html\n"]
