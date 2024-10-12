@@ -8,7 +8,7 @@
 
 <meta name="author" content="Stephen B. Holt">
 
-<title>Problem Set 3 – RPAD 504 - Data, Models, and Decisions</title>
+<title>Problem Set 4 - EC – RPAD 504 - Data, Models, and Decisions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./probset3.html">Problem Set 3</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./probset4.html">Problem Set 4 - EC</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -159,13 +159,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./probset3.html" class="sidebar-item-text sidebar-link active">
+  <a href="./probset3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem Set 3</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./probset4.html" class="sidebar-item-text sidebar-link">
+  <a href="./probset4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Problem Set 4 - EC</span></a>
   </div>
 </li>
@@ -181,7 +181,6 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
-  <li><a href="#extra-credit" id="toc-extra-credit" class="nav-link" data-scroll-target="#extra-credit">Extra Credit</a></li>
   </ul>
 </nav>
     </div>
@@ -190,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Problem Set 3</h1>
+<h1 class="title">Problem Set 4 - EC</h1>
 </div>
 
 
@@ -215,13 +214,16 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="instructions" class="level1">
 <h1>Instructions</h1>
-<p>In this week’s problem set, we are going to look at some health and demographic trends over the last several decades. We will be using <a href="https://www.dropbox.com/scl/fo/0ieek8z5htgf0j9lt8sug/AGfghi4Q97EzlGK0GUAtf34?rlkey=57eewvxe99rtpilbv6duftfik&amp;st=lriczoh7&amp;dl=0">this data</a> - which I assembled for you already - from the National Health Interview Survey (NHIS) that includes samples from 1975 - 2022 in 5 year intervals (substituting the most recent post-COVID year for 2020). Some variables run the full year range, some do not. In the following questions, you will be asked to create some tables and graphs. This time, however, you are expected to use clean labels in both tables and graphs.</p>
-<p>As always, you will be expected to report your answers in a word document and will submit the word document along with a .do file and .log file on Brightspace. The problem set is due before class next week.</p>
+<p>In this problem set, you will be using data from the Education Longitudinal Study of 2002 (ELS). The ELS contains data from a nationally representative sample of adolescents who were sophomores in high school in the base year of the study. The study checked in with them again in their senior year, the equivalent of their “on-time” sophomore year of college, and again in 2012, when the college graduates in the sample would be early in their careers. In this set of problems, to help you prepare for the kinds of questions you will deal with in the midterm, you will be asked a few questions about proportions, distributions of categorical variables, means, and making a table and a bar graph. For these questions, aside from race, indicator variables have been created for all of the variables you need to answer the questions. When answering questions involving the race variable (<code>byrace</code>) or the educational attainment variable (<code>f3attainment</code>), you do not need to collapse the variables into fewer categories (though you may need to create clean, labeled indicator variables for each category in them). You will also need to combine a few indicator variables into a categorical variable (consult what we did to create <code>hhincome</code> in <a href="#lab1.qmd">lab 1</a> for a reminder of the process - and be sure to label the categories in the new variable). You can download the data <a href="https://www.dropbox.com/scl/fo/uhrtrtkm0ctkbt6r0pmj0/AJu7uvDtpsPdfSSszdv-hMo?rlkey=rypnscs0rspgrjbxgj0g7gvz8&amp;st=vqz702zq&amp;dl=0">here</a>. There is a long-standing body of literature on inter-generational inequalities. Many of these questions will explore aspects of this using the ELS.</p>
 </section>
 <section id="questions" class="level1">
 <h1>Questions</h1>
 <ol type="1">
-<li>How has the demographic make-up of the population and the workforce changed over time? Make a table that shows the distribution of race, average age, gender, high school diploma status, and 4-year college degree status for 1975, 1995, and 2015 using the full sample and then restricted to just employed people.</li>
+<li><p>What is the average math and average reading score of students at urban high schools?</p></li>
+<li><p>What is the average math and average reading score of students at suburban high schools?</p></li>
+<li><p>Let’s think about exposure to diversity. The ELS asked the sophomores a few questions about their 3 closest friends at school. Create a horizontal bar graph that shows the average number of friends of a different racial background across categories of urbanicity.</p></li>
+<li><p>What is the average number of friends who care about their grades for people in the top quartile of math scores and people in the bottom quartile of math scores?</p></li>
+<li><p>Now let’s get a picture of characteristics by high- and low-income and by urbanicity. Create a table that shows the distribution of race and gender, average math and reading scores, average number of friends from a different race, average number of friends who believe grades are important, the proportion whose parents have a college degree and the proportion whose grandparents have a college degree. This table should present these statistics overall, seperately by high- and low-income, and separately by urbanicity of the school.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -233,52 +235,14 @@ Hint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This table should have 6 columns. The first three should only be restricted by relevant years, the second three restricted by years and employed status.</p>
+<p>Your table should have 6 columns: 1 for everyone, 1 for low-income, 1 for high-income, and 1 for each of the 3 categories of urbanicity.</p>
 </div>
 </div>
-<ol start="2" type="1">
-<li>How has primary cause of death changed over time? Create a line graph that plots primary cause of death for all years with available mortality data.</li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint 2
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This should have 10 lines plotted.</p>
-</div>
-</div>
-<ol start="3" type="1">
-<li><p>How have smoking and drinking habits changed over time by poverty status? Create a line graph that plots the percent of people who report smoking 100 or more cigarettes in their lifetime and those who report drinking 12 or more alcoholic beverages per year by poverty status. Note, this means four lines.</p></li>
-<li><p>Let’s take a look at marital trends. Create a line graph showing the percent of people in each category of marital status over the time frame with marital status. Combine all married statuses into one married category for this purpose. Write one sentence describing a trend that jumps out to you.</p></li>
-<li><p>We might be interested in whether there are differences in physical activity by poverty status and whether that has changed over time. Create a bar graph that presents the average number of times per week respondents engage in moderate physical activity for 10 or more minutes and vigorous physical activity for 10 or more minutes; do this over poverty status and by 2000 and 2015. What do you notice?</p></li>
-<li><p>Create a horizontal bar graph that presents average moderate and vigorous activity per week across insurance status.</p></li>
-</ol>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint 3
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This will require you to create a new categorical variable that draws on all the existing information about insurance coverage that includes categories for no coverage and separate categories for each type of insurance we have data on. Consult the <code>hhincome</code> example from <a href="https://stevebholt.github.io/rpad504/lab1.html#commands-in-stata">lab 1</a>.</p>
-</div>
-</div>
-</section>
-<section id="extra-credit" class="level1">
-<h1>Extra Credit</h1>
-<ol type="1">
-<li><p>Create a line graph of the percent of people who report not having insurance coverage over the full time period for which we have coverage data.</p></li>
-<li><p>What is the difference in the percent of people below the poverty line with subsidized rent between 2000 and 2022?</p></li>
-<li><p>What is the difference in the percent of people below the poverty line without health insurance coverage between 1990 and 2015?</p></li>
-<li><p>Learn about SQL searches and then solve the murder mystery <a href="https://mystery.knightlab.com/">here</a>. Who was the murderer? (Worth 2 points).</p></li>
+<ol start="6" type="1">
+<li><p>Is educational attainment associated with parents’ and grandparents’ education? Create two horizontal bar graphs: i) show the student’s educational attainment by 2012 by parents with and without a college degree and ii) show the student’s educational attainment by 2012 by grandparents with and without a college degree.</p></li>
+<li><p>Now let’s look at schools. Principals were asked if various aspects of the school hindered learning at their school. Create a bar graph that shows the distribution of reasons learning is hindered at schools separately by high- and low-income students.</p></li>
+<li><p>Let’s get a sense for the school environment and resources at schools. Create a table that presents the average percent of kids in crisis programs, percent of kids in college preparatory programs, average number of guidance counselors, average teacher salaries, and the distribution of possible rewards for good teachers overall and separately by kids whose parents went to college and kids whose parents did not.</p></li>
+<li><p>Create a table that shows the distribution of good teacher rewards separately by whether the principals believes teacher morale is high or not and whether the principal believes student morale is high or not.</p></li>
 </ol>
 
 
