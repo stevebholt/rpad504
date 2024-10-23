@@ -396,5 +396,49 @@
       "Assignments",
       "Problem Set 4 - EC"
     ]
+  },
+  {
+    "objectID": "group_assign.html",
+    "href": "group_assign.html",
+    "title": "Group Assignment",
+    "section": "",
+    "text": "To assess your understanding of the course material and your ability to apply concepts to real policy issues, you will be working in groups to prepare a 10 page report that i) describes a social problem with policy implications or an emerging policy issue, ii) uses data to describe the problem statistically, and iii) makes an informed recommendation on a policy change to improve the conditions that define the problem. The primary datasets used in the examples and problem sets throughout the course will be the datasets you will draw upon to construct your report. You will also prepare a presentation for these results to deliver at the end of the semester.\nYou and your group will choose one of the policy issues below as the focus of your report. Your analysis should be anchored in the background research on the policy area (the problem and the range of policy solutions that have been proposed/the effects of various attempts). After providing a background on the debates about the policy problem and evidence about both direct and indirect effects of the problem and the policies tackling the problem, you will use data from IPUMS or other official sources to prepare at least two tables and two graphs that describe the problem.\n\n\n\n\nRising college costs has been an important contemporary issue affecting both lasting indebtedness and the accessibility of college for some segments in the population. As the returns to college degrees grew over time, the affordability of college has become a dimension of economic inequality as well. In 2017, the Cuomo administration passed the Excelsior Scholarship, expanding tuition-free public college options for middle class families making up to $125,000 per year in New York. Has the program changed college enrollment patterns in New York state? If so, how?\n\n\n\n\n\n\nNote\n\n\n\nThe ACS and CPS both collect information from respondents about their college enrollment status, alongside the demographic and socioeconomic status details of their families. In addition, you can make use of the Common Core of Data or IPEDS to get a sense for college enrollment demographics and get a rough comparison of 12th grade enrollments and college fall semester enrollments.\n\n\n\n\n\nEarly in the Biden Administration, bills were considered for making permanent the expanded child tax credit and for expanding pre-Kindergarten services for all families.1 Does access to child care improve the employment rate among parents of young children? What does the research say about the effects of access to pre-K on children and their parents? What areas of the country and types of households would have been most impacted by a universal pre-K program? In the past, have people in counties with more access to child care subsidies tended to have more children? Are there other impacts of unmet child care needs?\n\n\n\n\n\n\nNote\n\n\n\nThe CPS collects information about respondent’s childcare needs and the ASEC collects information about the dollar amount of the child tax credit received by families and money spent on child care among respondents in the poverty supplement sample.\n\n\n\n\n\nBeyond CO2 emissions, combustion vehicles create a wide array of emissions that can negatively impact the environment. What does the research say about the effects of transportation emissions on health, well-being, and environmental outcomes in communities? Are there any other effects of transportation emissions? Using data on transit availability and reported commuting mode, describe the impact of the transportation mix of commuters on the average monthly AQI in counties. In addition, you should examine how health outcomes vary by transit mix and AQI.\n\n\n\n\n\n\nNote\n\n\n\nThe ACS, CPS, and ATUS all contain information about commuting and can be linked to the most populous counties.\n\n\n\n\n\n\nYour papers should be organized into 5 main parts: A 1-page executive summary that summarizes the issue and the main findings from your report (this does not count toward the 10 pages for the paper), an introduction that provides an outline of the paper and preview of the take-aways, a background section that provides and overview of the existing research on the issue, your analysis section, and a concluding discussion.",
+    "crumbs": [
+      "Assignments",
+      "Group Assignment"
+    ]
+  },
+  {
+    "objectID": "group_assign.html#policy-issues",
+    "href": "group_assign.html#policy-issues",
+    "title": "Group Assignment",
+    "section": "",
+    "text": "Rising college costs has been an important contemporary issue affecting both lasting indebtedness and the accessibility of college for some segments in the population. As the returns to college degrees grew over time, the affordability of college has become a dimension of economic inequality as well. In 2017, the Cuomo administration passed the Excelsior Scholarship, expanding tuition-free public college options for middle class families making up to $125,000 per year in New York. Has the program changed college enrollment patterns in New York state? If so, how?\n\n\n\n\n\n\nNote\n\n\n\nThe ACS and CPS both collect information from respondents about their college enrollment status, alongside the demographic and socioeconomic status details of their families. In addition, you can make use of the Common Core of Data or IPEDS to get a sense for college enrollment demographics and get a rough comparison of 12th grade enrollments and college fall semester enrollments.\n\n\n\n\n\nEarly in the Biden Administration, bills were considered for making permanent the expanded child tax credit and for expanding pre-Kindergarten services for all families.1 Does access to child care improve the employment rate among parents of young children? What does the research say about the effects of access to pre-K on children and their parents? What areas of the country and types of households would have been most impacted by a universal pre-K program? In the past, have people in counties with more access to child care subsidies tended to have more children? Are there other impacts of unmet child care needs?\n\n\n\n\n\n\nNote\n\n\n\nThe CPS collects information about respondent’s childcare needs and the ASEC collects information about the dollar amount of the child tax credit received by families and money spent on child care among respondents in the poverty supplement sample.\n\n\n\n\n\nBeyond CO2 emissions, combustion vehicles create a wide array of emissions that can negatively impact the environment. What does the research say about the effects of transportation emissions on health, well-being, and environmental outcomes in communities? Are there any other effects of transportation emissions? Using data on transit availability and reported commuting mode, describe the impact of the transportation mix of commuters on the average monthly AQI in counties. In addition, you should examine how health outcomes vary by transit mix and AQI.\n\n\n\n\n\n\nNote\n\n\n\nThe ACS, CPS, and ATUS all contain information about commuting and can be linked to the most populous counties.",
+    "crumbs": [
+      "Assignments",
+      "Group Assignment"
+    ]
+  },
+  {
+    "objectID": "group_assign.html#footnotes",
+    "href": "group_assign.html#footnotes",
+    "title": "Group Assignment",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nCurrently, the federal government provides pre-Kindergarten services for low-income families through Head Start programs.↩︎",
+    "crumbs": [
+      "Assignments",
+      "Group Assignment"
+    ]
+  },
+  {
+    "objectID": "group_assign.html#structure",
+    "href": "group_assign.html#structure",
+    "title": "Group Assignment",
+    "section": "",
+    "text": "Your papers should be organized into 5 main parts: A 1-page executive summary that summarizes the issue and the main findings from your report (this does not count toward the 10 pages for the paper), an introduction that provides an outline of the paper and preview of the take-aways, a background section that provides and overview of the existing research on the issue, your analysis section, and a concluding discussion.",
+    "crumbs": [
+      "Assignments",
+      "Group Assignment"
+    ]
   }
 ]

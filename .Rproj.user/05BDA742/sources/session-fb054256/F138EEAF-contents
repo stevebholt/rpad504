@@ -31,6 +31,7 @@ website:
         - probset2.qmd
         - probset3.qmd
         - probset4.qmd
+        - group_assign.qmd
         
     
     - title: "Labs"
