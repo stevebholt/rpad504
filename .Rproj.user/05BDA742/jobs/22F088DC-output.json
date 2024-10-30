@@ -14,3 +14,8 @@
 [1,"Output created: docs\\lab5.html\n\nWatching files for changes\n"]
 [1,"GET: /lab5.html\n"]
 [1,"GET: /lab5.html\n"]
+[1,"pandoc \n  to: html\n  output-file: lab5.html\n  standalone: true\n  title-prefix: 'RPAD 504 - Data, Models, and Decisions'\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  css:\n    - styles.css\n  toc: true\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  editor: visual\n  theme:\n    light: pulse\n    dark: darkly\n  title: Lab 5 - Making Maps\n  author: Stephen B. Holt\n  code-block-bg: true\n  code-copy: hover\n  \n"]
+[1,"Output created: docs\\lab5.html\n\nWatching files for changes\n"]
+[1,"GET: /lab5.html\n"]
+[1,"GET: /lab5.html\nWARN: connection closed before message completed\n"]
+[1,"GET: /lab5.html\n"]
