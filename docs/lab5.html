@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -74,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -104,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./labs.html"> 
+    <a class="nav-link active" href="./labs.html" aria-current="page"> 
 <span class="menu-text">Labs</span></a>
   </li>  
 </ul>
@@ -114,10 +148,65 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab5.html">Lab 5 - Making Maps</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Labs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 - Working With Stata</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2 - Getting and Summarizing Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3 - Simple Visuals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 5 - Making Maps</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -193,6 +282,7 @@ Warning
 <p>The Census Bureau has created a wealth of ESRI format shapefiles for many geogrphic units in the United States. Often a shapefile you need can be found using a simple search for what you’re trying to map (e.g., New York) and shapefile, e.g., “New York shapefile.” For instance, New York’s can be found <a href="https://catalog.data.gov/dataset/tiger-line-shapefile-2016-state-new-york-current-county-subdivision-state-based">here</a>. Downloading the <code>.zip</code> folder with the shapefile will reveal a whole host of files:</p>
 <p><img src="shapefile1.png" class="img-fluid"></p>
 <p>We only need the <code>.dbf</code> and the <code>.shp</code> file for working with the New York map in Stata. Don’t worry: we won’t be working with the complexities of this geometric data directly. We will use some packages that will convert this data into simple geographic identifiers we can use to merge our geocoded data into and use Stata to create the maps we want.</p>
+<p>The basic process for making a map will be: 1. Download the shapefile and the data you want to map. 2. Ensure you have a matching geographic identifier in both the shapefile and the geocoded data you want to map. 3. Convert the shapefile to a Stata <code>.dta</code> datafile. 4. Merge in the data you want to map. 5. Use <code>spmap</code> or <code>maptile</code> to make the map you need.</p>
 </section>
 <section id="data-for-this-lab" class="level2">
 <h2 class="anchored" data-anchor-id="data-for-this-lab">Data for this lab</h2>
@@ -217,23 +307,144 @@ Note
 <figcaption>Snippet of geocoded data</figcaption>
 </figure>
 </div>
-<p>I want to flag a few important features of the data that makes this data useful. First, included in the data are the x and y coordinates of the location of the school (named, helpfully, <code>x</code> and <code>y</code>). You’ll notice that these are the same as the longitude and latitude coordinates of the address. The data also provides the street address, which can be used with other packages to get geographic coordinates if you are working with data that does not have the coordinates already coded for you. Second, the data includes a unique identifier for every school (<code>ncessch</code>) that allows us to link this geographic information with other school characteristics. This can be useful for visualizing things like schools with concentrated poverty, areas with highly racially segregated schools, areas with a lot of highly effective schools<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, and many other policy relevant data elements.</p>
+<p>I want to flag a few important features of the data that makes this data useful. First, included in the data are the x and y coordinates of the location of the school (named, helpfully, <code>x</code> and <code>y</code>). You’ll notice that these are the same as the longitude and latitude coordinates of the address. The data also provides the street address, which can be used with other packages to get geographic coordinates if you are working with data that does not have the coordinates already coded for you. Second, the data includes a unique identifier for every school (<code>ncessch</code>) that allows us to link this geographic information with other school characteristics. This can be useful for visualizing things like schools with concentrated poverty, areas with highly racially segregated schools, areas with a lot of highly effective schools<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, and many other policy relevant data elements. Finally, not shown in the snippet but in the data, you can find multiple codes for different levels of geographic information - counties, MSAs, states, and so on - that can be used to link the school data to other aspects of the communities shools are in. For our purposes, we will be using <code>cnty</code> (below) to link this data with the shapefile data for our maps. Note that the <code>cnty</code> variable in our schools data is a numeric variable and already includes the state fips (36) and county fips (the last three digits). I flag this here because we will need a matching identifier in our shapefile data (this will make sense later).</p>
+<p><img src="cnty1.png" class="img-fluid"></p>
 </section>
 <section id="making-maps-in-stata" class="level2">
 <h2 class="anchored" data-anchor-id="making-maps-in-stata">Making Maps in Stata</h2>
+<p>In Stata, there are a few different packages that assist in making maps. A lot of the packages are for helping Stata convert the file formats common in GIS datasets into a format Stata can recognize and use. The rest are packages that provide syntax for creating maps with Stata code - important for our purposes of using GIS data. The two main packages for making maps in Stata are <code>spmap</code> and <code>maptile</code>. While <code>spmap</code> is more flexible and allows you to use your own map inputs for making more custom maps, that flexibility comes at the cost of being a little more complex to use well. Meanwhile, <code>maptile</code> is a simpler wrapper for <code>spmap</code> that allows you to plot quantiles of data across counties or states in a variety of styles; it is less flexible but far more straightforward to use. We will go through some examples using both.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
 <section id="packages" class="level3">
 <h3 class="anchored" data-anchor-id="packages">Packages</h3>
+<p>Let’s begin by starting our .do file and installing the packages we will need.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cd <span class="st">"C:</span><span class="ch">\r</span><span class="st">pad504</span><span class="ch">\"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">local today : di %tdCY.N.D date("</span><span class="ot">$S_DATE</span><span class="st">","</span>DMY<span class="st">")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">log using "</span>logs\lab5_<span class="ot">`today'</span>.log<span class="st">", replace</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">ssc install spmap, replace</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">ssc install shp2dta, replace</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">ssc install mif2dta, replace</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">ssc install maptile, replace</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">ssc install statastates, replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are also a few different map templates available in maptile. We will go ahead and download those too.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>maptile_install <span class="kw">using</span> <span class="st">"http://files.michaelstepner.com/geo_county2014.zip"</span>, <span class="kw">replace</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>maptile_install <span class="kw">using</span> <span class="st">"http://files.michaelstepner.com/geo_state.zip"</span>, <span class="kw">replace</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>maptile_install <span class="kw">using</span> <span class="st">"http://files.michaelstepner.com/geo_statehex.zip"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Alright, now we have everything we need to make some maps. Let’s get started.</p>
 </section>
 <section id="plotting-points" class="level3">
 <h3 class="anchored" data-anchor-id="plotting-points">Plotting Points</h3>
+<p>We will start by creating a few maps of all the public schools in New York. To do this, we will be using <code>spmap</code> and the <code>ny_schools_geo.dta</code> datafile in the lab folder. We will start by using the <code>shp2dta</code> command we just installed to create a dataset with the geographic identifiers for merging in data and a dataset with the coordinates for making the map. The code is fairly straightforward.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>shp2dta <span class="kw">using</span> <span class="st">"data</span><span class="ch">\t</span><span class="st">l_2016_36_cousub.shp"</span>, database(nydb) coordinates(nycoord)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Note that <code>nydb</code> and <code>nycoord</code> are simply names I chose for the datafiles with geographic identifiers and coordinates, respectively. The command will generate two new <code>.dta</code> files in your main folder. Let’s open the <code>nydb</code> dataset first and look at the geographic identifiers.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"nydb.dta"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="cnty2.png" class="img-fluid"></p>
+<p>Note that the state FIPS and county FIPS are separate in this datafile. They are also yellow, which tells us that they are stored as a <em>string</em> format in Stata rather than a number. We will need to create a new variable with the same name as the county identifier in our school data (<code>cnty</code>) and the same format (<em>numeric</em>). We will do that with two simple lines: concatenate (which serves to combine the information from two variables into a single variable, preserving the order of the digits in the new combined variable) and generating a numeric version of the string variable. Then we will save and clear this data.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> cnty1 = <span class="fu">concat</span>(STATEFP COUNTYFP)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> cnty = <span class="fu">real</span>(cnty1)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">sort</span> cnty</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> <span class="st">"data</span><span class="ch">\n</span><span class="st">ydb.dta"</span>, <span class="kw">replace</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now let’s open the schools data and merge in the geoidentifers from the shapefile using the <code>cnty</code> variable we just created.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"data</span><span class="ch">\n</span><span class="st">y_schools_geo.dta"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">sort</span> cnty</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">merge</span> <span class="fu">m</span>:<span class="fu">m</span> cnty <span class="kw">using</span> <span class="st">"data</span><span class="ch">\n</span><span class="st">ydb.dta"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="dt">_merge</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> schid = <span class="fu">group</span>(<span class="bn">name</span> street ncessch)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">sort</span> schid</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">by</span> schid: <span class="kw">gen</span> dup = <span class="fu">cond</span>(_N==1,0,<span class="dt">_n</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> dup</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="kw">if</span> dup&gt;0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After we remove duplicates in our datafile, we should have 4,800 observations. Now we’re ready to start mapping! We will use the unique school identifier we created in our previous step (grouping the observations by <code>name</code>, <code>street</code>, and <code>ncessch</code> or the school name, street address, and NCES identifier).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is not an ideal data structure because we will be relying on the awful <code>m:m</code> merge that we should avoid in nearly all cases. A better shapefile would have been one using New York school districts as the organizing unit. However, our county map will suffice for illistrating map creation even in suboptimal circumstances.</p>
+</div>
+</div>
+<p>Let’s start with a very basic map of all the schools in New York.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>spmap <span class="kw">using</span> nycoord, id(schid) point(xcoord(x) ycoord(<span class="fu">y</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output</span><span class="ch">\n</span><span class="st">ymap1.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Which should give us something like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nymap1.png" class="img-fluid figure-img"></p>
+<figcaption>New York Schools</figcaption>
+</figure>
+</div>
+<p>Of course, these dots are a bit large and somewhat hard to see. Let’s go ahead and change their color to something that might stand out a bit more.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>spmap <span class="kw">using</span> nycoord, id(schid) point(xcoord(x) ycoord(<span class="fu">y</span>) fcolor(<span class="bn">blue</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output</span><span class="ch">\n</span><span class="st">ymap2.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nymap2.png" class="img-fluid figure-img"></p>
+<figcaption>New York Schools Again!</figcaption>
+</figure>
+</div>
+<p>Let’s try a different plot style.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>spmap <span class="kw">using</span> nycoord, id(schid) point(xcoord(x) ycoord(<span class="fu">y</span>) fcolor(<span class="bn">blue</span>) shape(+))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output</span><span class="ch">\n</span><span class="st">ymap3.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nymap3.png" class="img-fluid figure-img"></p>
+<figcaption>New York Schools: Return of the Schools</figcaption>
+</figure>
+</div>
+<p>Note that the center of the plus signs is the more precise location of the school. Okay, so that’s how you change the style and the color of the symbols on the map. You can add a legend to capture what symbols mean and plot different types of schools (say, charter versus traditional or elementary, middle, and high schools) with different symbols (using the <code>by</code> option). The <code>help</code> file for spmap provides a comprehensive run-down of those options. For now, we are going to add a little more information to our map. Schools vary quite considerably in their size and it would be great if we could visualize where the large schools are in the state. Well, since I cleaned and merged the enrollment data into our schools dataset, we can use the enrollment count at the schools to inform the relative size of our school plot points. Specifically, this will have Stata create plots of varying sizes where the size of the plot captures the number of students in a given school relative to other schools in the dataset (in this case, the state).</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spmap <span class="kw">using</span> nycoord, id(schid) point(xcoord(x) ycoord(<span class="fu">y</span>) fcolor(<span class="bn">blue</span>) shape(o) <span class="kw">prop</span>(enroll))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output</span><span class="ch">\n</span><span class="st">ymap4.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nymap4.png" class="img-fluid figure-img"></p>
+<figcaption>New York Schools: The Schools Awaken</figcaption>
+</figure>
+</div>
+<p>Notice that this creates kind of an ugly blob of plots. Yes, some of them vary in size, but it’s really hard to tell what’s going here. We’re going to add and outline to the plot points and tone down the brightness of the fill color to get a better sense of the data.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>spmap <span class="kw">using</span> nycoord, id(schid) point(xcoord(x) ycoord(<span class="fu">y</span>) fcolor(<span class="bn">blue</span>*0.25) ocolor(<span class="bn">black</span>) shape(o) <span class="kw">prop</span>(enroll))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output</span><span class="ch">\n</span><span class="st">ymap5.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="nymap5.png" class="img-fluid figure-img"></p>
+<figcaption>New York Schools: The Last School Map</figcaption>
+</figure>
+</div>
+<p>Much better! Note that this sort of map, in conjunction with good, clean, well organized data, can provide similar information about other kinds of variables (e.g., caseload across welfare or drug addiction treatment offices, homeless services, crime hotspots by type of crime). The maps created here are just a rough guide to help you understand how to make maps with data in Stata to get you started.</p>
 </section>
 <section id="plotting-quantiles-or-bins" class="level3">
 <h3 class="anchored" data-anchor-id="plotting-quantiles-or-bins">Plotting Quantiles or Bins</h3>
-<section id="cleaning-the-data" class="level4">
-<h4 class="anchored" data-anchor-id="cleaning-the-data">Cleaning the Data</h4>
+<p>Of course, we often want to know how things look across the country and how states are doing relative to one another. For this kind of analysis, we might find the simplicity of <code>maptile</code> to be more flexible. Let’s clear out the data in our memory and load the volunteering data:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"data\state_volunteer.dta"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This dataset has been cleaned and includes state names, state abbreviations, state FIPS codes, and the average minutes spent volunteering in a typical data drawing on ATUS data from 2003 to 2017. Since I have already setup the data at the state level, we can dive right in to making maps with <code>maptile</code>. Let’s start with a conventional map of states:</p>
+<pre class="state"><code>maptile state_volunteer, geo(state)
+graph export "output\volmap1.png", replace</code></pre>
+<p>Yielding this map:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="volmap1.png" class="img-fluid figure-img"></p>
+<figcaption>Volunteering in the US</figcaption>
+</figure>
+</div>
+<p>In <code>maptile</code> syntax, the <code>geo</code> option specifies which geographic map you are using. Note that you have to download the geographic map you want to use ahead of time (we did this at the beginning of the lab). You can find a variety of compatible maps <a href="https://michaelstepner.com/maptile/geographies/">on the creator’s website</a>. What <code>maptile</code> does is it takes the variable you specifie (in our case <code>state_volunteer</code>) and bins it into quantiles of that variable and then shades the states according to their quantile. You can specify the number of quantiles you’d like to use or the range of each bin you want to group observations by in place of quantiles and some types of data may call for these modifications.</p>
+<p>Note that in a conventional map, like we see above, the variation in state geographic sizes might hide some states (my beloved D.C.!) or misrepresent the prevalence of something (e.g., looking at vote shares by party ID might be misleading at the state-level because some states have more sparsely populated land - here’s looking at you Wyoming). One approach to fix this favored by some is to use evenly sized hexagons for presenting state data. Here, since we downloaded hex maps earlier, we would simply change the geographic code and point to the variable that has abbreviations for labeling the hexagons (important now that they are losing their distinctive shapes).</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>maptile state_volunteer, geo(statehex) labelhex(state)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">export</span> <span class="st">"output</span><span class="ch">\v</span><span class="st">olmap2.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="volmap2.png" class="img-fluid figure-img"></p>
+<figcaption>Volunteering in the US, put differently</figcaption>
+</figure>
+</div>
+<p>And that’s all for this lab on mapping. Let’s end our log.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">log</span> <span class="kw">close</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
-</section>
 </section>
 </section>
 </section>
@@ -243,6 +454,7 @@ Note
 
 <ol>
 <li id="fn1"><p>Defining and identifying effective schools is a large area of research with several active debates. One useful and fairly robust measure relies on school-specific growth scores, but that’s a topic for another class.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>These are both user-written packages by Michael Stepner at MIT (<code>maptile</code>) and Maurizio Pisati (<code>spmap</code>). User contributions to both Stata and R are the difficult, voluntary, but wildly valuable work that some scholars and data analysts do to make these tools widely available to analysts and researchers everywhere.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

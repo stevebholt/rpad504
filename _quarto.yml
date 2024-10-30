@@ -42,6 +42,7 @@ website:
         - lab1.qmd
         - lab2.qmd
         - lab3.qmd
+        - lab5.qmd
 
 format:
   html:

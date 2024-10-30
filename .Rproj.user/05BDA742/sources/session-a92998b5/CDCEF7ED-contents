@@ -56,18 +56,169 @@ I want to flag a few important features of the data that makes this data useful.
 [^1]: Defining and identifying effective schools is a large area of research with several active debates. One useful and fairly robust measure relies on school-specific growth scores, but that's a topic for another class.
 
 ## Making Maps in Stata
-In Stata, there are a few different packages that assist in making maps. A lot of the packages are for helping Stata convert the file formats common in GIS datasets into a format Stata can recognize and use. The rest are packages that provide syntax for creating maps with Stata code - important for our purposes of using GIS data. The two main packages for making maps in Stata are `spmap` and `maptile`. While `spmap` is more flexible and allows you to use your own map inputs for making more custom maps, that flexibility comes at the cost of being a little more complex to use well. Meanwhile, `maptile` is a simpler wrapper for `spmap` that allows you to plot quantiles of data across counties or states in a variety of styles; it is less flexible but far more straightforward to use. We will go through some examples using both. 
+In Stata, there are a few different packages that assist in making maps. A lot of the packages are for helping Stata convert the file formats common in GIS datasets into a format Stata can recognize and use. The rest are packages that provide syntax for creating maps with Stata code - important for our purposes of using GIS data. The two main packages for making maps in Stata are `spmap` and `maptile`. While `spmap` is more flexible and allows you to use your own map inputs for making more custom maps, that flexibility comes at the cost of being a little more complex to use well. Meanwhile, `maptile` is a simpler wrapper for `spmap` that allows you to plot quantiles of data across counties or states in a variety of styles; it is less flexible but far more straightforward to use. We will go through some examples using both.[^2]
+
+[^2]: These are both user-written packages by Michael Stepner at MIT (`maptile`) and Maurizio Pisati (`spmap`). User contributions to both Stata and R are the difficult, voluntary, but wildly valuable work that some scholars and data analysts do to make these tools widely available to analysts and researchers everywhere.
 
 ### Packages
 Let's begin by starting our .do file and installing the packages we will need.
 
 ```{.stata}
 cd "C:\rpad504\"
+local today : di %tdCY.N.D date("$S_DATE","DMY")
+log using "logs\lab5_`today'.log", replace
+
+ssc install spmap, replace
+ssc install shp2dta, replace
+ssc install mif2dta, replace
+ssc install maptile, replace
+ssc install statastates, replace
+
 ```
 
+There are also a few different map templates available in maptile. We will go ahead and download those too.
+
+```{.stata}
+maptile_install using "http://files.michaelstepner.com/geo_county2014.zip", replace
+maptile_install using "http://files.michaelstepner.com/geo_state.zip", replace
+maptile_install using "http://files.michaelstepner.com/geo_statehex.zip", replace
+```
+
+Alright, now we have everything we need to make some maps. Let's get started.
 
 ### Plotting Points
 
-### Plotting Quantiles or Bins
+We will start by creating a few maps of all the public schools in New York. To do this, we will be using `spmap` and the `ny_schools_geo.dta` datafile in the lab folder. We will start by using the `shp2dta` command we just installed to create a dataset with the geographic identifiers for merging in data and a dataset with the coordinates for making the map. The code is fairly straightforward.
 
-#### Cleaning the Data
+```{.stata}
+shp2dta using "data\tl_2016_36_cousub.shp", database(nydb) coordinates(nycoord)
+```
+
+Note that `nydb` and `nycoord` are simply names I chose for the datafiles with geographic identifiers and coordinates, respectively. The command will generate two new `.dta` files in your main folder. Let's open the `nydb` dataset first and look at the geographic identifiers.
+
+```{.stata}
+use "nydb.dta"
+```
+
+![](cnty2.png)
+
+Note that the state FIPS and county FIPS are separate in this datafile. They are also yellow, which tells us that they are stored as a *string* format in Stata rather than a number. We will need to create a new variable with the same name as the county identifier in our school data (`cnty`) and the same format (*numeric*). We will do that with two simple lines: concatenate (which serves to combine the information from two variables into a single variable, preserving the order of the digits in the new combined variable) and generating a numeric version of the string variable. Then we will save and clear this data.
+
+```{.stata}
+egen cnty1 = concat(STATEFP COUNTYFP)
+gen cnty = real(cnty1)
+sort cnty
+save "data\nydb.dta", replace
+clear
+```
+
+Now let's open the schools data and merge in the geoidentifers from the shapefile using the `cnty` variable we just created.
+
+```{.stata}
+use "data\ny_schools_geo.dta"
+sort cnty
+merge m:m cnty using "data\nydb.dta"
+drop _merge
+egen schid = group(name street ncessch)
+sort schid
+quietly by schid: gen dup = cond(_N==1,0,_n)
+tab dup
+drop if dup>0
+```
+
+After we remove duplicates in our datafile, we should have 4,800 observations. Now we're ready to start mapping! We will use the unique school identifier we created in our previous step (grouping the observations by `name`, `street`, and `ncessch` or the school name, street address, and NCES identifier). 
+
+::: callout-note
+This is not an ideal data structure because we will be relying on the awful `m:m` merge that we should avoid in nearly all cases. A better shapefile would have been one using New York school districts as the organizing unit. However, our county map will suffice for illistrating map creation even in suboptimal circumstances.
+:::
+
+Let's start with a very basic map of all the schools in New York.
+
+```{.stata}
+spmap using nycoord, id(schid) point(xcoord(x) ycoord(y))
+graph export "output\nymap1.png", replace
+```
+
+Which should give us something like this:
+
+![New York Schools](nymap1.png)
+
+Of course, these dots are a bit large and somewhat hard to see. Let's go ahead and change their color to something that might stand out a bit more.
+
+```{.stata}
+spmap using nycoord, id(schid) point(xcoord(x) ycoord(y) fcolor(blue))
+graph export "output\nymap2.png", replace
+```
+
+
+![New York Schools Again!](nymap2.png)
+
+Let's try a different plot style.
+
+```{.stata}
+spmap using nycoord, id(schid) point(xcoord(x) ycoord(y) fcolor(blue) shape(+))
+graph export "output\nymap3.png", replace
+```
+
+![New York Schools: Return of the Schools](nymap3.png)
+
+Note that the center of the plus signs is the more precise location of the school. Okay, so that's how you change the style and the color of the symbols on the map. You can add a legend to capture what symbols mean and plot different types of schools (say, charter versus traditional or elementary, middle, and high schools) with different symbols (using the `by` option). The `help` file for spmap provides a comprehensive run-down of those options. For now, we are going to add a little more information to our map. Schools vary quite considerably in their size and it would be great if we could visualize where the large schools are in the state. Well, since I cleaned and merged the enrollment data into our schools dataset, we can use the enrollment count at the schools to inform the relative size of our school plot points. Specifically, this will have Stata create plots of varying sizes where the size of the plot captures the number of students in a given school relative to other schools in the dataset (in this case, the state).
+
+```{.stata}
+spmap using nycoord, id(schid) point(xcoord(x) ycoord(y) fcolor(blue) shape(o) prop(enroll))
+graph export "output\nymap4.png", replace
+```
+
+![New York Schools: The Schools Awaken](nymap4.png)
+
+Notice that this creates kind of an ugly blob of plots. Yes, some of them vary in size, but it's really hard to tell what's going here. We're going to add and outline to the plot points and tone down the brightness of the fill color to get a better sense of the data.
+
+```{.stata}
+spmap using nycoord, id(schid) point(xcoord(x) ycoord(y) fcolor(blue*0.25) ocolor(black) shape(o) prop(enroll))
+graph export "output\nymap5.png", replace
+```
+
+![New York Schools: The Last School Map](nymap5.png)
+
+Much better! Note that this sort of map, in conjunction with good, clean, well organized data, can provide similar information about other kinds of variables (e.g., caseload across welfare or drug addiction treatment offices, homeless services, crime hotspots by type of crime). The maps created here are just a rough guide to help you understand how to make maps with data in Stata to get you started.
+
+### Plotting Quantiles or Bins
+Of course, we often want to know how things look across the country and how states are doing relative to one another. For this kind of analysis, we might find the simplicity of `maptile` to be more flexible. Let's clear out the data in our memory and load the volunteering data:
+
+```{.stata}
+clear
+use "data\state_volunteer.dta"
+```
+
+This dataset has been cleaned and includes state names, state abbreviations, state FIPS codes, and the average minutes spent volunteering in a typical data drawing on ATUS data from 2003 to 2017. Since I have already setup the data at the state level, we can dive right in to making maps with `maptile`. Let's start with a conventional map of states:
+
+```{.state}
+maptile state_volunteer, geo(state)
+graph export "output\volmap1.png", replace
+```
+
+Yielding this map:
+
+![Volunteering in the US](volmap1.png)
+
+In `maptile` syntax, the `geo` option specifies which geographic map you are using. Note that you have to download the geographic map you want to use ahead of time (we did this at the beginning of the lab). You can find a variety of compatible maps [on the creator's website](https://michaelstepner.com/maptile/geographies/). What `maptile` does is it takes the variable you specifie (in our case `state_volunteer`) and bins it into quantiles of that variable and then shades the states according to their quantile. You can specify the number of quantiles you'd like to use or the range of each bin you want to group observations by in place of quantiles and some types of data may call for these modifications.
+
+Note that in a conventional map, like we see above, the variation in state geographic sizes might hide some states (my beloved D.C.!) or misrepresent the prevalence of something (e.g., looking at vote shares by party ID might be misleading at the state-level because some states have more sparsely populated land - here's looking at you Wyoming). One approach to fix this favored by some is to use evenly sized hexagons for presenting state data. Here, since we downloaded hex maps earlier, we would simply change the geographic code and point to the variable that has abbreviations for labeling the hexagons (important now that they are losing their distinctive shapes).
+
+```{.stata}
+maptile state_volunteer, geo(statehex) labelhex(state)
+graph export "output\volmap2.png", replace
+```
+
+![Volunteering in the US, put differently](volmap2.png)
+
+And that's all for this lab on mapping. Let's end our log.
+
+```{.stata}
+log close
+```
+
+
+
+
+
