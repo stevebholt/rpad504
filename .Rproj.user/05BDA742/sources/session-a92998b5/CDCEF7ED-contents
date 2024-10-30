@@ -9,18 +9,20 @@ format:
 ---
 
 # Overview
-Making maps can be an incredibly useful and powerful analytic and descriptive tool in any analyst's toolkit, and that's particularly true for anyone working around public policy. Maps can help us visualize a problem, spot particularly troublesome areas in the geographic space we are governing, and identify areas that might need new or different allocations of resources. In this lab, we are going to make a few different maps using data from the Common Core of Data (CCD) - the national data warehouse for data on public schools - and the American Time Use Survey. I have already downloaded and cleaned the data we will need [here](), but I will walk through some of the cleaning in the setup so that you can re-create the process from scratch. 
+
+Making maps can be an incredibly useful and powerful analytic and descriptive tool in any analyst's toolkit, and that's particularly true for anyone working around public policy. Maps can help us visualize a problem, spot particularly troublesome areas in the geographic space we are governing, and identify areas that might need new or different allocations of resources. In this lab, we are going to make a few different maps using data from the Common Core of Data (CCD) - the national data warehouse for data on public schools - and the American Time Use Survey. I have already downloaded and cleaned the data we will need [here](), but I will walk through some of the cleaning in the setup so that you can re-create the process from scratch.
 
 ::: callout-warning
 Geographic Information System (GIS) data is a very broad field. This lab is a short introduction to some basic concepts, but the topic could fit an entire semester of content. Broadly, you can think of two buckets of technical skills important for working with GIS applications - production of GIS data and use of GIS data. We will be working in the latter bucket of skills here.
 :::
 
 ## GIS data
+
 GIS data refers to data that has been collected and stored in a way that can allow for the projection of data onto a geographic representation of where that data was produced in the physical world. The primary software and service used in professional applications of GIS data is ArcGIS or a combination of packages in R that often works with ArcGIS. However, Stata has several packages and integrations that also allow for the creation of fairly polished maps with data. To make use of GIS data, you often need data that has been *geocoded* - that is, observations also include longitudinal and latitudinal coordinates for where an observation took place and, often, x and y coordinates for mapping the latitude and longitude onto a given map shape. To work in Stata, you are generally going to need a few things:
 
-1. A shapefile (typically in the ESRI format).
-2. A dataset with geographic identifiers.
-3. A dataset with both identifiers and the information you want to graph on a map.
+1.  A shapefile (typically in the ESRI format).
+2.  A dataset with geographic identifiers.
+3.  A dataset with both identifiers and the information you want to graph on a map.
 
 The Census Bureau has created a wealth of ESRI format shapefiles for many geogrphic units in the United States. Often a shapefile you need can be found using a simple search for what you're trying to map (e.g., New York) and shapefile, e.g., "New York shapefile." For instance, New York's can be found [here](https://catalog.data.gov/dataset/tiger-line-shapefile-2016-state-new-york-current-county-subdivision-state-based). Downloading the `.zip` folder with the shapefile will reveal a whole host of files:
 
@@ -28,7 +30,15 @@ The Census Bureau has created a wealth of ESRI format shapefiles for many geogrp
 
 We only need the `.dbf` and the `.shp` file for working with the New York map in Stata. Don't worry: we won't be working with the complexities of this geometric data directly. We will use some packages that will convert this data into simple geographic identifiers we can use to merge our geocoded data into and use Stata to create the maps we want.
 
+The basic process for making a map will be:
+1. Download the shapefile and the data you want to map.
+2. Ensure you have a matching geographic identifier in both the shapefile and the geocoded data you want to map.
+3. Convert the shapefile to a Stata `.dta` datafile.
+4. Merge in the data you want to map.
+5. Use `spmap` or `maptile` to make the map you need.
+
 ## Data for this lab
+
 For the CCD school data, there were two datafiles used to create the data we will be using in this lab. We will begin by creating a map of all the public schools in New York state. We will then look at a few ways to modify the look and feel of that map. And we will close by creating a map that plots schools by the size of their student body. What this means is we need 1) the directory data of the schools with geocodes and 2) school-level enrollment data. NCES provides the addresses for all public schools in the US in their directory data and, through a collaboration with ArcGIS, the geocoded directory data is publicly available (the raw datafiles can be downloaded [here](https://hub.arcgis.com/datasets/nces::public-school-locations-current-1/about)). We will also want enrollment data for the last step, so I downloaded the membership data (found [here](https://nces.ed.gov/ccd/files.asp#Fiscal:2,LevelId:7,SchoolYearId:37,Page:1)), cleaned it, and merged it with the geocoded directory data to create the data for this lab.
 
 ::: callout-note
@@ -39,21 +49,25 @@ The geocoded data looks like this:
 
 ![Snippet of geocoded data](geocodes.png)
 
-I want to flag a few important features of the data that makes this data useful. First, included in the data are the x and y coordinates of the location of the school (named, helpfully, `x` and `y`). You'll notice that these are the same as the longitude and latitude coordinates of the address. The data also provides the street address, which can be used with other packages to get geographic coordinates if you are working with data that does not have the coordinates already coded for you. Second, the data includes a unique identifier for every school (`ncessch`) that allows us to link this geographic information with other school characteristics. This can be useful for visualizing things like schools with concentrated poverty, areas with highly racially segregated schools, areas with a lot of highly effective schools[^1], and many other policy relevant data elements. 
+I want to flag a few important features of the data that makes this data useful. First, included in the data are the x and y coordinates of the location of the school (named, helpfully, `x` and `y`). You'll notice that these are the same as the longitude and latitude coordinates of the address. The data also provides the street address, which can be used with other packages to get geographic coordinates if you are working with data that does not have the coordinates already coded for you. Second, the data includes a unique identifier for every school (`ncessch`) that allows us to link this geographic information with other school characteristics. This can be useful for visualizing things like schools with concentrated poverty, areas with highly racially segregated schools, areas with a lot of highly effective schools[^1], and many other policy relevant data elements. Finally, not shown in the snippet but in the data, you can find multiple codes for different levels of geographic information - counties, MSAs, states, and so on - that can be used to link the school data to other aspects of the communities shools are in. For our purposes, we will be using `cnty` (below) to link this data with the shapefile data for our maps. Note that the `cnty` variable in our schools data is a numeric variable and already includes the state fips (36) and county fips (the last three digits). I flag this here because we will need a matching identifier in our shapefile data (this will make sense later).
+
+![](cnty1.png)
 
 [^1]: Defining and identifying effective schools is a large area of research with several active debates. One useful and fairly robust measure relies on school-specific growth scores, but that's a topic for another class.
 
 ## Making Maps in Stata
+In Stata, there are a few different packages that assist in making maps. A lot of the packages are for helping Stata convert the file formats common in GIS datasets into a format Stata can recognize and use. The rest are packages that provide syntax for creating maps with Stata code - important for our purposes of using GIS data. The two main packages for making maps in Stata are `spmap` and `maptile`. While `spmap` is more flexible and allows you to use your own map inputs for making more custom maps, that flexibility comes at the cost of being a little more complex to use well. Meanwhile, `maptile` is a simpler wrapper for `spmap` that allows you to plot quantiles of data across counties or states in a variety of styles; it is less flexible but far more straightforward to use. We will go through some examples using both. 
+
 ### Packages
+Let's begin by starting our .do file and installing the packages we will need.
+
+```{.stata}
+cd "C:\rpad504\"
+```
 
 
 ### Plotting Points
 
-
-
-
 ### Plotting Quantiles or Bins
-
-
 
 #### Cleaning the Data

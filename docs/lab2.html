@@ -420,8 +420,7 @@ Valid   0  n/a                                         |    7103702      54.31  
         70 other                                       |      59606       0.46       0.46      94.75
         80 worked at home                              |     686284       5.25       5.25     100.00
         Total                                          |   1.31e+07     100.00     100.00           
-----------------------------------------------------------------------------------------------------
-</code></pre>
+----------------------------------------------------------------------------------------------------</code></pre>
 <p>Notice how many categories there are? That’s probably going to be overwhelming to look at in a table all together. We might want to collapse these categories into higher level categories. To do this, we’ll use a new command: <code>recode</code>. This will be much simpler than our previous route of creating a new variable and then replacing each value of the variable with a new value for each category. How tedious!</p>
 <p>We’ll start with <code>educ</code> since it’s the most straightforward. Here, we might really only be concerned with a breakdown of people with no college, some college, and a Bachelor’s degree or more. Maybe we go an extra mile and include a separate breakout for graduate degrees. Here, we’ll use <code>recode</code> to define a smaller set of categories that include multiple categories from the original variable.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> educ (0/5 = 1 <span class="st">"Less than HS"</span>) (6 = 2 <span class="st">"HS"</span>) (7/8 = 3 <span class="st">"Some college"</span>) (10 = 4 <span class="st">"College degree"</span>) (11 = 5 <span class="st">"More than Bachelor's"</span>), <span class="kw">gen</span>(seduc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -495,8 +494,7 @@ Note
              |  e(count)   e(sum_w)    e(mean)     e(Var)      e(sd)     e(min)     e(max)     e(sum) 
 -------------+----------------------------------------------------------------------------------------
       inctot |    168171     168171   46004.99   4.81e+09   69371.54      -8500    1309000   7.74e+09 
- incwage_prc |    147621     147621   63.64085   503210.3   709.3732      -1000     200000    9394726 
-</code></pre>
+ incwage_prc |    147621     147621   63.64085   503210.3   709.3732      -1000     200000    9394726 </code></pre>
 <p>Our sample average income is about $46,005 per year and about 63% of that income comes from wages and salary for the average person in the sample. Let’s go ahead and store this under a label so we can put it in a table.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In the code about, <code>est sto</code> is my command and it’s short for “estimates store.” The <code>all</code> part of the command is a label for the estimates for future reference. You can use any label you like (no spaces), but I typicall keep them short and snappy so that referencing them later is easy. In this call, we are estimating summary statistics of income and percent of income from wages using the full sample - or all observations - so I use the label all for clarity.</p>
