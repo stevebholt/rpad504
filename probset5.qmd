@@ -17,7 +17,7 @@ Questions 1 and 2 will use `maptile` while question 3 will use `spmap`. In the A
 These can use either real state boundaries or state hexes.
 :::
 
-2. Create a map that presents time spent on work-related acitivities and socializing and recreational activities across counties (2 separate maps). What jumps out to you when comparing counties on these two time-use dimensions?
+2. Create a map that presents time spent on work-related activities and socializing and recreational activities across counties (2 separate maps). What jumps out to you when comparing counties on these two time-use dimensions?
 
 
 3. Using the shape file and the `ny_cleanupsites.dta` data, create a map that plots the environmental clean-up sites across New York. Represent the sites as blue plus signs. 
