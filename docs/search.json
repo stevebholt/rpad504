@@ -495,5 +495,16 @@
       "Labs",
       "Lab 5 - Making Maps"
     ]
+  },
+  {
+    "objectID": "probset5.html",
+    "href": "probset5.html",
+    "title": "Problem Set 5",
+    "section": "",
+    "text": "Introduction\nIn this problem set, you will use data from the American Time Use Survey (ATUS) to create maps at the state and county level of time spent on social and recreational activities, time spent on education-related activities, and time spent working. All data have been aggregated to the state-level for you and are measured in minutes spent on an average day. The data can be downloaded here. You will create the maps asked for in the question and write no more than three sentences using the maps to answer the question. Turn in a word document with your maps and answers, a .do file with your code, and a .log file with your log files from your analysis.\n\n\n\n\n\n\nNote\n\n\n\nQuestions 1 and 2 will use maptile while question 3 will use spmap. In the ATUS, only counties with a population greater than 100,000 people are included.\n\n\n\n\nQuestions\n\nCreate a state map that shows time spent on education-related activities in 2005, 2019, and 2023 (3 separate maps). How have the patterns of time spent on education activities across states changed over time? Which states have changed the most?\n\n\n\n\n\n\n\nNote\n\n\n\nThese can use either real state boundaries or state hexes.\n\n\n\nCreate a map that presents time spent on work-related acitivities and socializing and recreational activities across counties (2 separate maps). What jumps out to you when comparing counties on these two time-use dimensions?\nUsing the shape file and the ny_cleanupsites.dta data, create a map that plots the environmental clean-up sites across New York. Represent the sites as blue plus signs.\n\n\n\n\n\n\n\nTip\n\n\n\nYou will want to use a m:m merge on county, like we did in the lab, but may want to create a lowercase version of county before you do so. You will want to use the force option with your merge command and only keep observations where _merge == 3 after the merge, for the purposes of this exercise. Note that objectid functions the same as schid in this context.\n\n\n\n\nExtra Credit\n\nRecreate this map and type the code you used underneath your map. Worth 5 points.\n\n\n\n\n\n\n\nHint\n\n\n\nThe color scheme used in the map is Dark2. The rest uses customization of the map made for question 3 using a few options you can find in the help file.\n\n\n\n\n\nCleanup Sites in New York",
+    "crumbs": [
+      "Assignments",
+      "Problem Set 5"
+    ]
   }
 ]

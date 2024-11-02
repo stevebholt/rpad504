@@ -8,7 +8,7 @@
 
 <meta name="author" content="Stephen B. Holt">
 
-<title>Problem Set 4 - EC – RPAD 504 - Data, Models, and Decisions</title>
+<title>Problem Set 5 – RPAD 504 - Data, Models, and Decisions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -119,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./probset4.html">Problem Set 4 - EC</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./probset5.html">Problem Set 5</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./probset4.html" class="sidebar-item-text sidebar-link active">
+  <a href="./probset4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Problem Set 4 - EC</span></a>
   </div>
 </li>
@@ -177,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./probset5.html" class="sidebar-item-text sidebar-link">
+  <a href="./probset5.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Problem Set 5</span></a>
   </div>
 </li>
@@ -191,8 +191,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  <li><a href="#extra-credit" id="toc-extra-credit" class="nav-link" data-scroll-target="#extra-credit">Extra Credit</a></li>
   </ul>
 </nav>
     </div>
@@ -201,7 +202,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Problem Set 4 - EC</h1>
+<h1 class="title">Problem Set 5</h1>
 </div>
 
 
@@ -224,19 +225,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="instructions" class="level1">
-<h1>Instructions</h1>
-<p>In this problem set, you will be using data from the Education Longitudinal Study of 2002 (ELS). The ELS contains data from a nationally representative sample of adolescents who were sophomores in high school in the base year of the study. The study checked in with them again in their senior year, the equivalent of their “on-time” sophomore year of college, and again in 2012, when the college graduates in the sample would be early in their careers. In this set of problems, to help you prepare for the kinds of questions you will deal with in the midterm, you will be asked a few questions about proportions, distributions of categorical variables, means, and making a table and a bar graph. For these questions, aside from race, indicator variables have been created for all of the variables you need to answer the questions. When answering questions involving the race variable (<code>byrace</code>) or the educational attainment variable (<code>f3attainment</code>), you do not need to collapse the variables into fewer categories (though you may need to create clean, labeled indicator variables for each category in them). You can download the data <a href="https://www.dropbox.com/scl/fo/uhrtrtkm0ctkbt6r0pmj0/AJu7uvDtpsPdfSSszdv-hMo?rlkey=rypnscs0rspgrjbxgj0g7gvz8&amp;st=vqz702zq&amp;dl=0">here</a>. There is a long-standing body of literature on inter-generational inequalities. Many of these questions will explore aspects of this using the ELS.</p>
-<p>The assignment is entirely extra credit. Each question is worth 1 point. As always, submit a word document with your answers, your .do file, and your .log file.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In this problem set, you will use data from the American Time Use Survey (ATUS) to create maps at the state and county level of time spent on social and recreational activities, time spent on education-related activities, and time spent working. All data have been aggregated to the state-level for you and are measured in minutes spent on an average day. The data can be downloaded <a href="https://www.dropbox.com/scl/fo/shooshrxmwvonrczu6k58/AJF8m9ka6rQoV4rYOdmqaw0?rlkey=ngfpcj6ynb29jcxibbnalgfjg&amp;st=cnkhs25n&amp;dl=0">here</a>. You will create the maps asked for in the question and write no more than three sentences using the maps to answer the question. Turn in a word document with your maps and answers, a .do file with your code, and a .log file with your log files from your analysis.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Questions 1 and 2 will use <code>maptile</code> while question 3 will use <code>spmap</code>. In the ATUS, only counties with a population greater than 100,000 people are included.</p>
+</div>
+</div>
 </section>
 <section id="questions" class="level1">
 <h1>Questions</h1>
 <ol type="1">
-<li><p>What is the average math and average reading score of students at urban high schools?</p></li>
-<li><p>What is the average math and average reading score of students at suburban high schools?</p></li>
-<li><p>Let’s think about exposure to diversity. The ELS asked the sophomores a few questions about their 3 closest friends at school. Create a horizontal bar graph that shows the average number of friends of a different racial background across categories of urbanicity.</p></li>
-<li><p>What is the average number of friends who care about their grades for people in the top quartile of math scores and people in the bottom quartile of math scores?</p></li>
-<li><p>Now let’s get a picture of characteristics by high- and low-income and by urbanicity. Create a table that shows the distribution of race and gender, average math and reading scores, average number of friends from a different race, average number of friends who believe grades are important, the proportion whose parents have a college degree and the proportion whose grandparents have a college degree. This table should present these statistics overall, separately by high- and low-income, and separately by urbanicity of the school.</p></li>
+<li>Create a state map that shows time spent on education-related activities in 2005, 2019, and 2023 (3 separate maps). How have the patterns of time spent on education activities across states changed over time? Which states have changed the most?</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These can use either real state boundaries or state hexes.</p>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>Create a map that presents time spent on work-related acitivities and socializing and recreational activities across counties (2 separate maps). What jumps out to you when comparing counties on these two time-use dimensions?</p></li>
+<li><p>Using the shape file and the <code>ny_cleanupsites.dta</code> data, create a map that plots the environmental clean-up sites across New York. Represent the sites as blue plus signs.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You will want to use a m:m merge on county, like we did in the lab, but may want to create a lowercase version of county before you do so. You will want to use the <code>force</code> option with your merge command and only keep observations where <code>_merge == 3</code> after the merge, for the purposes of this exercise. Note that <code>objectid</code> functions the same as <code>schid</code> in this context.</p>
+</div>
+</div>
+</section>
+<section id="extra-credit" class="level1">
+<h1>Extra Credit</h1>
+<ol type="1">
+<li>Recreate this map and type the code you used underneath your map. Worth 5 points.</li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -248,15 +293,15 @@ Hint
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Your table should have 6 columns: 1 for everyone, 1 for low-income, 1 for high-income, and 1 for each of the 3 categories of urbanicity.</p>
+<p>The color scheme used in the map is Dark2. The rest uses customization of the map made for question 3 using a few options you can find in the help file.</p>
 </div>
 </div>
-<ol start="6" type="1">
-<li><p>Is educational attainment associated with parents’ and grandparents’ education? Create two horizontal bar graphs: i) show the student’s educational attainment by 2012 by parents with and without a college degree and ii) show the student’s educational attainment by 2012 by grandparents with and without a college degree.</p></li>
-<li><p>Now let’s look at schools. Principals were asked if various aspects of the school hindered learning at their school. Create a bar graph that shows the distribution of reasons learning is hindered at schools separately by high- and low-income students.</p></li>
-<li><p>Let’s get a sense for the school environment and resources at schools. Create a table that presents the average percent of kids in crisis programs, percent of kids in college preparatory programs, average number of guidance counselors, average teacher salaries, and the distribution of possible rewards for good teachers overall and separately by kids whose parents went to college and kids whose parents did not.</p></li>
-<li><p>Create a table that shows the distribution of good teacher rewards separately by whether the principals believes teacher morale is high or not and whether the principal believes student morale is high or not.</p></li>
-</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cleanupsites.png" class="img-fluid figure-img"></p>
+<figcaption>Cleanup Sites in New York</figcaption>
+</figure>
+</div>
 
 
 </section>
