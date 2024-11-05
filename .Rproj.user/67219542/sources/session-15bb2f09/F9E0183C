@@ -1,13 +1,13 @@
 {
-    "id": "C12DDB93",
-    "path": "C:/Users/sbhst/OneDrive/sites/rpad504/index.qmd",
-    "project_path": "index.qmd",
+    "id": "F9E0183C",
+    "path": "C:/Users/sh372234/OneDrive/sites/rpad504/lab3.qmd",
+    "project_path": "lab3.qmd",
     "type": "quarto_markdown",
-    "hash": "1228255459",
+    "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1721850532759.0,
-    "source_on_save": false,
+    "created": 1727970677772.0,
+    "source_on_save": true,
     "relative_order": 1,
     "properties": {
         "rmdVisualMode": "false",
@@ -15,17 +15,16 @@
         "source_window_id": "",
         "Source": "Source",
         "docOutlineVisible": "1",
-        "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "2:0",
-        "cursorPosition": "4,573",
-        "scrollLine": "0"
+        "cursorPosition": "7,19",
+        "scrollLine": "0",
+        "rmdVisualCollapsedChunks": ""
     },
     "folds": "",
-    "lastKnownWriteTime": 1724268645,
+    "lastKnownWriteTime": 1727977184,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1724268645320,
+    "last_content_update": 1727977184992,
     "read_only": false,
     "read_only_alternatives": []
 }
