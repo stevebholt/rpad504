@@ -3,7 +3,11 @@
     "path": "C:/Users/sbhst/OneDrive/sites/rpad504/probset5.qmd",
     "project_path": "probset5.qmd",
     "type": "quarto_markdown",
+<<<<<<< HEAD:.Rproj.user/05BDA742/sources/per/t/383E8EE7
+    "hash": "868565859",
+=======
     "hash": "3295327245",
+>>>>>>> 99079dde2690d4b7b0b14f6f4b5322cc9fb772a9:.Rproj.user/05BDA742/sources/session-571d3625/383E8EE7
     "contents": "",
     "dirty": false,
     "created": 1730554746689.0,
@@ -15,18 +19,31 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
+<<<<<<< HEAD:.Rproj.user/05BDA742/sources/per/t/383E8EE7
+        "cursorPosition": "25,202",
+        "scrollLine": "0",
+=======
         "cursorPosition": "30,84",
         "scrollLine": "1",
+>>>>>>> 99079dde2690d4b7b0b14f6f4b5322cc9fb772a9:.Rproj.user/05BDA742/sources/session-571d3625/383E8EE7
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "2:0"
     },
     "folds": "",
+<<<<<<< HEAD:.Rproj.user/05BDA742/sources/per/t/383E8EE7
+    "lastKnownWriteTime": 1730569559,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1730569559950,
+=======
     "lastKnownWriteTime": 1730565404,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
     "last_content_update": 1730565404630,
+>>>>>>> 99079dde2690d4b7b0b14f6f4b5322cc9fb772a9:.Rproj.user/05BDA742/sources/session-571d3625/383E8EE7
     "read_only": false,
     "read_only_alternatives": []
 }
