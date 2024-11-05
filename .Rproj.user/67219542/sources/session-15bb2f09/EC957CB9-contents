@@ -23,11 +23,8 @@ These can use either real state boundaries or state hexes.
 3. Using the shape file and the `ny_cleanupsites.dta` data, create a map that plots the environmental clean-up sites across New York. Represent the sites as blue plus signs. 
 
 ::: callout-tip
-<<<<<<< HEAD
 You will want to use a m:m merge on county, like we did in the lab, but may want to create a lowercase version of county before you do so. You will want to use the `force` option with your merge command, for the purposes of this exercise. Note that `objectid` functions the same as `schid` in this context.
-=======
 You will want to use a m:m merge on county, like we did in the lab, but may want to create a lowercase version of county before you do so. You will want to use the `force` option with your merge command and only keep observations where `_merge == 3` after the merge, for the purposes of this exercise. Note that `objectid` functions the same as `schid` in this context.
->>>>>>> 99079dde2690d4b7b0b14f6f4b5322cc9fb772a9
 :::
 
 # Extra Credit
