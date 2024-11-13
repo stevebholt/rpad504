@@ -360,9 +360,9 @@ window.Quarto = {
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>-------------+---------------------------------------------------------</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>      read_k |        357    453.8515    34.48812        386        605</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Comparing the average reading scores of the treatment and control groups, we can see that the treatment group has, on average, higher reading scores at the end of the first year of the study. At least superficially, it looks like students in small classrooms who can theoretically receive more attention from less stressed teachers score about 14 points higher on reading tests than their counterparts in regular classrooms one year into the study. It is possible, however, that the gap we see is attributable to sampling noise or error and different samples would find no difference between the two groups. Since policy changes and public resources might depend on getting this right, we want to rule out this possibility using a two sample hypothesis test against the null hypothesis that the difference between the treatment and control group is really zero. Of course, with the summary statistics for both samples, we already have everything we need to conduct a two sample t-test by hand using our handy formula for a two sample t-statistic:</p>
-<p>$ t = $</p>
+<p><span class="math display">\[ t = \dfrac{(\overline{X_1} - \overline{X_2})}{\sqrt{\frac{s_1^{2}}{n_1}+\frac{s_2^{2}}{n_2}}} \]</span></p>
 <p>Plugging in the mean and standard deviation we have from our summary statistics for each sample, we can calculate a t-score:</p>
-<p>$ t = -5.09 $</p>
+<p><span class="math display">\[ \dfrac{(439.40 - 453.85)}{\sqrt{\frac{26^{2}}{143}+\frac{34.49^{2}}{357}}} \rightarrow \dfrac{-14.45}{\sqrt{\frac{676}{143}+\frac{1189.56}{357}}} \rightarrow \dfrac{-14.45}{\sqrt{4.73+3.33}} \rightarrow \dfrac{-14.45}{2.84} \rightarrow t = -5.09 \]</span></p>
 <p>Note that there was a lot of rounding to two decimal points in my calculation, but the t-score of -5.09 will be a reasonably close approximation of what we would find using more precise calculations. Now, we know that our conventional threshold for alpha to determine statistical significance is 0.05.Our last step will be to use our t-score and degrees of freedom to find our p-value. For our purposes, we will use the smaller degrees of freedom from the two samples, in this case <code>df = 142</code>. To calculate the p-value, we will again turn to Stata and use the <code>display</code> command to estimate the p-value. Here, the command will take the form of <code>display 2*ttail(df, t)</code> where we enter our degrees of freedom and the absolute value of our t-score in place of <code>df</code> and <code>t</code> respectively. Thus, the code is:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">display</span> 2*<span class="fu">ttail</span>(142, 5.09)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>1.117e-06</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -397,13 +397,13 @@ window.Quarto = {
 <section id="simple-linear-regression" class="level2">
 <h2 class="anchored" data-anchor-id="simple-linear-regression">Simple Linear Regression</h2>
 <p>To illustrate the concepts and uses of linear regression for analysis, we will be using data from the National Health Interview Survey (NHIS), which is an annual survey of a nationally representative sample of the U.S. population and asks a host of questions about health and health related behaviors and programs. For our example of a simple linear regression, we will be looking at one relationship that we theorize exists in the world to test hypotheses about these relationships. We will look at the relationship between body mass index (BMI) and exercise frequency. BMI is a proxy measure of obesity and scores outside the healthy range of 18 to 22 or so can suggest an increased risk of diseases like diabetes. For regression analysis, we assume that there is a linear relationship in the population:</p>
-<p>$ BMI_i = _0 + _1 Exercise_i + _i $</p>
+<p><span class="math display">\[ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i \]</span></p>
 <p>where every additional period of exercise a person <em>i</em> engages in will yield a change of <em>BMI</em> equal to <span class="math inline">\(\beta_1\)</span>.</p>
 </section>
 <section id="continuous-outcome-and-continuous-independent-variable" class="level2">
 <h2 class="anchored" data-anchor-id="continuous-outcome-and-continuous-independent-variable">Continuous Outcome and Continuous Independent Variable</h2>
 <p>Beginning with our first model, the link between BMI and exercise, we have a theory that the relationship in the population looks like:</p>
-<p>$ BMI_i = _0 + _1 Exercise_i + _i $</p>
+<p><span class="math display">\[ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i \]</span></p>
 <p>We have a simple random sample of 300 people from the NHIS. We want to know i) the size of <span class="math inline">\(\beta_1\)</span> and ii) the direction of <span class="math inline">\(\beta_1\)</span>. In a linear regression world, we will always adopt a null hypothesis that our independent variable, <strong>x</strong>, is unrelated to our outcome, <strong>y</strong>, or, put another way, that <span class="math inline">\(\beta_1\)</span> equals 0.</p>
 <p>Let’s begin by looking at a scatter plot of exercise and BMI from our sample. Remember that in Stata, the dependent variable (<strong>Y</strong>) always comes first in the code.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">scatter</span> bmi vig10fwk</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -418,9 +418,9 @@ window.Quarto = {
 </figure>
 </div>
 <p>Here, Stata has calculated the best fit line for us, and does seem to suggest that more exercise is associated with a slightly lower BMI. Note that calculating the best fit line ourselves would involve first calculating the slope:</p>
-<p>$ _1 = $</p>
+<p><span class="math display">\[ \beta_1 = \dfrac{\sum (x_i - \overline{X})(y_i - \overline{Y})}{\sum (x_i - \overline{X})^2} \]</span></p>
 <p>…and then using the basic form of a line to calculate the intercept:</p>
-<p>$ _0 = - _1 $</p>
+<p><span class="math display">\[ \beta_0 = \overline{Y} - \beta_1 \overline{X} \]</span></p>
 <p>Now, we know our line is just based on a sample and could be incorrect due to sampling error. We can also have Stata add the confidence interval of the line to see the range in which we can be 95% confident the true population relationship between BMI and exercise rests:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="kw">twoway</span> (lfitci bmi vig10fwk) (<span class="kw">scatter</span> bmi vig10fwk)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Simply adding <code>ci</code> to the <code>lfit</code> command will tell Stata to include confidence intervals in the graph of the best fit line. The default in Stata is 95% C.I.’s, but you can use options to change the default. <img src="scatter3_lab6.png" class="img-fluid" alt="Scatter Plot of BMI and Excersize"></p>

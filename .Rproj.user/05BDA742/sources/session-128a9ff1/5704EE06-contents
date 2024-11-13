@@ -100,11 +100,11 @@ The sort command tells Stata to reorganize the observations according to the val
 
 Comparing the average reading scores of the treatment and control groups, we can see that the treatment group has, on average, higher reading scores at the end of the first year of the study. At least superficially, it looks like students in small classrooms who can theoretically receive more attention from less stressed teachers score about 14 points higher on reading tests than their counterparts in regular classrooms one year into the study. It is possible, however, that the gap we see is attributable to sampling noise or error and different samples would find no difference between the two groups. Since policy changes and public resources might depend on getting this right, we want to rule out this possibility using a two sample hypothesis test against the null hypothesis that the difference between the treatment and control group is really zero. Of course, with the summary statistics for both samples, we already have everything we need to conduct a two sample t-test by hand using our handy formula for a two sample t-statistic:
 
-$ t = \dfrac{(\overline{X_1} - \overline{X_2})}{\sqrt{\frac{s_1^{2}}{n_1}+\frac{s_2^{2}}{n_2}}} $
+$$ t = \dfrac{(\overline{X_1} - \overline{X_2})}{\sqrt{\frac{s_1^{2}}{n_1}+\frac{s_2^{2}}{n_2}}} $$
 
 Plugging in the mean and standard deviation we have from our summary statistics for each sample, we can calculate a t-score:
 
-$ \dfrac{(439.40 - 453.85)}{\sqrt{\frac{26^{2}}{143}+\frac{34.49^{2}}{357}}} \rightarrow \dfrac{-14.45}{\sqrt{\frac{676}{143}+\frac{1189.56}{357}}} \rightarrow \dfrac{-14.45}{\sqrt{4.73+3.33}} \rightarrow \dfrac{-14.45}{2.84} \rightarrow t = -5.09 $
+$$ \dfrac{(439.40 - 453.85)}{\sqrt{\frac{26^{2}}{143}+\frac{34.49^{2}}{357}}} \rightarrow \dfrac{-14.45}{\sqrt{\frac{676}{143}+\frac{1189.56}{357}}} \rightarrow \dfrac{-14.45}{\sqrt{4.73+3.33}} \rightarrow \dfrac{-14.45}{2.84} \rightarrow t = -5.09 $$
 
 Note that there was a lot of rounding to two decimal points in my calculation, but the t-score of -5.09 will be a reasonably close approximation of what we would find using more precise calculations. Now, we know that our conventional threshold for alpha to determine statistical significance is 0.05.Our last step will be to use our t-score and degrees of freedom to find our p-value. For our purposes, we will use the smaller degrees of freedom from the two samples, in this case `df = 142`. To calculate the p-value, we will again turn to Stata and use the `display` command to estimate the p-value. Here, the command will take the form of `display 2*ttail(df, t)` where we enter our degrees of freedom and the absolute value of our t-score in place of `df` and `t` respectively. Thus, the code is:
 
@@ -153,14 +153,14 @@ If we were advising policy-makers, we could confidently suggest that small class
 ## Simple Linear Regression
 To illustrate the concepts and uses of linear regression for analysis, we will be using data from the National Health Interview Survey (NHIS), which is an annual survey of a nationally representative sample of the U.S. population and asks a host of questions about health and health related behaviors and programs. For our example of a simple linear regression, we will be looking at one relationship that we theorize exists in the world to test hypotheses about these relationships. We will look at the relationship between body mass index (BMI) and exercise frequency. BMI is a proxy measure of obesity and scores outside the healthy range of 18 to 22 or so can suggest an increased risk of diseases like diabetes. For regression analysis, we assume that there is a linear relationship in the population:
 
-$ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i $
+$$ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i $$
 
 where every additional period of exercise a person _i_ engages in will yield a change of _BMI_ equal to $\beta_1$.
 
 ## Continuous Outcome and Continuous Independent Variable
 Beginning with our first model, the link between BMI and exercise, we have a theory that the relationship in the population looks like:
 
-$ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i $
+$$ BMI_i = \beta_0 + \beta_1 Exercise_i + \varepsilon_i $$
 
 We have a simple random sample of 300 people from the NHIS. We want to know i) the size of $\beta_1$ and ii) the direction of $\beta_1$. In a linear regression world, we will always adopt a null hypothesis that our independent variable, **x**, is unrelated to our outcome, **y**, or, put another way, that $\beta_1$ equals 0.
 
@@ -185,11 +185,11 @@ The above code uses the two-way graphing function in Stata, a powerful tool that
 
 Here, Stata has calculated the best fit line for us, and does seem to suggest that more exercise is associated with a slightly lower BMI. Note that calculating the best fit line ourselves would involve first calculating the slope:
 
-$ \beta_1 = \dfrac{\sum (x_i - \overline{X})(y_i - \overline{Y})}{\sum (x_i - \overline{X})^2} $
+$$ \beta_1 = \dfrac{\sum (x_i - \overline{X})(y_i - \overline{Y})}{\sum (x_i - \overline{X})^2} $$
 
 ...and then using the basic form of a line to calculate the intercept:
 
-$ \beta_0 = \overline{Y} - \beta_1 \overline{X} $
+$$ \beta_0 = \overline{Y} - \beta_1 \overline{X} $$
 
 Now, we know our line is just based on a sample and could be incorrect due to sampling error. We can also have Stata add the confidence interval of the line to see the range in which we can be 95% confident the true population relationship between BMI and exercise rests:
 
