@@ -1,0 +1,13 @@
+---
+title: "Lab 4 - Merging Datasets"
+author: "Stephen B. Holt"
+format:
+  html:
+   code-overflow: wrap
+   code-block-bg: true
+   code-copy: hover
+---
+
+# Overview
+
+This lab focuses primarily on the structure of datasets, object or unit identifiers, and merging datasets together to combine information from multiple sources. Understanding how to structure and merge data in statistics software - like Stata - can both expand your analytic capabilities through being able to combine data 
