@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Stephen B. Holt">
 
-<title>Assignments – RPAD 504 - Data, Models, and Decisions</title>
+<title>Problem Set 6 – RPAD 504 - Data, Models, and Decisions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./assignments.html">Assignments</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./probset6.html">Problem Set 6</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -140,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./assignments.html" class="sidebar-item-text sidebar-link active">
+  <a href="./assignments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Assignments</span></a>
   </div>
 </li>
@@ -182,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./probset6.html" class="sidebar-item-text sidebar-link">
+  <a href="./probset6.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Problem Set 6</span></a>
   </div>
 </li>
@@ -191,21 +192,34 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions">Questions</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignments</h1>
+<h1 class="title">Problem Set 6</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stephen B. Holt </p>
+          </div>
+  </div>
     
   
     
@@ -216,9 +230,50 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Assignments for RPAD 504 will be posted here as they are assigned.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>In this problem set, you will use data from the American Time Use Survey (ATUS) to create graphs, tables, and estimate some two sample t-tests and simple bivariate linear regressions to answer the questions below. Remember that all graphs and tables must have a title that effectively describes the information in the graph. Tables should also have column numbers, as usual, and short, 1-2 word titles beneath the numbers describing the column’s contents. You can download the data for the problem set <a href="">here</a>. Each question is worth 1 point.</p>
+<div class="{callout-note}">
+<p>The ATUS measures all time-use activities in minutes. The data for this exercise is at the individual-level from 2003-2023.</p>
+</div>
+</section>
+<section id="questions" class="level1">
+<h1>Questions</h1>
+<ol type="1">
+<li><p>How much time, in a typical day, is spent socializing with or communicating with others in the US?</p></li>
+<li><p>Some might wonder whether family formation in America leads to a decline in participation in social activity. Create a table with average time spent socializing and communicating with others, average time spent attending or hosting parties, age, gender, race, and educational attainment (use the four categories already included in the data) overall, separately by married and not married, and separately by having at least 1 child and no children in the household. Write 1 to 2 sentences describing whether family formation seems to impact socializing time.</p></li>
+<li><p>It’s possible that age, and perhaps educational attainment, plays a role in socializing time as well. Create a horizontal bar graph that presents average time spent socializing and communicating with others across age categories and separately by having a college degree and not having a college degree. Write a sentence or two describing what you notice about social time by age and educational status.</p></li>
+<li><p>Perhaps households substitue television for socializing. Create a line graph that plots average time spent socializing and communicating with others and average time spent watching television and movies (non-religious) separately by people wihtout children and people with at least one child by each year in the data. Write a few sentences describing the trends you see.</p></li>
+</ol>
+<div class="{callout-tip}">
+<p>You should have four lines for this graph, two for each time-use activity.</p>
+</div>
+<ol start="5" type="1">
+<li>Run a two-sample t-test for whether the difference in time spent socializing between people with and without kids is statistically significant. Report the difference in means, the t-statistic, and the p-value for the t-test.</li>
+</ol>
+<div class="{callout-tip}">
+<p>You may want to create an indicator variable for whether someone has any children in their household.</p>
+</div>
+<ol start="6" type="1">
+<li><p>There is a longstanding literature on the “second shift” burdens that disproportionately affect women, which refers to the phenomenon in which even working women spend more time and effort on family-related tasks. In the data, there is a variable that captures total time spent on secondary childcare (<code>trtcc</code>), or time spent performing child care duties while also doing something else. Run a two-sample t-test of time spent providing secondary care by gender, restricting the sample to only employed people with a young child in the HH. What is the average difference in secondary care time per day among working men and working women with young children? Is the difference statistically significant? Report the t-score and p-value of the difference.</p></li>
+<li><p>As we age, we might anticipate other responsibilities crowding out socializing time. Estimate a linear regression of time spent socializing or communicating with others on age. What is the relationship between age and socializing time? Is the relationship statisticall significant?</p></li>
+<li><p>Using the results from question 7, how much time would a 25 year old be expected to spend socializing in a typical day? How about a 65 year old?</p></li>
+</ol>
+<div class="{callout-tip}">
+<p>You will need to combine the slope and the intercept in solving for the answer.</p>
+</div>
+<ol start="9" type="1">
+<li><p>Let’s look at time spent on tobacco and drug use. Create a table that shows time spent using tobacco and drugs, time spent working, educational attainment, marital status, number of children in the household, and hours spent alone overall and separately by people who spend zero time using tobacco and drugs and people who spend more than 0 time using tobacco and drugs. What are some descriptive differences that stand out to you and why?</p></li>
+<li><p>Estimate a regression of time spent using tobacco and drugs on the number of hours spent alone in a day. What is the relationship between time spent alone and tobacco and drug use? Is the relationship statistically significant?</p></li>
+<li><p>Create a horizontal bar graph that plots average time socializing and communicating with others, average time spent working, and average time spent alone across levels of educational attainment and separately by whether there is a young child (less than 2 years old) in the household. What do you notice in time use patterns by education and parenting a young child?</p></li>
+<li><p>Let’s look at time spent on various forms of leisure by whether someone has a college degree. Create a horizontal bar graph of the average for all the leisure activities (t120301 through t120313) by whether someone has a college degree. What differences in leisure activities do you notice across groups?</p></li>
+</ol>
+<div class="{callout-tip}">
+<p>You will need to use the <code>label define</code> and <code>label val</code> command to label the college degree binary variable. You will also need to use the <code>legend</code> option in the graph to label the means of each variable for a legible graph.</p>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
