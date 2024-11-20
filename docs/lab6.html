@@ -228,6 +228,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./lab4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 4 - Merging Datasets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./lab5.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 5 - Making Maps</span></a>
   </div>
@@ -371,7 +377,7 @@ window.Quarto = {
 <section id="two-sample-t-test-in-stata" class="level2">
 <h2 class="anchored" data-anchor-id="two-sample-t-test-in-stata">Two-sample T-test in Stata</h2>
 <p>That was quite a bit of work, however, and we know Stata can be useful for simplifying our work. We can use the <code>ttest</code> command with the <code>, by()</code> option to have Stata run a two sample t-test for us. The full command is:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">test</span> read_k, <span class="kw">by</span>(treatment_four)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ttest</span> read_k, <span class="kw">by</span>(treatment_four)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and the output will look like this:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">ttest</span> read_k, <span class="kw">by</span>(treatment_four)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
