@@ -21,7 +21,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -74,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -104,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./labs.html"> 
+    <a class="nav-link active" href="./labs.html" aria-current="page"> 
 <span class="menu-text">Labs</span></a>
   </li>  
 </ul>
@@ -114,10 +168,77 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab4.html">Lab 4 - Merging Datasets</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Labs</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 1 - Working With Stata</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 2 - Getting and Summarizing Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 3 - Simple Visuals</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 4 - Merging Datasets</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 5 - Making Maps</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lab6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 6 - Hypothesis Tests and Models</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -126,7 +247,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
   <ul class="collapse">
-  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure">Structure</a></li>
+  <li><a href="#structure" id="toc-structure" class="nav-link" data-scroll-target="#structure">Structure</a>
+  <ul class="collapse">
+  <li><a href="#data-file-descriptions" id="toc-data-file-descriptions" class="nav-link" data-scroll-target="#data-file-descriptions">Data File Descriptions</a></li>
+  </ul></li>
+  <li><a href="#cleaning-and-merging-data" id="toc-cleaning-and-merging-data" class="nav-link" data-scroll-target="#cleaning-and-merging-data">Cleaning and Merging Data</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -164,12 +289,212 @@ ul.task-list li input[type="checkbox"] {
 <p>This lab focuses primarily on the structure of datasets, object or unit identifiers, and merging datasets together to combine information from multiple sources. Understanding how to structure and merge data in statistics software - like Stata - can both expand your analytic capabilities through being able to combine data and help illustrate the logic and connections underpinning relational databases.</p>
 <section id="structure" class="level2">
 <h2 class="anchored" data-anchor-id="structure">Structure</h2>
+<p>The empirical exercises in this lab use data from the 2003-2016 waves of the American Time Use Survey (ATUS). The ATUS is nationally representative and has been administered annually since 2003 by the U.S. Bureau of Labor Statistics. It is freely and publicly available at https://www.bls.gov/tus/. The ATUS collects a 24-hour retrospective time diary from one individual over age 15 per household from a subset of the Current Population Survey (CPS) sampling frame and links each diary to sociodemographic household data from the CPS. In addition, the ATUS collects a full household roster from the respondent, including the relationship of each household member to the respondent, to allow for an examination of who is with the respondent during different activities. Since the ATUS can be linked to the larger CPS, the ATUS provides a means to examine time-use patterns across a variety of population characteristics, such as the activities of the unemployed versus the employed, and those in different professions, which can provide useful information for policy-makers.</p>
+<p>The ATUS provides multi-year files as well as single-year datasets, which can be appended to existing multi-year files as they are released. Unless interest is in a specific year, we suggest working with the multi-year file. In addition to the actual data, the BLS provides two important, clear pieces of documentation that analysts should download. First, the multi-year ATUS Coding Lexicon is a clean, searchable pdf document that articulates the ATUS activity codes central to any time-use analysis. Activity codes are 6 digits that code activities at three levels: the first two digits identify 18 unique “major categories” such as household activities and eating &amp; drinking. The second two digits refine this a bit by decomposing major categories into subcategories; for example, household activities are broken down into subcategories such as housework, interior maintenance, food preparation, and so on. The final two digits code fairly specific activities; for example, housework is broken down into cleaning, laundry, sewing, and so on. Six-digit codes ending in 99 are a catchall n.e.c. (not elsewhere classified) category. This coding scheme provides flexibility, as researchers can use the broad “major category” two-digit codes or the specific six-digit codes, depending on the question of interest. Second, two data dictionaries thoroughly document the respondent, diary day, and household member information available in the ATUS: the interview data dictionary describes the items used in ATUS-specific surveys and the CPS data dictionary details the CPS-related variables that can be linked to ATUS respondents.</p>
+<p>Several distinct data files comprise the ATUS. Each serves a specific purpose and is described below as it becomes necessary for our analysis. Merging these files and knowing where to look for a specific piece of information are two of the more challenging aspects for first-time ATUS users. However, with some practice and patience this becomes second nature. We outline the separate data files here as a reference:</p>
+<ul>
+<li>Respondent: Basic sociodemographic information about the diary respondent</li>
+<li>Roster: Sociodemographic information about other members of respondent’s household and the nonhousehold children of the respondent</li>
+<li>Activity: Main time-use data for the respondent’s diary day: type, start and end time, and location of each activity</li>
+<li>Activity Summary: Simpler version of time-use data that simply reports the total time spent by respondent in each type of activity on the diary day</li>
+<li>Who: Identifies who was present during each episode in the Activity File</li>
+<li>ATUS-CPS: CPS data on all household members</li>
+<li>Eldercare Roster (new in 2011): Information about people for whom the respondent provided care</li>
+<li>Replicate Weights: ATUS sampling weights</li>
+</ul>
+<p>In this lab we use the respondent, roster, activity, who, and CPS files. The files are merged to one another using a unique case identifier <code>tucaseid</code>.</p>
+<section id="data-file-descriptions" class="level3">
+<h3 class="anchored" data-anchor-id="data-file-descriptions">Data File Descriptions</h3>
+<p>We begin the lab by replicating the results in Gerhsenson and Holt <span class="citation" data-cites="gershenson2015">(<a href="#ref-gershenson2015" role="doc-biblioref">2015</a>)</span> using the most recent ATUS data (2003-2016). The goal here is to provide a gentle introduction to the ATUS data, each data file, and how the separate files relate to one another.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>When doing individual analyses of time use, our final objective will be to get all linking data to the individual level in which <code>tucaseid</code> can uniquely identify observations in a one-to-one relationship for the final merge. Note that nearly all merges in Stata should be one-to-one or one-to-many merges. Many-to-many merges are generally to be avoided. Thus, you should always understand the identifier variable or combination of identifier variables that can facilitate one-to-one or one-to-many merges, both in the context of using the ATUS, but also when merging data across sources more generally.</p>
+</div>
+</div>
+<p><strong>Respondent file.</strong> The ATUS respondent file contains demographic, employment, and socioeconomic data on the ATUS respondent. The dataset also provides information about the diary day, month, and year that the respondent completed their time-use diary. The data are structured in a wide format with one line (data entry) per case and allow us to code some basic information about the respondent. The respondent file provides some topline time-use aggregations, such as total time spent providing childcare, total time spent with different types of people in a day, and other categories of commonly examined activities. The aggregated data can be useful for more general analyses or to practice working with time-use data in one self-contained dataset. The unique respondent identifier here is <code>tucaseid</code> and the unit of observation in the file is the individual respondent for a given household.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="respondent_lab4.png" class="img-fluid figure-img"></p>
+<figcaption>First 30 observations in respondent file</figcaption>
+</figure>
+</div>
+<p>Note that each observation above has a unique value of <code>tucaseid</code> and has a household roster number (<code>tulineno</code>) of 1 - the value used to identify the respondent in a household. Each column thus uniquely measures variables relative to the respondent of the household and the time diary data for each case all relates to the time use of the respondent.</p>
+<p><strong>Roster file.</strong> The roster file contains a roster of every person living in the respondent’s household and their age, gender, and relationship to the respondent (e.g., parent, sibling, roommate, etc.). The roster file is structured in the long format containing a panel of household members for each case, where household members are uniquely identified by <code>tulineno</code>, which, together with the case identifier <code>tucaseid</code>, allows analysts to link the roster information to the who file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="roster_lab4.png" class="img-fluid figure-img"></p>
+<figcaption>First 30 observations in roster file</figcaption>
+</figure>
+</div>
+<p>Here, rather than <code>tucaseid</code> capturing the single survey respondent from each household, members of the same household have the same <code>tucaseid</code> identifier and <code>tulineno</code> now takes on additional values for household members besides the respondent. In relation to the respondent file, the roster file has a many-to-one structure (i.e., many observations from the same household in the roster file that links to one observation per household in the respondent file). For other files, such as the who file, the combination of <code>tucaseid</code> and <code>tulineno</code> creates a one-to-one link with the roster file.</p>
+<p><strong>Activity file.</strong> The activity file is the centerpiece of the ATUS and contains a rich panel of data, in long form, of every activity each case participated in over the 24-hour period of their diary day. Data are at the case-activity level and provide information on the start and end times of each activity, measures of cumulative and activity-specific time spent during the activity (in minutes), an activity category code, information on where the activity took place, and links for identifying who was present for each activity. Note that the data structured here is a panel while the information we want is at the individual person level. Converting information on the activities in which we are interested into a useable format is a nontrivial task that we will do together below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="activity_lab4.png" class="img-fluid figure-img"></p>
+<figcaption>First 30 observations in activity file</figcaption>
+</figure>
+</div>
+<p>Here, because the unit of observation is the person-activity, <code>tucaseid</code> again repeats for each activity the respondent reports doing on their diary day. In relation to the respondent file, the activity file has a many-to-one relationship using the linking identifier of <code>tucaseid</code>. In relation to the who file, the combination of <code>tucaseid</code> and <code>tuactivity_n</code> uniquely identify observations of activities to facilitate a one-to-one activity-level merge.</p>
+<p><strong>Who file.</strong> The who file is a panel that mirrors the structure of the activity file and provides links to the roster file. It identifies which, if any, household members were present for each activity in the activity file. This allows analysts to examine time spent in different activities with specific people within households, such as parents and their young children or time shared between teenage siblings. The who file also provides a more general code for each activity that captures both the basic relationship to the respondent of each person present and includes categories for non-household members, such as friends or coworkers, that would not be captured in the who file. The case identifier and activity number (<code>tuactivity_n</code>), together, allow analysts to link who was present for an activity to each activity. Importantly, some activities will have multiple people present and analysts will have to reshape parts of the data before merging the who file with the activity file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="who_lab4.png" class="img-fluid figure-img"></p>
+<figcaption>First 30 observations in who file</figcaption>
+</figure>
+</div>
+<p>We can see in the who file that the data is stored at the activity-person level to capture situations where multiple people are with the respondent during a given activity. Thus, <code>tucaseid</code> and <code>tulineno</code> allows analysts to link the roster file to the who file in a one-to-one relationship. For linking activities to who was present for the activity, the data would need to be cleaned a bit to allow <code>tucaseid</code> and <code>tuactivity_n</code> to uniquely identify activities and allow a one-to-one merge with the activity file.</p>
+<p><strong>CPS file.</strong> Finally, the CPS file contains household-level socioeconomic, education, and demographic information necessary to create control variables and identify the high school students who constitute the analytic sample of interest. Like the roster file, the CPS file is a panel dataset with a line for each member of the respondent’s household.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cps_lab4.png" class="img-fluid figure-img"></p>
+<figcaption>First 30 observations in CPS file</figcaption>
+</figure>
+</div>
+<p><strong>Respondent and Case.</strong> Throughout the lab, we use respondent to refer to the individual person sampled for the ATUS and case to refer to the linked data collected about the respondent (e.g., household members, time diaries, etc.) which often include multiple observations per respondent.</p>
+</section>
+</section>
+<section id="cleaning-and-merging-data" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-and-merging-data">Cleaning and Merging Data</h2>
+<p>The next step is to download the raw data. The data files come in a compressed .zip file that contains a comma-separated values (CSV) file and code files for generating a Stata, SAS, or SPSS dataset from the CSV file. We use Stata. After extracting the files, open the Stata do file, copy the pathway to the folder where you have saved the CSV dataset, and run the do file to create a Stata dataset for each data file. You can find the .dta files for each file needed for the lab <a href="https://www.dropbox.com/scl/fo/psw91cxsgs5nx4yq4oql2/ADqBEpcWQoJfpAchkBJff7E?rlkey=xsc1a5v17nrxfssjahnl5s8sg&amp;st=fqct5d5q&amp;dl=0">here</a>. Download them and move them to your data subfolder of your class folder.</p>
+<p>We can now create the variables we will need for our analysis from each dataset and then merge the datasets into one master dataset that we will use to construct the final analytic sample. Start with the roster and CPS files to collect some basic information about respondents’ household structures and proxies for socioeconomic status (SES). Stata has some built-in commands that will convert these variables from individual-level to case-level.</p>
+<p>First, identify the respondent’s family size and other siblings. Since our primary interest is examining the gender gap in time spent studying, child care responsibilities that may come with the presence of young children or many siblings might influence students’ study habits differently across genders. Accordingly, we open the roster file:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cd <span class="st">"C:</span><span class="ch">\r</span><span class="st">pad504\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">use “data</span><span class="ch">\r</span><span class="st">ost0316.dta”</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, make sure the data is sorted properly:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">sort</span> tucaseid tulineno</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, to count household size, the number of children in each household, and age of the youngest child household, we use Stata’s egen command, which applies the values of these variables to the whole case rather than the household member-specific line. Consequently, the last line of code below keeps one observation per case to create a set of individual-level roster summary variables for each respondent in the sample.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> hhsize1 = <span class="fu">count</span>(<span class="dt">_n</span>), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> hhsize = <span class="fu">max</span>(hhsize1), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> hhchild1 = <span class="fu">count</span>(<span class="dt">_n</span>) <span class="kw">if</span> teage &lt;= 17, <span class="kw">by</span>(tucaseid)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> hhchild = <span class="fu">max</span>(hhchild1), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> ygchage = <span class="fu">min</span>(teage), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> ygchage = 0 <span class="kw">if</span> ygchage &lt; 0</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> yngchild = 0</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> yngchild = 1 <span class="kw">if</span> ygchage &lt;= 2</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> hhsize1 hhchild1</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">by</span> tucaseid: <span class="kw">drop</span> <span class="kw">if</span> <span class="dt">_n</span> &gt; 1</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> <span class="st">"data\hhvars.dta"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, we will use a combination of the roster and CPS files to identify respondents’ parents and create variables that capture parents’ educational attainment and employment status. In the U.S., educational attainment is highly correlated with other socioeconomic indicators, such as income, wealth, occupational prestige, and other important resources. Consequently, when studying education-related behaviors, parental education is a useful proxy for SES. We first merge the roster and CPS data files together:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> “data\cps0316”</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">sort</span> tucaseid tulineno</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> “data\cps0316”, <span class="kw">replace</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">merge</span> 1:1 tucaseid tulineno <span class="kw">using</span> “data\rost0316.dta”, <span class="kw">replace</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="dt">_merge</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> “data\rostcps.dta”, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Focus in on the <code>merge</code> command above. <code>merge</code> is, of course, the command to tell Stata “please add columns (i.e., variables) from another dataset to the dataset I currently have open,” but to do that, Stata needs to know how the datasets relate to one another and how to identify matching rows across the datasets. Without considering rows, you can have variable values assigned to observations to which they do not actually belong (i.e., assigning the information about a household roster to the wrong respondents), corrupting both the data you are using and any analysis arising from it. After the command, <code>1:1</code> tells Stata that the rows relate in a one observation to one observation manner across both datasets. Alternatives for different data structures would be <code>m:1</code> (many observations in the master file - the dataset currently open - to one observation in the using file that is being merged) or <code>1:m</code> (the reverse). Finally, you add the variables that identify units of observation across both dataset. In this case, both <code>tucaseid</code> <em>and</em> <code>tulineno</code> are needed to identify unique observations consistently across both datasets. This is the basic process and structure of merging datasets in Stata</p>
+</div>
+</div>
+<p>We then use the combined dataset to identify which line contains the respondents’ parents and use that flag to apply the parents’ information to the respondent. Again, we conclude by keeping only one observation per case.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">sort</span> tucaseid tulineno</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> dad1 = 0</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> dad1 = 1 <span class="kw">if</span> terrp ==24 &amp; tesex ==1</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> dad2 = <span class="fu">max</span>(dad1), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> mom1 = 0</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> mom1 = 1 <span class="kw">if</span> terrp ==24 &amp; tesex ==2</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> mom2 = <span class="fu">max</span>(mom1), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> deduc1 = 0</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> deduc1 = peeduca <span class="kw">if</span> dad1==1</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> meduc1 = 0</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> meduc1 = peeduca <span class="kw">if</span> mom1==1</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> deduc = <span class="fu">max</span>(deduc1), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> meduc = <span class="fu">max</span>(meduc1), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> employd1 =0</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> employd1 = 1 <span class="kw">if</span> prempnot ==1 &amp; dad1 ==1</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> employm1 =0</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> employm1= 1 <span class="kw">if</span> prempnot ==1 &amp; mom1 ==1</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> employd = <span class="fu">max</span>(employd1), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> employm = <span class="fu">max</span>(employm1), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="kw">sort</span> tucaseid</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="kw">by</span> tucaseid: <span class="kw">drop</span> <span class="kw">if</span> <span class="dt">_n</span> &gt; 1</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> “data\rostcps2.dta”, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, we merge the household variables we created into the dataset and merge in the respondent file to create demographic, income, employment status, and diary day and month controls.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">merge</span> 1:1 tucaseid <span class="kw">using</span> “data\hhvars.dta”, <span class="kw">replace</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="dt">_merge</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> “data\rostcps2.dta”, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You’ll notice that after merges, Stata provides a summary of the merge - the number of observations only found in the master dataset, the number found only in the using dataset, and the number of observations successfully matched across both datasets. Being familiar with the data you are using helps set expectations for whether - and to what degree - observations should be unmatched across datasets. A variable that tracks this information is generated after a merge (<code>_merge</code>) and tags observations that fall into one of those three categories after the merge. When you are merging multiple datasets, you will want to either rename this variable, if it’s relevant to save for future investigations of data issues, or drop this variable to avoid an error.</p>
+</div>
+</div>
+<p>We can then merge in the respondent information, now that things have been reduced to the respondent level in the roster and CPS files, and code up our respondent gender identifier.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">merge</span> 1:1 tucaseid <span class="kw">using</span> <span class="st">"data</span><span class="ch">\r</span><span class="st">esp0316.dta"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="dt">_merge</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> male = 0</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> male = 1 <span class="kw">if</span> tesex ==1</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> <span class="st">"data</span><span class="ch">\r</span><span class="st">ostcpsresp.dta"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, we turn to the more complicated task of coding the dependent variable of interest, time spent on homework or school-related research, followed by a summary of how to code time spent on other activities. The activity file in Stata contains more than 3.5 million observations. To streamline things, we will keep only homework activities using the four-digit activity code (<code>trtier2p</code>):</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"data</span><span class="ch">\a</span><span class="st">ct0316.dta"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">sort</span> tucaseid</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">keep</span> <span class="kw">if</span> trtier2p == 0603</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Left with a sample of homework activities, sorted by the case identifier, we now code a variety of homework-related variables. First, we will use the activity duration provided in the ATUS and a process similar to our previous aggregation of household characteristics to summarize the total time spent on homework by each respondent.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> hw_tots = <span class="kw">sum</span>(tuactdur24) <span class="kw">if</span> trtier2p == 0603, <span class="kw">by</span>(tucaseid)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> hw_tot = <span class="fu">max</span>(hw_tots), <span class="kw">by</span>(tucaseid)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">by</span> tucaseid: <span class="kw">gen</span> number = (<span class="dt">_n</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">egen</span> study_count = <span class="fu">max</span>(number), <span class="kw">by</span>(tucaseid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This process can be used to code the total time spent in a day on any activity of interest to the analyst. Once again, we merge the homework time data into our analytic sample.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">bys</span> tucaseid: <span class="kw">drop</span> <span class="kw">if</span> <span class="dt">_n</span> &gt; 1</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">merge</span> 1:1 tucaseid <span class="kw">using</span> <span class="st">"data</span><span class="ch">\r</span><span class="st">ostcpsresp.dta"</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="dt">_merge</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">keep</span> <span class="kw">if</span> hs_enroll == 1 &amp; teage &lt;= 19</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> “data\analyticsample.dta”, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, we limit the sample to only respondents enrolled in high school (<code>hs_enroll == 1</code>) and aged 15 to 19 (<code>teage &lt;= 19</code>), which is the age range of a typical high school student in the United States.</p>
+<p>Alright, we are almost ready to replicate the descriptive analysis from Gershenson and Holt (2015). Let’s first label our variables and create the last few variables we need regarding study time (i.e., studying at all and length of study spells if any time is spent studying).</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> male <span class="st">"Male"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> hw_tot2 = hw_tot <span class="kw">if</span> hw_tot &gt; 0</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> zero_study = 0</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> zero_study = 1 <span class="kw">if</span> hw_tot == 0</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> hw_tot2 <span class="st">"Daily T|T &gt; 0"</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> hw_tot <span class="st">"Daily homework time (T; in minutes)"</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> zero_study <span class="st">"Zero homework time (T=0)"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> weekly_hw = ((hw_tot*7)/60)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> weekly_hw <span class="st">"Weekly homework time (in hours)"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> “data\analyticsample.dta”, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now, we have the ingredients we need to look at average study time overall and separately by student gender.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabstat</span> male hw_tot zero_study hw_tot2 weekly_hw, <span class="kw">statistics</span>(<span class="kw">mean</span> <span class="fu">sd</span> <span class="fu">count</span>) <span class="kw">columns</span>(<span class="kw">statistics</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabstat</span> male hw_tot zero_study hw_tot2 weekly_hw <span class="kw">if</span> male == 1, <span class="kw">statistics</span>(<span class="kw">mean</span> <span class="fu">sd</span> <span class="fu">count</span>) <span class="kw">columns</span>(<span class="kw">statistics</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto male</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">tabstat</span> male hw_tot zero_study hw_tot2 weekly_hw <span class="kw">if</span> male == 0, <span class="kw">statistics</span>(<span class="kw">mean</span> <span class="fu">sd</span> <span class="fu">count</span>) <span class="kw">columns</span>(<span class="kw">statistics</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto female</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> male female <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1.rtf"</span>, cell(<span class="kw">mean</span>(fmt(2)) <span class="fu">sd</span>(par)) <span class="kw">label</span> unstack <span class="kw">compress</span> obslast rtf mtitles(<span class="st">"All"</span> <span class="st">"Males"</span> <span class="st">"Females"</span>) addnotes(<span class="st">"Standard deviations in parentheses"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And that’s it for lab 4! We should now have a sense for how linking variables can identify cases with different units of observation in different datasets, how to clean data for merging datasets that begin with different units of observation, and how to use that data for a short descriptive analysis after merging the data. The most common version of this is using geographic identifiers (state fips or county fips) to aggregate individual data and combine it with higher-level community data or vice versa. In such cases, you will simply need the state identifier or county identifier to be collected in both datasets and, with careful attention to the unit of observation in the two datasets you are merging, you can prepare them accordingly.</p>
+
 
 
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-gershenson2015" class="csl-entry" role="listitem">
+Gershenson, Seth, and Stephen B. Holt. 2015. <span>“Gender Gaps in High School Students<span>’</span> Homework Time.”</span> <em>Educational Researcher</em> 44 (8): 432–41. <a href="https://doi.org/10.3102/0013189X15616123">https://doi.org/10.3102/0013189X15616123</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
