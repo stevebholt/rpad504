@@ -30,7 +30,9 @@ log using "logs/lab3_`today'.log", replace
 Make sure the path in the first line points to your class folder, highlight all four lines, and hit execute. Now we're ready to go!
 
 ## Proportions
+
 ### Cleaning the data
+
 We will start with a few different ways to look at the distribution of sexual orientation. Why? Well, recall that this is survey data that is self-reported. Shares of the population that are willing to self-report their sexual orientation may change over time alongside broader social norms around tolerance and acceptance of different orientations. We will look at the data to see if that pattern seems to show up even in this small window of data (a five year period between 2018 and 2023). But we are also looking at this first because it provides a simple example of describing a categorical variable. Recall that in making tables, we are generally not interested in describing the mean of a categorical variable because it's not particularly meaningful. Instead, we want to see how observations are *distributed* across categories of the variable (or, put more directly, the distribution of the variable). The same is true for visualizing data.
 
 Before we begin analyzing the data, we want to make sure we understand what the variable looks like and whether it needs to be cleaned at all. Let's start by running our trusty `fre` command and look at the categories of the variable.
@@ -65,7 +67,7 @@ recode sexorien (0 7/8 = .a) (1 = 1 "Lesbian or gay") (2 = 2 "Straight") (3 = 3 
 label var orientation "Sexual orientation"
 ```
 
-Notice that I also went ahead and relabeled the new variable so that I have a nice, clean label for future figures and tables. 
+Notice that I also went ahead and relabeled the new variable so that I have a nice, clean label for future figures and tables.
 
 ### Pie charts
 
@@ -117,11 +119,12 @@ graph export "output\orientation_bar2.png", as(png) replace
 If we squint, we can sort of see an uptick the non-straight categories, suggesting at least some marginal additional willingness to self-report sexual orientation.
 
 ### Horizontal bar graphs
+
 Conventional bar graphs, like the ones we just made, often have the bars running vertically. There are a few drawbacks to this orientation, however. First, pages are often longer than they are wide - both in their digital presentation online and in their printed form on paper. Practically, this means we have more space constraints in how much information we can present at once in the bar graph. Second, and related, the labels on the x-axis begin to face severe trade-offs between clarity in the label and the space available for a legible label. Longer, more precise labels of variables in our graph will begin to overlap with other variable labels, leaving our graph an illegible mess. We can do things like shortening our labels or angling our labels to a 45 degree angle, but the former has limits and the latter distorts our graphs space and makes reading the labels less natural.
 
 A quick example:
 
-```{.stata}
+``` stata
 graph bar, over(orientation, label(angle(45))) title("Sexual orientation in USA, 2018-2019 and 2022-2023")
 graph export "output\orientation_bar3.png", as(png) replace
 ```
@@ -134,7 +137,7 @@ notice that the graph area shrank a bit. You can imagine that even longer labels
 
 Fortunately, there's a pretty easy alternative: horizontal bar graphs. Horizontal bar graphs allow our graph to expand down the length of the page rather than rellying on the width, giving us more real estate to work with. They also re-orient our graph to the y-axis, allowing us to use slightly more specific labels if we wanted while still keeping them in a natural reading orientation. In Stata, the starting point for a horizontal bar graph is as simple as adding an `h` to our code:
 
-```{.stata}
+``` stata
 graph hbar, over(orientation) title("Sexual orientation in USA, 2018-2019 and 2022-2023")
 graph export "output\orientation_bar4.png", as(png) replace
 ```
@@ -292,7 +295,9 @@ graph export "output\dayslost_line1.png", as(png) replace
 Note that the dots reflect years of actual, observed data, meaning there's a gap of missing data in our dataset. A jump of nearly an entire additional lost day of work for health reasons on average is a pretty big jump!
 
 ## Proportions over time
+
 ### Single groups
+
 Finally, we are going to look at whether a related behavioral change - taking the flu vaccine - was altered by the COVID pandemic. Perhaps more people take flu precautions from the heightened awareness brought on by exposure to a novel widespread respiratory illness.
 
 To do this, let's look at the flu vaccine variable to see how it's coded.
@@ -337,12 +342,13 @@ twoway connected fluvax_mn year
 graph export "output\fluvax_line1.png", as(png) replace
 ```
 
-![Percent of Americans receiving the Flu vaccine over time](fluvax_line1.png) 
+![Percent of Americans receiving the Flu vaccine over time](fluvax_line1.png)
 
 ### Multiple groups
+
 Often, we aren't just interested in one group of people or one category of data at a time. Sometimes we want to monitor trends in multiple groups or one multiple measures at once. Let's use the categorical measures of health as an example. For this, we have a little additional data cleaning setup to do, but the process is about the same - calculating the average of each variable of interest by year and then plotting the averages. Let's get started with the data cleaning:
 
-```{.stata}
+``` stata
 tab health_nm, gen(healthcat)
 egen hlth_excel_mn = mean(healthcat1), by(year)
 egen hlth_vg_mn = mean(healthcat2), by(year)
@@ -351,16 +357,17 @@ egen hlth_f_mn = mean(healthcat4), by(year)
 egen hlth_p_mn = mean(healthcat5), by(year)
 ```
 
-Above, we create an indicator variable for each category of the variable `health` named with a stub `healthcat`. This gives us five indicator variables. We then use those indicators to calculate the proportion of people in each category for each year in our sample. 
+Above, we create an indicator variable for each category of the variable `health` named with a stub `healthcat`. This gives us five indicator variables. We then use those indicators to calculate the proportion of people in each category for each year in our sample.
 
 ::: callout-tip
 #### Indicator Variables
+
 Remember that indicator variables function as a true/false switch that takes a value of 1 if the observation falls into the category the variable is flagging and 0 if the observation does not. For instance, if I had 3 categories of education - high school or less, some college, and college or more - there would be three indicator variables (`hs`, `somecol`, `col`). For people with a high school diploma or less, the variable `hs` would be 1 and would be 0 for all others. For people who took some college classes but never got a 4-year degree, the variable `somecol` would be 1 and 0 for all others. And finally, people with a 4-year degree or more, the variable `col` would be 1 and 0 for all others. If we know everyone's educational attainment, everyone will have exactly one of these variables coded as 1 and the others set to 0 in their row of our dataset. Since the average of a variable is $\overline{X} = \frac{\sum x_i}{n}$, the average of an indicator is the number of 1 values divided by the sample size. Or, put differently, the proportion of the sample in the indicator variable's category!
 :::
 
 Now, let's label these variables so that they make sense in our graph:
 
-```{.stata}
+``` stata
 label var hlth_excel_mn "Prc. Excellent Health"
 label var hlth_vg_mn "Prc. Very Good Health"
 label var hlth_g_mn "Prc. Good Health"
@@ -370,7 +377,7 @@ label var hlth_p_mn "Prc. Poor Health"
 
 Alright, now we are ready to graph this. The code for the graph is simple: we use the same command as before but we list all of our y-axis variables and then close with our x-axis variable.
 
-```{.stata}
+``` stata
 twoway connected hlth_excel_mn hlth_vg_mn hlth_g_mn hlth_f_mn hlth_p_mn year
 graph export "output\health_line1.png", as(png) replace
 ```
@@ -381,7 +388,7 @@ And we get a graph that looks like this:
 
 Now, because we based this on the means of indicators, our y-axis is on a 0 to 1 scale. Percents are, of course, on a 0-100 scale, and readers will find it mentally taxing to re-scale this in their minds themselves. So we might want to add an extra data cleaning step before we make our graph that scales the means appropriately because, as always, our job is to make reader's lives easier.
 
-```{.stata}
+``` stata
 gen hlth_excel_mn100 = hlth_excel_mn*100
 gen hlth_vg_mn100 = hlth_vg_mn*100
 gen hlth_g_mn100 = hlth_g_mn*100
@@ -397,7 +404,7 @@ label var hlth_p_mn100 "Prc. Poor Health"
 
 Notice that the new variables simply multiply our original means by 100 (the `*` symbol in Stata is multiplication) to re-scale the variables to a 100 point scale. This will make our graph's labels and range more intuitive to understand for most readers.
 
-```{.stata}
+``` stata
 twoway connected hlth_excel_mn100 hlth_vg_mn100 hlth_g_mn100 hlth_f_mn100 hlth_p_mn100 year
 graph export "output\health_line2.png", as(png) replace
 ```
