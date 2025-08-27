@@ -1,35 +1,4 @@
 {
-    "sources": [
-        {
-            "DOI": "10.3102/0013189X15616123",
-            "URL": "http://journals.sagepub.com/doi/10.3102/0013189X15616123",
-            "author": [
-                {
-                    "family": "Gershenson",
-                    "given": "Seth"
-                },
-                {
-                    "family": "Holt",
-                    "given": "Stephen B."
-                }
-            ],
-            "container-title": "Educational Researcher",
-            "id": "gershenson2015",
-            "issue": "8",
-            "issued": {
-                "date-parts": [
-                    [
-                        2015,
-                        11
-                    ]
-                ]
-            },
-            "language": "en",
-            "page": "432-441",
-            "title": "Gender Gaps in High School Students’ Homework Time",
-            "type": "article-journal",
-            "volume": "44"
-        }
-    ],
+    "sources": [],
     "project_biblios": []
 }
