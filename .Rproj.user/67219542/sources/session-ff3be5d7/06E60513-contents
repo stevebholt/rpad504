@@ -7,7 +7,7 @@ author: "Stephen B. Holt"
 
 In this problem set, you will use data from the American Time Use Survey (ATUS) to create graphs, tables, and estimate some two sample t-tests and simple bivariate linear regressions to answer the questions below. Remember that all graphs and tables must have a title that effectively describes the information in the graph. Tables should also have column numbers, as usual, and short, 1-2 word titles beneath the numbers describing the column's contents. You can download the data for the problem set [here](https://www.dropbox.com/scl/fo/lyzqcssjxybtofe3g5a2x/AA9OBnLVE5lyMrpew4FUO4I?rlkey=kxhhwt07m8p3r7jp3oq325fr9&st=0b2dhze3&dl=0). Each question is worth 1 point.
 
-::: {callout-note}
+::: {.callout-note}
 The ATUS measures all time-use activities in minutes. The data for this exercise is at the individual-level from 2003-2023.
 :::
 
@@ -19,15 +19,15 @@ The ATUS measures all time-use activities in minutes. The data for this exercise
 
 3.  It's possible that age, and perhaps educational attainment, plays a role in socializing time as well. Create a horizontal bar graph that presents average time spent socializing and communicating with others across age categories and separately by having a college degree and not having a college degree. Write a sentence or two describing what you notice about social time by age and educational status.
 
-4.  Perhaps households substitue television for socializing. Create a line graph that plots average time spent socializing and communicating with others and average time spent watching television and movies (non-religious) separately by people wihtout children and people with at least one child by each year in the data. Write a few sentences describing the trends you see.
+4.  Perhaps households substitute television for socializing. Create a line graph that plots average time spent socializing and communicating with others and average time spent watching television and movies (non-religious) separately by people without children and people with at least one child by each year in the data. Write a few sentences describing the trends you see.
 
-::: {callout-tip}
+::: {.callout-tip title="Hint"}
 You should have four lines for this graph, two for each time-use activity.
 :::
 
 5.  Run a two-sample t-test for whether the difference in time spent socializing between people with and without kids is statistically significant. Report the difference in means, the t-statistic, and the p-value for the t-test.
 
-::: {callout-tip}
+::: {.callout-tip title="Hint"}
 You may want to create an indicator variable for whether someone has any children in their household.
 :::
 
@@ -37,7 +37,7 @@ You may want to create an indicator variable for whether someone has any childre
 
 8.  Using the results from question 7, how much time would a 25 year old be expected to spend socializing in a typical day? How about a 65 year old?
 
-::: {callout-tip}
+::: {.callout-tip title="Hint"}
 You will need to combine the slope and the intercept in solving for the answer.
 :::
 
@@ -49,6 +49,6 @@ You will need to combine the slope and the intercept in solving for the answer.
 
 12. Let's look at time spent on various forms of leisure by whether someone has a college degree. Create a horizontal bar graph of the average for all the leisure activities (t120301 through t120313) by whether someone has a college degree. What differences in leisure activities do you notice across groups?
 
-::: {callout-tip}
+::: {.callout-tip title="Hint"}
 You will need to use the `label define` and `label val` command to label the college degree binary variable. You will also need to use the `legend` option in the graph to label the means of each variable for a legible graph.
 :::
