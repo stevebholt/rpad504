@@ -9,7 +9,11 @@ title: "Syllabus"
 👨‍🏫: Stephen Holt, Ph.D.\
 📅: Thursdays from 6:00 pm to 8:50 pm in Husted 004\
 📧: sbholt\@albany.edu\
-🏫: Mondays from 1:00 pm to 5:00 pm or by appointment - book [here](https://calendly.com/sbholt/30min); in-person in Milne 324 or online in [Zoom](https://albany.zoom.us/my/sbholt). ☎️: 518-442-3309
+🏫: Mondays from 1:00 pm to 5:00 pm or by appointment - book [here](https://calendly.com/sbholt/30min); in-person in Milne 324 or online in [Zoom](https://albany.zoom.us/my/sbholt). \
+☎️: 518-442-3309
+
+👩‍🏫: Ji Hyun Byeon\
+🏫: Tuesdays and Wednesdays from 6:00 pm to 8:00 pm; Saturdays 10:00 am to 12:00 pm; or by appointment. Book [here](https://calendly.com/jbyeon2/504-ta-hour); Zoom is the default.
 
 ## Course Description
 
@@ -109,7 +113,7 @@ Key:
 |  📄:   | Reading is from an article/chapter on Zotero (by author last name) |
 
 | Date | Topic | Assignments | Readings |
-|:-------------:|:-------------------------:|:-------------:|:-------------:|
+|:--------------:|:----------------------:|:--------------:|:--------------:|
 | 1/22 | Intro to course |  |  |
 | 1/29 | Data Origins | 👨‍🏫 | 📄 Knox et al. <br> 📄 Llolbrera & Hall <br> 📄 Holt & Vinopal |
 | 2/5 | Assessing Data Quality | 👨‍🏫 | 📄 National Academies of SEM: <br> Appendices A and C |

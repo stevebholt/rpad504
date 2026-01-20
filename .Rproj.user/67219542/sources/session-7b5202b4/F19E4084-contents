@@ -10,6 +10,10 @@ website:
         file: index.qmd
       - text: "Syllabus"
         file: syllabus504.qmd
+      - text: "Assignments"
+        file: assignments.qmd
+      - text: "Labs"
+        file: labs.qmd
 
   sidebar: 
     - title: "Syllabus"
