@@ -9,7 +9,7 @@ title: "Syllabus"
 👨‍🏫: Stephen Holt, Ph.D.\
 📅: Thursdays from 6:00 pm to 8:50 pm in Husted 004\
 📧: sbholt\@albany.edu\
-🏫: Mondays from 1:00 pm to 5:00 pm or by appointment - book [here](https://calendly.com/sbholt/30min); in-person in Milne 324 or online in [Zoom](https://albany.zoom.us/my/sbholt). \
+🏫: Mondays from 1:00 pm to 5:00 pm or by appointment - book [here](https://calendly.com/sbholt/30min); in-person in Milne 324 or online in [Zoom](https://albany.zoom.us/my/sbholt).\
 ☎️: 518-442-3309
 
 👩‍🏫: Ji Hyun Byeon\
@@ -82,7 +82,7 @@ All assignments will be turned in via Brightspace.
 
 ### Weekly Problem Sets {#sec-problemsets}
 
-For 7 weeks throughout the semester (see @sec-overview.weeks for the specific weeks), problem sets will be disseminated at the start of class and will have a 30 minute time limit for completion. Problem sets will involve applying concepts and activities we completed in class together the prior week to new but similar datasets and problems on your own. You will be expected to turn in 1) a clean answer sheet that provides the final solution to any problem; and 2) a .log file that shows the code used to derive the solutions to the problems.
+For 7 weeks throughout the semester (see @sec-overview.weeks for the specific weeks), problem sets will be disseminated at the start of class and will have a 30-60 minute time limit for completion. Problem sets will involve applying concepts and activities we completed in class together the prior week to new but similar datasets and problems on your own. You will be expected to turn in 1) a clean answer sheet that provides the final solution to any problem; and 2) a .log file that shows the code used to derive the solutions to the problems.
 
 ::: callout-warning
 The problem set will be cumulative in the sense that each week will add new concepts and issues for you to tackle that will often build on skills used the previous week. This carries two important implications. First, you will want to be careful not to miss any problem sets, as they provide important opportunities to confirm your progress in the class and understanding of the skills we are learning and missing problem sets might compound any struggles you are having. Second, each week will likely have opportunities to practice skills learned in prior weeks en route to practicing new material.
@@ -113,7 +113,7 @@ Key:
 |  📄:   | Reading is from an article/chapter on Zotero (by author last name) |
 
 | Date | Topic | Assignments | Readings |
-|:--------------:|:----------------------:|:--------------:|:--------------:|
+|:---------------:|:--------------------:|:---------------:|:---------------:|
 | 1/22 | Intro to course |  |  |
 | 1/29 | Data Origins | 👨‍🏫 | 📄 Knox et al. <br> 📄 Llolbrera & Hall <br> 📄 Holt & Vinopal |
 | 2/5 | Assessing Data Quality | 👨‍🏫 | 📄 National Academies of SEM: <br> Appendices A and C |
