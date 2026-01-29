@@ -171,7 +171,10 @@ drop hhincome
 ## R
 
 ``` r
-ds %>% deleteVariables(c("hhincome")
+install.packages("data.table")
+library(data.table)
+dat <- read.dta("c:/class1.dta")
+dat %>% deleteVariables(c("hhincome")
 ```
 
 :::
@@ -180,9 +183,22 @@ Now we can see that it is gone from our variables list: ![Variable List After Dr
 
 Now, to demonstrate how creating and coding variables works, we are going to create a categorical variable that groups all the different household income brackets we currently have as indicator variables. First, we will create a new variable and we will set it's value as "missing." In Stata, missing is signified using the `.` symbol.
 
+::: {.panel-tabset group="language"}
+
+## Stata
+
 ``` stata
 gen hhincome = .
 ```
+
+## R
+
+``` r
+hhincome <- "NA"
+```
+
+:::
+
 
 We should see a message that 7388 missing values have been generated, and `hhincome` should reappear at the bottom of our variables list:
 
