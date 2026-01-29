@@ -22,6 +22,19 @@ website:
       contents: 
         - syllabus504.qmd
     
+    - title: "Assignments"
+      style: docked
+      search: true
+      contents:
+        - assignments.qmd
+        
+    - title: "Labs"
+      style: docked
+      search: true
+      contents: 
+        - labs.qmd
+        - lab1.qmd
+    
 
 format:
   html:

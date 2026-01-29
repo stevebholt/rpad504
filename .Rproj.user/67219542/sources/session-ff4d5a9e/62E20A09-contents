@@ -1,0 +1,125 @@
+---
+title: "Week 2 Data Origins"
+subtitle: "RPAD 504 Data, Models, and Decisions"
+author: "Stephen B. Holt"
+date: "`r Sys.Date()`"
+format: beamer
+output: 
+  beamer_presentation:
+    theme: "Darmstadt"
+    slide_level: 3
+header-includes: 
+- \AtBeginSection{}
+- \AtBeginSubsection{}
+- \AtBeginDocument{\institute{\includegraphics[scale=.1]{logo.PNG}}}
+- \definecolor{greatdanepurple}{rgb}{0.294, 0.0, 0.51}
+- \definecolor{gold}{rgb}{1.0, 0.84, 0.0}
+- \setbeamercolor{structure}{fg=greatdanepurple}
+- \setbeamercolor{section in head/foot}{bg=greatdanepurple, fg=gold}
+- \setbeamercolor{subsection in head/foot}{bg=gold,fg=violet}
+- \usepackage[utf8]{inputenc}
+- \usepackage{amsmath}
+- \usepackage{amsfonts}
+- \usepackage{amssymb}
+- \usepackage{graphicx}
+- \usepackage{tikz}
+- \usepackage{xcolor}
+- \usepackage{adjustbox}
+- \usepackage{textpos}
+- \setbeamertemplate{footline}[frame number]
+link-citations: true 
+---
+
+# Data Basics
+## Types of Data
+### Broad Types of Data
+:::{.incremental}
+- Qualitative data
+  - Texts (e.g., reports, articles, books), audio or visual media, observations, transcripts
+  - Collected using: Notes from observation or attendance, focus groups, various forms of interviews
+  - Often used for deeper forms of clarification, better understanding an institutional context, or developing new items for larger scale data collection
+- Quantitative data
+  - Cross-sectional or longitudinal
+  - Collected using: Digitized administrative records or surveys
+  - Often used for large scale examinations of trends, tests of formal hypotheses, or estimating program and policy impact
+
+:::
+
+### Sources of Data
+:::{.incremental}
+- Government agencies
+  - Bureau of Labor Statistics, Census Bureau, National Center for Education Statistics, National Institutes of Health
+  - State agencies in every state shares varying degrees of data
+- Private data vendors
+- Nonprofit financial disclosures
+  - Guidestar data
+
+- Often these sources will provide an Excel (or more commonly comma-separated values (CSV) format) or flat file of data, sometimes with code for other uses (Stata, R, SAS, SPSS) or with direct files in other formats
+
+- An important resource for the purposes of our class is [IPUMS](https://www.ipums.org/)
+
+:::
+
+### Survey data basics
+:::{.incremental}
+- Typically uses a sample of the population
+  - Representative samples
+    - Simple Random Sample
+    - Stratified Random Sample
+    - Multi-stage random sample
+  - Convenience sample
+    - People you know, nearby, etc.
+- Samples face a representativeness and efficiency trade-off
+- Often surveys come with technical codebooks that report how variables are measured, response rates, weighting schemes, and many, many other important details
+
+:::
+
+### Example - Why Details Matter
+**Happy Ever After** by Paul Dolan makes this claim:
+![Read Codebooks](readcodebooks.png)
+The problem here is ATUS [does not work that way](https://www.vox.com/future-perfect/2019/6/4/18650969/married-women-miserable-fake-paul-dolan-happiness)...
+
+### Administrative data
+:::{.incremental}
+- Many public organizations - and private entities that receive public money - are required to collect and report a wide range of data by law(s)
+  - Employee information forms, complaint documentation, expenditure documentation, performance information, contacts with the public
+  - Sometimes data is submitted via paper form and digitized later, sometimes the law specifies a mode of data transfer, sometimes "forms" are used that are actually user interfaces for a database
+- Full universe of recipients of service and often detailed records, but...
+- Messy, can be subject to biased reporting from street-level
+
+:::
+
+## Basic structures of Data
+### Dataset ingredients
+:::{.incremental}
+- Rows: define individual observations at the smallest unit of analysis
+- Columns: define variables in a dataset or characteristics of a unit that **varies** across units
+
+:::
+
+
+### Example
+![Survey Example](survey.png)
+
+# Exercise
+## Setting Up
+### Getting Started in Stata
+[Lab Number 1!](https://stevebholt.github.io/rpad504/lab1.html)
+
+# Concluding
+
+### Wrap
+:::{.incremental}
+- You have the basic lay of the land of datasets
+- Next week:
+  - Data quality and visualization
+  - Basic visualization functions in Excel
+  - Download data from a source and importing into Stata
+  - Finding and reading codebooks and metadata
+
+:::
+
+
+### Attendance
+
+![Attendance Sheet](attendance.png)
