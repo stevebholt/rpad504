@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,12 +70,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-d5baac9f2ff0a7bebecfc2c3fbfbf54d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-0a57cb6a6a37b412e09178301bc66506.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -189,30 +189,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./lab2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lab 2 - Getting and Summarizing Data</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./lab3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 3 - Simple Visuals</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./lab4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 4 - Merging Datasets</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./lab5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 5 - Making Maps</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./lab6.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 6 - Hypothesis Tests and Models</span></a>
   </div>
 </li>
     </ul>
@@ -361,28 +337,63 @@ Note
 <p>First, we are going to install two packages that are not part of the standard Stata package set. Stata packages all get housed in an internet archive that can be accessed directly in Stata using the <code>ssc install</code> command. We will install <code>fre</code>, which is a user-written package that implements the <code>tabulate</code> command that we have already used in Stata but includes both variables codes and labels in the output. As you will come to see, this is very useful for getting a sense of how data is coded when we are at the cleaning stage of the data.</p>
 <p>We are also going to install <code>estout</code>, which is actually a library of commands that all provide a very flexible way to make exportable tables from estimates stored in Stata’s temporary memory.</p>
 <p>To do this, run:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Stata</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install fre, <span class="kw">replace</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install estout, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"data.table"</span>, <span class="st">"modelsummary"</span>, <span class="st">"ggplot2"</span>, <span class="st">"tidyverse"</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="creating-new-variables" class="level3">
 <h3 class="anchored" data-anchor-id="creating-new-variables">Creating New Variables</h3>
 <p>For this exercise, we are going to look at the characteristics we have overall and separately by income and some rough binaries of race and ethnicity. To do that, we will want to recode some variables using a combination of the <code>recode</code> command, attaching an option to the <code>tab</code> command, and creating a variable that is a function of other variables. Let’s start with the <code>tab</code> command because it’s quite straightforward.</p>
 <p>When we are making tables with categorical variables in them, it’s quite useful to have indicator variables for each category. We could do this using the <code>gen</code> and <code>replace</code> route that we took in lab 1, but an alternate route is to use the <code>tab</code> command and attach the <code>, gen(stub)</code> option. Let’s do this for race using the variable <code>rachsing</code> to get five indicator variables for each category of race.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> rachsing, <span class="kw">gen</span>(racecat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Stata</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> rachsing, <span class="kw">gen</span>(racecat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that this is incomplete or inefficient - there's not a clean analogous way to perform this function in R.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">=</span> haven<span class="sc">::</span><span class="fu">read_dta</span>(<span class="st">"class2.dta"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">setDT</span>(dat)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>dat[rachsing<span class="sc">==</span><span class="dv">1</span>, racecat1 <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span>]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>dat[rachsing<span class="sc">==</span><span class="dv">2</span>, racecat2 <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span>]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>dat[rachsing<span class="sc">==</span><span class="dv">3</span>, racecat3 <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span>]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>dat[rachsing<span class="sc">==</span><span class="dv">4</span>, racecat4 <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span>]</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>dat[rachsing<span class="sc">==</span><span class="dv">5</span>, racecat5 <span class="sc">:</span><span class="er">=</span> <span class="dv">1</span>]</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>dat[racecat1<span class="sc">==</span><span class="cn">NA</span>, racecat1 <span class="sc">:</span><span class="er">=</span> <span class="dv">0</span>]</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>dat[racecat2<span class="sc">==</span><span class="cn">NA</span>, racecat2 <span class="sc">:</span><span class="er">=</span> <span class="dv">0</span>]</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>dat[racecat3<span class="sc">==</span><span class="cn">NA</span>, racecat3 <span class="sc">:</span><span class="er">=</span> <span class="dv">0</span>]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>dat[racecat4<span class="sc">==</span><span class="cn">NA</span>, racecat4 <span class="sc">:</span><span class="er">=</span> <span class="dv">0</span>]</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>dat[racecat5<span class="sc">==</span><span class="cn">NA</span>, racecat5 <span class="sc">:</span><span class="er">=</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>Note that the <code>racecat</code> part in the <code>gen</code> option is telling Stata to name the indicator variables for each category <code>racecat#</code> where # is the number of the category.</p>
 <p>Your output should look like this:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">tab</span> rachsing, <span class="kw">gen</span>(racecat)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>             race: simplified |</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>race/ethnicity identification |      Freq.     Percent        Cum.</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>------------------------------+-----------------------------------</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                        <span class="bn">white</span> |  6,634,498       68.35       68.35</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>       <span class="bn">black</span>/african american |    974,520       10.04       78.39</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>american indian/alaska native |     84,561        0.87       79.26</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       asian/pacific islander |    591,554        6.09       85.35</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>              hispanic/latino |  1,421,558       14.65      100.00</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>------------------------------+-----------------------------------</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                        Total |  9,706,691      100.00</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">tab</span> rachsing, <span class="kw">gen</span>(racecat)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>             race: simplified |</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>race/ethnicity identification |      Freq.     Percent        Cum.</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>------------------------------+-----------------------------------</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                        <span class="bn">white</span> |  6,634,498       68.35       68.35</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="bn">black</span>/african american |    974,520       10.04       78.39</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>american indian/alaska native |     84,561        0.87       79.26</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>       asian/pacific islander |    591,554        6.09       85.35</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>              hispanic/latino |  1,421,558       14.65      100.00</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>------------------------------+-----------------------------------</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                        Total |  9,706,691      100.00</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>and we should have a new series of indicators in our variable list:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -391,10 +402,10 @@ Note
 </figure>
 </div>
 <p>We will go ahead and do the same thing for marital status (<code>marst</code>) and biological sex (<code>sex</code>).</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> marst, <span class="kw">gen</span>(marital)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> sex, <span class="kw">gen</span>(bsex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> marst, <span class="kw">gen</span>(marital)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> sex, <span class="kw">gen</span>(bsex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now let’s move on to sex, educational attainment, and transit mode taken to work. Let’s use <code>fre</code> to take a look at these categorical variables.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fre educ tranwork</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fre educ tranwork</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Here, we get a series of tables that look like:</p>
 <pre><code>. fre educ tranwork
 
@@ -441,14 +452,14 @@ Valid   0  n/a                                         |    7103702      54.31  
 ----------------------------------------------------------------------------------------------------</code></pre>
 <p>Notice how many categories there are? That’s probably going to be overwhelming to look at in a table all together. We might want to collapse these categories into higher level categories. To do this, we’ll use a new command: <code>recode</code>. This will be much simpler than our previous route of creating a new variable and then replacing each value of the variable with a new value for each category. How tedious!</p>
 <p>We’ll start with <code>educ</code> since it’s the most straightforward. Here, we might really only be concerned with a breakdown of people with no college, some college, and a Bachelor’s degree or more. Maybe we go an extra mile and include a separate breakout for graduate degrees. Here, we’ll use <code>recode</code> to define a smaller set of categories that include multiple categories from the original variable.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> educ (0/5 = 1 <span class="st">"Less than HS"</span>) (6 = 2 <span class="st">"HS"</span>) (7/8 = 3 <span class="st">"Some college"</span>) (10 = 4 <span class="st">"College degree"</span>) (11 = 5 <span class="st">"More than Bachelor's"</span>), <span class="kw">gen</span>(seduc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> educ (0/5 = 1 <span class="st">"Less than HS"</span>) (6 = 2 <span class="st">"HS"</span>) (7/8 = 3 <span class="st">"Some college"</span>) (10 = 4 <span class="st">"College degree"</span>) (11 = 5 <span class="st">"More than Bachelor's"</span>), <span class="kw">gen</span>(seduc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now let’s do the same with mode of transportation taken to work. We can set up a simple set of categories for walking, biking, taking a car, and taking mass transit (broadly defined). Then we will create a separate category for worked at home and other.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> tranwork (10/20 38 = 1 <span class="st">"Motor vehicle"</span>) (31/37 39 = 2 <span class="st">"Mass transit"</span>) (50 = 3 <span class="st">"Bicycle"</span>) (60 = 4 <span class="st">"Walked"</span>) (70 = 5 <span class="st">"Other"</span>) (80 = 6 <span class="st">"WFH"</span>), <span class="kw">gen</span>(stransit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">recode</span> tranwork (10/20 38 = 1 <span class="st">"Motor vehicle"</span>) (31/37 39 = 2 <span class="st">"Mass transit"</span>) (50 = 3 <span class="st">"Bicycle"</span>) (60 = 4 <span class="st">"Walked"</span>) (70 = 5 <span class="st">"Other"</span>) (80 = 6 <span class="st">"WFH"</span>), <span class="kw">gen</span>(stransit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now let’s go ahead and use our <code>tab</code> command to create indicators from our now shortened categorical variables.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> seduc, <span class="kw">gen</span>(seduc)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> stransit, <span class="kw">gen</span>(transit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> seduc, <span class="kw">gen</span>(seduc)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> stransit, <span class="kw">gen</span>(transit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Finally, we are going to work with continuous variables to create some variables that are a function of other variables. In particular, we want to see a little bit about how people with different incomes vary in the source of their income (e.g., wages, cash transfer programs, public benefits, etc.). To do that, we are going to take advantage of the rich set of income variables provided by the ACS. Let’s start by dealing with some quirks of the income data. The total personal income variable can be negative and includes a code of 9999998 for missing values and 9999999 for cases where income is not applicable for collection. Let’s go ahead and change those to missing.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> inctot = .a <span class="kw">if</span> inctot &gt;= 9999998</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> inctot = .a <span class="kw">if</span> inctot &gt;= 9999998</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -463,28 +474,28 @@ Codebook
 </div>
 </div>
 <p>Now, we’re going to have to do that for all the income source variables too.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Given that there’s several of them, this could be tedious to code. But this makes for a good opportunity to learn a little trick: a <code>foreach</code> loop. See, this loop will let you apply the same process to many variables at once, perfect for situations where the same data change needs to be applies to many variables. To do it, we will put all of the variables in a <code>foreach</code> command and label them something simple, like “X”, and then use that stand-in in our code. It will look like this:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> x <span class="kw">of</span> <span class="kw">varlist</span> incwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span> <span class="ot">`x'</span> = 0 <span class="kw">if</span> <span class="ot">`x'</span> &gt;= 999998</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> x <span class="kw">of</span> <span class="kw">varlist</span> incwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">replace</span> <span class="ot">`x'</span> = 0 <span class="kw">if</span> <span class="ot">`x'</span> &gt;= 999998</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now we have our cleaned variables and we can calculate the percent of total income that comes from the different sources captured by the ACS. Here again, we are applying the same formula over and over, so we can use a <code>foreach</code> loop here too.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> x <span class="kw">of</span> <span class="kw">varlist</span> incwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">gen</span> <span class="ot">`x'</span>_prc = ((<span class="ot">`x'</span> / inctot)*100)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> x <span class="kw">of</span> <span class="kw">varlist</span> incwage incbus00 incss incwelfr incinvst incretir incsupp incother{</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">gen</span> <span class="ot">`x'</span>_prc = ((<span class="ot">`x'</span> / inctot)*100)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>An alternative way to code the above would be to simply generate each variable on it’s own line with a <code>gen</code> command. That would look like this:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incwage_prc = ((incwage/inctot)*100)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incbus00_prc = ((incbus00/inctot)*100)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incss_prc = ((incss/inctot)*100)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incwelfr_prc = ((incwelfr/inctot)*100)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incinvst_prc = ((incinvst/inctot)*100)</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incretir_prc = ((incretir/inctot)*100)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incsupp_prc = ((incsupp/inctot)*100)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incother_prc = ((incother/inctot)*100)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incwage_prc = ((incwage/inctot)*100)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incbus00_prc = ((incbus00/inctot)*100)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incss_prc = ((incss/inctot)*100)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incwelfr_prc = ((incwelfr/inctot)*100)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incinvst_prc = ((incinvst/inctot)*100)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incretir_prc = ((incretir/inctot)*100)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incsupp_prc = ((incsupp/inctot)*100)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> incother_prc = ((incother/inctot)*100)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Both routes will get you the same set of variables describing the proportion of personal inctome from various sources among Americans.</p>
 <p>Finally, we are interested in looking at how these variables look at different points of the income distribution, so we should have some categorical variables that capture different points in the income distribution! Here, we are going to look at different points in the distribution of family income and Stata makes this really easy for us. We are going to use the <code>xtile</code> command which tells State to rank all observations on a given variable, identify the number of quantiles you need, and create a new categorical variable that identifies which quantile each observation is in. We’re going to look at the 90th and 10th percentile, so we will want to specify 10 quantiles. We will also look at White and Non-White splits, so we can code our Non-White indicator here too.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> ftotinc = .a <span class="kw">if</span> ftotinc &gt;= 9999998</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">xtile</span> finc_q = ftotinc, nq(10)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> nonwhite = 0</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> nonwhite = 1 <span class="kw">if</span> rachsing &gt; 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> ftotinc = .a <span class="kw">if</span> ftotinc &gt;= 9999998</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">xtile</span> finc_q = ftotinc, nq(10)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">gen</span> nonwhite = 0</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> nonwhite = 1 <span class="kw">if</span> rachsing &gt; 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="making-tables" class="level2">
@@ -505,7 +516,7 @@ Note
 <p>The <code>sum</code> command in Stata estimates a whole set of statistics for all of the variables in the variable list you enter with the command. These statistics are all different ways of summarizing the central tendency and spread of the variable in your sample. These include the five-number summary of the distribution (the minimum value, 25th percentile, median, 75th percentile, and maximum value), the mean, the standard deviation, and the variance of the variable (and several others - see the output from adding <code>, detail</code> like we did in lab 1). All of these statistics can be stored in Stata’s memory to be recalled later for things like making tables or making figures of data.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>We will get output from something that looks like this:</p>
 <pre><code>. estpost sum inctot incwage_prc
 
@@ -514,10 +525,22 @@ Note
       inctot |    168171     168171   46004.99   4.81e+09   69371.54      -8500    1309000   7.74e+09 
  incwage_prc |    147621     147621   63.64085   503210.3   709.3732      -1000     200000    9394726 </code></pre>
 <p>Our sample average income is about $46,005 per year and about 63% of that income comes from wages and salary for the average person in the sample. Let’s go ahead and store this under a label so we can put it in a table.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In the code about, <code>est sto</code> is my command and it’s short for “estimates store.” The <code>all</code> part of the command is a label for the estimates for future reference. You can use any label you like (no spaces), but I typicall keep them short and snappy so that referencing them later is easy. In this call, we are estimating summary statistics of income and percent of income from wages using the full sample - or all observations - so I use the label all for clarity.</p>
 <p>Now, let’s make our first table with just these two variables and just their averages.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1a.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Stata</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">R</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div class="sourceCode" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1a.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary</span>(inctot <span class="sc">+</span> incwage_prc <span class="sc">~</span> (mean <span class="sc">+</span> sd) <span class="sc">*</span> <span class="fu">Arguments</span>(<span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="at">data=</span>dat,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="at">output=</span> <span class="st">'table1a.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>Here, <code>esttab</code> is the command for creating an “estimates table” containing the estimates stored under the label <code>all</code>. The <code>using</code> part of the code tells Stata to create a <code>.csv</code> file named <code>table1a</code> in the output subfolder of our command drive (in this case, the rpad504 class folder). CSV files can be opened and edited in Excel and copied and pasted into a word doc. The options I have after the comma tell Stata to enter the <code>means</code> of the variables stored under <code>all</code> inthe cells of the table I am creating and to replace any file in <code>output</code> named <code>table1a.csv</code> with the new table I am making with this line of code.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Remember that <code>all</code> is the label I have for all of the summary statistics of two variables for all observations in the sample. We will expand our variables list and samples in a table shortly.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -534,13 +557,29 @@ Note
 </div>
 <p>But first, our simple table should look like this: <img src="table1a.png" class="img-fluid" alt="Table 1a"></p>
 <p>Notice a few things. First, this is very basic. Second, the variables are just listed with their variable names - not very attractive or intuitive. We can have Stata use variable labels to clean that up a bit for us for variables we have labled. Finally, this doesn’t let us compare high and low income households. So in the next version of the table, we are going to add the rest of the income variables, add the label option, and add columns for high- and low-income sub-samples.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc <span class="kw">if</span> finc_q == 1</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto low</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc <span class="kw">if</span> finc_q == 10</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto high</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1b.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">label</span> <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="languages">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Stata</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">R</a></li></ul>
+<div class="tab-content" data-group="languages">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div class="sourceCode" id="cb22"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc <span class="kw">if</span> finc_q == 1</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto low</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc <span class="kw">if</span> finc_q == 10</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto high</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1b.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">label</span> <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that this has not been de-bugged or cross-checked yet</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>cols1 <span class="ot">&lt;-</span> inctot <span class="sc">+</span> incwage_prc <span class="sc">+</span> incbus00_prc <span class="sc">+</span> incss_prc <span class="sc">+</span> incwelfr_prc <span class="sc">+</span> incinvst_prc <span class="sc">+</span> incretir_prc <span class="sc">+</span> incsupp_prc <span class="sc">+</span> incother_prc</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>newcols1 <span class="ot">&lt;-</span> (<span class="at">finc_q :=</span> <span class="dv">1</span>) <span class="sc">+</span> (<span class="at">finc_q :=</span> <span class="dv">10</span>) <span class="sc">~</span> (mean <span class="sc">+</span> sd) <span class="sc">*</span> <span class="fu">Arguments</span>(<span class="at">na.rm=</span><span class="cn">TRUE</span>) <span class="sc">*</span> (cols1)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary</span>(cols1 <span class="sc">~</span> (mean <span class="sc">+</span> sd) <span class="sc">*</span> <span class="fu">Arguments</span>(<span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="at">data=</span>dat,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="at">add_columns =</span> newcols1</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="at">output=</span> <span class="st">'table1b.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 <p>Notice a few things in the code. First, I estimate the same summary statistics on the same set of variables overall <strong>and</strong> for my two subsamples. Two get summary statistics for my subsamples I simply add <code>if</code> conditions. This will give me “conditional means” or the mean of income and percent of income from various sources <em>conditional</em> on being from a household in the bottom (or top) decile of family income. Second, notice that while I add lines of code to estimate statistics for each subsample, I still only have one line for creating the table. Now, I am simply updating the line to add the labels for including <code>low</code> and <code>high</code> - my labels for the summary statistics for low-income households and high-income households, respectively. Finally, I added the <code>label</code> option to tell Stata to use variable labels in the table rather than the less intuitive and details variable names. My table now looks like this:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -549,17 +588,17 @@ Note
 </figure>
 </div>
 <p>Now we have 3 columns, helpfully labeled by Stata, showing the means of all of our variables overall and separately by decile. And we can see that the <code>label</code> option used the label for <code>inctot</code> instead of the variable name. Unfortunately, we never assigned variable labels for the labels we created! I present this so you can see the downstream usefulness of always adding labels to variables when you create them. I’d also point out that the label for <code>inctot</code> is sort of weak - it does not describe units and is all lower case. We’d typically like to see something more polished in a real table. Let’s re-label our variables now in Stata.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> inctot <span class="st">"Total personal income ($)"</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incwage_prc <span class="st">"% of income from wages/salary"</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incbus00_prc <span class="st">"% of income from business or farm revenue"</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incss_prc <span class="st">"% of income from Social Security benefits"</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incwelfr_prc <span class="st">"% of income from cash welfare benefits"</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incinvst_prc <span class="st">"% of income from investment returns"</span></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incretir_prc <span class="st">"% of income from retirement income"</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incsupp_prc <span class="st">"% of income from supplemental security income"</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incother_prc <span class="st">"% of income from other sources"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> inctot <span class="st">"Total personal income ($)"</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incwage_prc <span class="st">"% of income from wages/salary"</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incbus00_prc <span class="st">"% of income from business or farm revenue"</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incss_prc <span class="st">"% of income from Social Security benefits"</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incwelfr_prc <span class="st">"% of income from cash welfare benefits"</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incinvst_prc <span class="st">"% of income from investment returns"</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incretir_prc <span class="st">"% of income from retirement income"</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incsupp_prc <span class="st">"% of income from supplemental security income"</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">var</span> incother_prc <span class="st">"% of income from other sources"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now, after running the code to label our variables more clearly, let’s re-run the same table command.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1b.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">label</span> <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1b.csv"</span>, cell(<span class="kw">mean</span>) <span class="kw">label</span> <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Our table looks much better!</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -568,7 +607,7 @@ Note
 </figure>
 </div>
 <p>One final set of edits and I think we’ll have a nice table. For readers, it’s not at all obvious how and why columns 1, 2 and 3 are different from one another. We know, but they likely don’t. And we also might want to know a little something about the spread of our variables. And we definitely don’t need so many decimals after the decimal place in our table presentation of estiamtes. In the final stage of our table making, we are going to add some options to label our columns, add standard deviations to our cells, and format the stats in our cells. Once again, we are just going to edit our last line of code, because everything else has already been done.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1c.csv"</span>, cell(<span class="kw">mean</span>(fmt(2)) <span class="fu">sd</span>(fmt(2) par)) unstack <span class="kw">compress</span> mtitles(<span class="st">"All"</span> <span class="st">"Bottom 10%"</span> <span class="st">"Top 10%"</span>) <span class="kw">label</span> <span class="kw">replace</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able1c.csv"</span>, cell(<span class="kw">mean</span>(fmt(2)) <span class="fu">sd</span>(fmt(2) par)) unstack <span class="kw">compress</span> mtitles(<span class="st">"All"</span> <span class="st">"Bottom 10%"</span> <span class="st">"Top 10%"</span>) <span class="kw">label</span> <span class="kw">replace</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In the code above, we use <code>sd</code> to add standard deviations to our table. If we were just including a new statistic in the cells of our table, we could just add it in the parentheses to read <code>cell(mean sd)</code>. But we wanted to also modify the formats here, so next to each statistic, we add parentheses for options applied to that statistic (e.g., <code>mean()</code> and <code>sd()</code>). In those parentheses, we add <code>fmt(2)</code> to say “Stata, I want this statistics to have a format that rounds to the second decimal point. Since we have two statistics now, we want to differentiate them, so we follow convention and put our measure of spread - the standard deviation - in parentheses as well by also including the <code>par</code> piece of our code. Our final piece of estimate presentation formatting, we add options <code>unstack</code> and <code>compress</code> to tell Stata that the table can stack the standard deviations underneath the means for each variable and make sure there are no blank spaces between variables. This keeps our table compact and clean. After dealing with our presentation of our estimates, we include the <code>mtitles</code> (short for model titles) command to add labels to each column in our table. Since we have a column for each sample - the full sample, the low-income sample, and the high-income sample - we can make our labels”All,” “Bottom 10%,” and “Top 10%.”</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -605,17 +644,17 @@ Tip
 </div>
 <p>Our full list of variables can also be added to the code and we can add two more columns to our table - White and Non-White - for some additional descriptive analysis of sub-samples of policy interest.</p>
 <p>It will look something like this:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 1</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto low</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 10</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto high</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> racecat1 == 1</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="bn">white</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> nonwhite == 1</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto nonwhite</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="bn">white</span> nonwhite <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able2.csv"</span>, cell(<span class="kw">mean</span>(fmt(2)) <span class="fu">sd</span>(fmt(2) par)) unstack <span class="kw">compress</span> mtitles(<span class="st">"All"</span> <span class="st">"Bottom 10%"</span> <span class="st">"Top 10%"</span> <span class="st">"White"</span> <span class="st">"Non-White"</span>) <span class="kw">label</span> <span class="kw">replace</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="ot">all</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 1</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto low</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> finc_q == 10</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto high</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> racecat1 == 1</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto <span class="bn">white</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>estpost <span class="kw">sum</span> inctot incwage_prc incbus00_prc incss_prc incwelfr_prc incinvst_prc incretir_prc incsupp_prc incother_prc racecat1 racecat2 racecat3 racecat4 racecat5 seduc1 seduc2 seduc3 seduc4 seduc5 transit1 transit2 transit3 transit4 transit5 transit6 transit7 marital1 marital2 marital3 marital4 marital5 marital6 bsex1 bsex2 <span class="kw">if</span> nonwhite == 1</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> sto nonwhite</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>esttab <span class="ot">all</span> low high <span class="bn">white</span> nonwhite <span class="kw">using</span> <span class="st">"output</span><span class="ch">\t</span><span class="st">able2.csv"</span>, cell(<span class="kw">mean</span>(fmt(2)) <span class="fu">sd</span>(fmt(2) par)) unstack <span class="kw">compress</span> mtitles(<span class="st">"All"</span> <span class="st">"Bottom 10%"</span> <span class="st">"Top 10%"</span> <span class="st">"White"</span> <span class="st">"Non-White"</span>) <span class="kw">label</span> <span class="kw">replace</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
@@ -856,8 +895,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -968,7 +1005,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
