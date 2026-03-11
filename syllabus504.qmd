@@ -120,16 +120,14 @@ Key:
 | 2/5 | Assessing Data Quality | 👨‍🏫 | 📄 National Academies of SEM: <br> Appendices A and C |
 | 2/12 | Summarizing Data I | 👨‍🏫 <br> ✅ <br> 👥 | 📄 Huntington-Klein |
 | 2/19 | Summarizing Data II | 👨‍🏫 <br> ✅ <br> 👥 |  |
-| 2/26 | Data Management | 👨‍🏫 <br> ✅ <br> 👥 | 📄 Kroenke & Auer (Ch. 1 & 2) <br> 📄 Kohler & Kreuter |
-| 3/5 | Geographic Information and Mapping Data | 👨‍🏫 <br> ✅ <br> 👥 |  |
-| 3/12 | Midterm Exam | 📅 |  |
+| 3/12 | Data Management | 👨‍🏫 <br> ✅ <br> 👥 | 📄 Kroenke & Auer (Ch. 1 & 2) <br> 📄 Kohler & Kreuter |
 | 3/19 | Spring Break - No Class |  |  |
-| 3/26 | Writing About Data | 👨‍🏫 <br> ✅ <br> 👥 |  |
-| 4/2 | Light Statistics Introduction | 👨‍🏫 <br> 👥 |  |
-| 4/9 | Statistical Models I | 👨‍🏫 <br> ✅ <br> 👥 |  |
-| 4/16 | Statistical Models II | 👨‍🏫 <br> ✅ <br> 👥 |  |
+| 3/26 | Midterm Exam | 📅 |  |
+| 4/2 | Geographic Information and Mapping Data | 👨‍🏫 <br> ✅ <br> 👥 |  |
+| 4/9 | Writing About Data & Light Statistics Introduction | 👨‍🏫 <br> ✅ <br> 👥 |  |
+| 4/16 | Statistical Models I & II | 👨‍🏫 <br> ✅ <br> 👥 |  |
 | 4/23 | Forecasting and Projection | 👨‍🏫 <br> 👥 |  |
-| 4/30 | Final Paper and Presentationsn | 📅 |  |
+| 4/30 | Final Paper and Presentations | 📅 |  |
 
 ## Class Policies
 
