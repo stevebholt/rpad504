@@ -36,6 +36,7 @@ website:
         - lab1.qmd
         - lab2.qmd
         - lab3.qmd
+        - lab4.qmd
     
 
 format:
