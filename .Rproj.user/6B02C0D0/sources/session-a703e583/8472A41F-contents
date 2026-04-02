@@ -27,6 +27,7 @@ website:
       search: true
       contents:
         - assignments.qmd
+        - group_assign.qmd
         
     - title: "Labs"
       style: docked
