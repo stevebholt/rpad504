@@ -125,7 +125,7 @@ drop if dup>1
 After we remove duplicates in our datafile, we should have 4,812 observations. Now we're ready to start mapping! We will use the unique school identifier we created in our previous step (grouping the observations by `name`, `street`, and `ncessch` or the school name, street address, and NCES identifier).
 
 ::: callout-note
-This is not an ideal data structure because we will be relying on the awful `m:m` merge that we should avoid in nearly all cases. A better shapefile would have been one using New York school districts as the organizing unit. However, our county map will suffice for illistrating map creation even in suboptimal circumstances.
+This is not an ideal data structure because we will be relying on the awful `m:m` merge that we should avoid in nearly all cases. A better shapefile would have been one using New York school districts as the organizing unit. However, our county map will suffice for illustrating map creation even in suboptimal circumstances.
 :::
 
 Let's start with a very basic map of all the schools in New York.

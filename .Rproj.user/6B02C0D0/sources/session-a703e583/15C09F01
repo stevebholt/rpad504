@@ -3,7 +3,7 @@
     "path": "C:/Users/sbhst/OneDrive/sites/rpad504/lab5.qmd",
     "project_path": "lab5.qmd",
     "type": "quarto_markdown",
-    "hash": "4293776657",
+    "hash": "1744462324",
     "contents": "",
     "dirty": false,
     "created": 1775159746941.0,
@@ -17,15 +17,15 @@
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "184:0",
-        "cursorPosition": "12,35",
-        "scrollLine": "8"
+        "cursorPosition": "127,270",
+        "scrollLine": "128"
     },
     "folds": "",
-    "lastKnownWriteTime": 1775159763,
+    "lastKnownWriteTime": 1775160097,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1775159763725,
+    "last_content_update": 1775160097592,
     "read_only": false,
     "read_only_alternatives": []
 }
