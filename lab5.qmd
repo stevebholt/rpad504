@@ -30,7 +30,13 @@ The Census Bureau has created a wealth of ESRI format shapefiles for many geogrp
 
 We only need the `.dbf` and the `.shp` file for working with the New York map in Stata. Don't worry: we won't be working with the complexities of this geometric data directly. We will use some packages that will convert this data into simple geographic identifiers we can use to merge our geocoded data into and use Stata to create the maps we want.
 
-The basic process for making a map will be: 1. Download the shapefile and the data you want to map. 2. Ensure you have a matching geographic identifier in both the shapefile and the geocoded data you want to map. 3. Convert the shapefile to a Stata `.dta` datafile. 4. Merge in the data you want to map. 5. Use `spmap` or `maptile` to make the map you need.
+The basic process for making a map will be: 
+
+1. Download the shapefile and the data you want to map. 
+2. Ensure you have a matching geographic identifier in both the shapefile and the geocoded data you want to map. 
+3. Convert the shapefile to a Stata `.dta` datafile. 
+4. Merge in the data you want to map. 
+5. Use `spmap` or `maptile` to make the map you need.
 
 ## Data for this lab
 
