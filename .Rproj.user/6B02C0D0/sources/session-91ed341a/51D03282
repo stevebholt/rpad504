@@ -1,14 +1,14 @@
 {
-    "id": "15C09F01",
-    "path": "C:/Users/sbhst/OneDrive/sites/rpad504/lab5.qmd",
-    "project_path": "lab5.qmd",
+    "id": "51D03282",
+    "path": "C:/Users/sbhst/OneDrive/sites/rpad504/syllabus504.qmd",
+    "project_path": "syllabus504.qmd",
     "type": "quarto_markdown",
-    "hash": "1744462324",
+    "hash": "4213103869",
     "contents": "",
     "dirty": false,
-    "created": 1775159746941.0,
-    "source_on_save": false,
-    "relative_order": 3,
+    "created": 1775159692311.0,
+    "source_on_save": true,
+    "relative_order": 1,
     "properties": {
         "rmdVisualMode": "false",
         "rmdVisualWrapConfigured": "true",
@@ -16,16 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "rmdVisualModeLocation": "184:0",
-        "cursorPosition": "127,270",
-        "scrollLine": "0"
+        "cursorPosition": "131,44",
+        "scrollLine": "124",
+        "rmdVisualModeLocation": "2:0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1775160097,
+    "lastKnownWriteTime": 1776344116,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1775160097592,
+    "last_content_update": 1776344116720,
     "read_only": false,
     "read_only_alternatives": []
 }
